@@ -3,7 +3,7 @@
   gap: var(--spacing-3);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .testimonies {
     grid-template-columns: repeat(2, 1fr);
   }

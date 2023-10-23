@@ -7,7 +7,7 @@
   h2 {
     color: var(--gray);
     font-size: var(--size-4);
-    font-family: 'Gotham Bold', 'Lato', sans-serif;
+    font-family: 'Gotham Bold', Lato, sans-serif;
   }
 
   ul {
@@ -19,7 +19,6 @@
       transition: background-color var(--timing-medium) ease-in-out;
 
       button {
-        display: block;
         width: 100%;
         text-decoration: none;
         color: var(--dark);
@@ -48,7 +47,7 @@
       position: relative;
       height: var(--size-4);
 
-      &:before {
+      &::before {
         content: "";
         position: absolute;
         right: calc(-1 * var(--size-3));
@@ -61,7 +60,7 @@
         transition: background-color var(--timing-medium) linear;
       }
 
-      &:after {
+      &::after {
         content: "";
         position: absolute;
         width: var(--size-4);
@@ -75,11 +74,11 @@
       }
 
       &:checked {
-        &:before {
+        &::before {
           background-color: var(--blue);
         }
 
-        &:after {
+        &::after {
           transform: translateX((calc(var(--size-1) * -1)));
           background-color: var(--white);
         }
@@ -88,7 +87,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .account-settings {
     padding: var(--spacing-4) var(--spacing-3);
   }

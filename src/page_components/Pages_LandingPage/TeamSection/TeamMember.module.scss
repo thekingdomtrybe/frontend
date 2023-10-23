@@ -46,7 +46,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .team-member {
     min-width: var(--size-80);
 
@@ -56,7 +56,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .team-member {
     min-width: 0;
     width: 100%;

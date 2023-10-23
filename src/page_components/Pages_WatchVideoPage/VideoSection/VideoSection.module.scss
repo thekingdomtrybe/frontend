@@ -5,7 +5,7 @@
   color: var(-dark);
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .video-section {
     padding: var(--spacing-6) var(--spacing-3);
     gap: var(--spacing-4);
@@ -14,7 +14,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .video-section {
     grid-template-columns: max-content var(--size-100);
   }

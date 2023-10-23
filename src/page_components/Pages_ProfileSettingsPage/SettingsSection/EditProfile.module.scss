@@ -57,7 +57,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .edit-profile {
     padding: var(--spacing-4) var(--spacing-3);
     gap: var(--spacing-4);

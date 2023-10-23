@@ -13,7 +13,7 @@
   bottom: 0;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .live-chat-full{
     height: calc(100vh - var(--header-height));
     display: grid;

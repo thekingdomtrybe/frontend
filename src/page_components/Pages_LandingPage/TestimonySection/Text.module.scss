@@ -20,7 +20,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .text {
     h2 {
       font-size: var(--size-7);
@@ -34,7 +34,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .text {
     max-width: var(--max-width);
     align-items: center;

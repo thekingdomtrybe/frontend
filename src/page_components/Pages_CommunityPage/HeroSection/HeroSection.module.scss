@@ -6,7 +6,7 @@
   position: relative;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .hero-section {
     place-content: center;
     gap: var(--spacing-4);

@@ -11,7 +11,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .search-section {
     padding:  var(--spacing-4);
     max-width: var(--max-width);
@@ -19,7 +19,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .search-section {
     max-width: var(--max-width-lg);
   }

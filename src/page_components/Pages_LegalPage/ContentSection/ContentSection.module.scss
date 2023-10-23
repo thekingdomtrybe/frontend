@@ -47,13 +47,13 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .content-section {
     padding:  var(--spacing-4);
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .content-section {
     justify-items: center;
 

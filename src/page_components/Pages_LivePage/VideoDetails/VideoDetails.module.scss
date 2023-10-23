@@ -2,7 +2,7 @@
   border-radius: var(--size-2);
   display: grid;
   gap: var(--spacing-4-quarter);
-  font-family: 'Roboto', 'Arial', sans-serif;
+  font-family: Roboto, Arial, sans-serif;
 
   h1 {
     font-size: var(--size-9-half);
@@ -27,7 +27,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .video-details {
     h1 {
       font-size: var(--size-5);
@@ -45,7 +45,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   //
 }
 

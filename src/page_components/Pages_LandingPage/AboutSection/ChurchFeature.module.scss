@@ -54,7 +54,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .church-feature:nth-child(1) {
     grid-column: 1 / span 2;
   }
@@ -68,7 +68,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .church-feature {
     height: calc(var(--size-60) + 5vw);
     padding: var(--spacing-4) var(--spacing-3);

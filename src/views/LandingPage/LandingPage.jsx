@@ -12,7 +12,7 @@ import SiteFooter from '@/components/SiteFooter/SiteFooter';
 function LandingPage() {
   return (
     <>
-      <SiteHeader leftNav />
+      <SiteHeader />
       <LandingPageHeroSection />
       <LandingPageAboutSection />
       <LandingPagePrayerSection />

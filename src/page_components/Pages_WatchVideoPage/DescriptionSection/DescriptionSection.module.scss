@@ -49,7 +49,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .video-description-section {
     .details {
       grid-template-columns: repeat(2, max-content);
@@ -62,7 +62,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .video-description-section {
     padding: var(--spacing-3) var(--spacing-3);
     border: var(--size-1) solid var(--blue);
@@ -70,7 +70,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .video-description-section {
     .details {
       grid-template-columns: none;

@@ -4,13 +4,13 @@
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .church-features {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .church-features {
     max-width: var(--max-width-lg);
     gap: var(--spacing-3-half);

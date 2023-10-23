@@ -18,7 +18,7 @@
     gap: var(--spacing-1);
     align-items: center;
     font-size: var(--size-7-half);
-    font-family: 'Lato', sans-serif;
+    font-family: Lato, sans-serif;
     font-weight: 700;
   }
 
@@ -27,7 +27,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .testimony {
     p {
       font-size: var(--size-4);

@@ -13,14 +13,14 @@
   gap: var(--spacing-2);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .details-section {
     padding: var(--spacing-4);
     gap: var(--spacing-3);
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .details-section {
     padding: 0;
 
