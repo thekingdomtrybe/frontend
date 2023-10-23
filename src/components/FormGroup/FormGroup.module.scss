@@ -26,7 +26,8 @@
     color: var(--dark);
   }
 
-  label, p {
+  label,
+  p {
     color: var(--gray);
     font-size: var(--size-7-half);
     line-height: var(--size-5);
@@ -48,11 +49,11 @@
     padding: var(--spacing-1);
   }
 
-  label, p {
+  label,
+  p {
     font-size: var(--size-3);
   }
 }
-
 
 .center {
   place-items: center;
