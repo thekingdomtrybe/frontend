@@ -1,0 +1,43 @@
+.button {
+  padding: var(--spacing-3-half);
+  border-radius: var(--size-2);
+  font-size: var(--size-3);
+  letter-spacing: calc(var(--spacing-1-quarter) / 2);
+  font-weight: 600;
+}
+
+.small {
+  padding: var(--spacing-1);
+  font-size: var(--size-5-half);
+  letter-spacing: calc(var(--spacing-1-quarter) / 4);
+}
+
+.filled {
+  border: none;
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.outlined {
+  background: none;
+  border: var(--size-1-half) solid var(--orange);
+  color: var(--orange);
+}
+
+.blue {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+}
+
+.blue1 {
+  background: var(--alpha-blue-1);
+  color: var(--blue);
+  border: var(--size-1-quarter) solid var(--blue);
+}
+
+.orange1 {
+  background: var(--alpha-orange-1);
+  color: var(--orange);
+  border: var(--size-1-quarter) solid var(--orange);
+}

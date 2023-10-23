@@ -1,0 +1,33 @@
+.bottom-sheet-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+
+.dim {
+  background-color: var(--transparent-3);
+}
+
+.bottom-sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  border-top-left-radius: var(--size-5);
+  border-top-right-radius: var(--size-5);
+  box-shadow: 0 -2px 4px var(--transparent-4);
+  max-height: 65%;
+  overflow-y: auto;
+}
+
+.handle {
+  width: var(--size-20);
+  margin: var(--spacing-2) auto 0;
+  height: var(--size-1);
+  background-color: var(--dark);
+  border-radius: var(--size-10);
+}

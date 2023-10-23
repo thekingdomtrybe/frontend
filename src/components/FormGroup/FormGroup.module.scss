@@ -1,0 +1,64 @@
+.form-group {
+  display: grid;
+  gap: var(--spacing-2);
+
+  input {
+    border: none;
+    border-radius: var(--size-1);
+    padding: var(--spacing-3-half) var(--spacing-2);
+    outline: none;
+    font-size: var(--size-7-half);
+    background-color: var(--alpha-blue-1);
+    color: var(--dark);
+    width: 100%;
+  }
+
+  textarea {
+    font-family: 'Gotham Book', sans-serif;
+    border: var(--size-1-quarter) solid var(--silver);
+    border-radius: var(--size-1);
+    padding: var(--spacing-2) var(--spacing-3-half);
+    outline: none;
+    font-size: var(--size-7-half);
+    line-height: var(--size-6);
+    resize: none;
+    background-color: var(--alpha-blue-1);
+    color: var(--dark);
+  }
+
+  label,
+  p {
+    color: var(--gray);
+    font-size: var(--size-7-half);
+    line-height: var(--size-5);
+  }
+}
+
+.small {
+  gap: var(--spacing-2-quarter);
+
+  input {
+    padding: var(--spacing-4-quarter);
+  }
+}
+
+.smaller {
+  gap: var(--spacing-1-half);
+
+  input {
+    padding: var(--spacing-1);
+  }
+
+  label,
+  p {
+    font-size: var(--size-3);
+  }
+}
+
+.center {
+  place-items: center;
+}
+
+.right {
+  place-items: end;
+}

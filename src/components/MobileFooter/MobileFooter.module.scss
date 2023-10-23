@@ -1,0 +1,15 @@
+.footer {
+  padding: var(--spacing-4);
+  display: grid;
+  justify-content: center;
+  gap: var(--spacing-4);
+  background-color: var(--alpha-silver-1);
+}
+
+.dark {
+  background-color: var(--dark);
+}
+
+.blue {
+  background-color: var(--blue);
+}

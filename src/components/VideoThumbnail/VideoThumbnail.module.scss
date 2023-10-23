@@ -1,0 +1,32 @@
+.video-thumbnail {
+  display: grid;
+  gap: var(--spacing-2);
+  text-decoration: none;
+  color: var(--dark);
+  font-family: 'Gotham Bold', sans-serif;
+
+  img {
+    display: block;
+    height: var(--size-40);
+    object-fit: cover;
+    background-color: var(--alpha-blue-5);
+    border-radius: var(--size-6);
+  }
+
+  .thumbnail-container {
+    position: relative;
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--alpha-blue-4);
+      border-radius: 50%;
+      height: var(--size-15);
+      width: var(--size-15);
+      display: grid;
+      place-content: center;
+    }
+  }
+}

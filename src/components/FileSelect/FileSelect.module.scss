@@ -1,0 +1,24 @@
+.file-select {
+  button {
+    width: 100%;
+    background-color: var(--alpha-blue-1);
+    border: none;
+    border-bottom: var(--size-3-half) solid var(--blue);
+    padding: var(--spacing-2);
+    color: var(--blue);
+    font-size: var(--size-7-half);
+    line-height: var(--size-4);
+    border-top-left-radius: var(--size-2);
+    border-top-right-radius: var(--size-2);
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    align-items: end;
+    gap: var(--spacing-1);
+
+    svg {
+      width: var(--size-5);
+      height: var(--size-5);
+    }
+  }
+}
