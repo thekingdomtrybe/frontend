@@ -74,15 +74,15 @@
 }
 
 .menu-open {
-  animation: fadeIn 0.3s ease-in-out forwards;
+  animation: fade-in 0.3s ease-in-out forwards;
   display: grid !important;
 }
 
 .menu-closed {
-  animation: fadeOut 0.3s ease-in-out forwards;
+  animation: fade-out 0.3s ease-in-out forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     transform: translateY(calc(var(--size-4)));
     opacity: 0;
@@ -94,7 +94,7 @@
   }
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
   0% {
     display: grid;
     opacity: 1;

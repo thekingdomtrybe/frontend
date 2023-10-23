@@ -12,10 +12,6 @@
     font-size: var(--size-3);
     line-height: var(--size-3);
     transition: var(--timing-medium) color;
-
-    &:hover {
-      color: var(--orange);
-    }
   }
 }
 
@@ -23,6 +19,10 @@
   a {
     color: var(--white);
   }
+}
+
+.nav > a:hover {
+  color: var(--orange);
 }
 
 @media (width >= 1024px) {
