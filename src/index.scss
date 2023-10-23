@@ -1,0 +1,239 @@
+/* Playfair Display Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+// Roboto Google Font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+// Open Sans Google Font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  /* Color set #1 */
+  --blue: rgb(0, 40, 104);
+  --orange: rgb(255, 103, 0);
+  --green: rgb(91, 132, 4);
+  --silver: rgb(192, 192, 192);
+  --gray: rgb(128, 128, 128);
+
+  /* Color set #2 */
+  --light-blue: rgba(0, 41, 164);
+  --light-orange: rgb(255, 113, 60);
+  --light-green: rgb(91, 152, 4);
+  --light-silver: rgb(236, 236, 236);
+  --light-gray: rgb(237, 237, 237);
+
+  // Blue alpha variations
+  --alpha-blue-1: rgba(0, 40, 104, 0.1);
+  --alpha-blue-2: rgba(0, 40, 104, 0.2);
+  --alpha-blue-3: rgba(0, 40, 104, 0.3);
+  --alpha-blue-4: rgba(0, 40, 104, 0.4);
+  --alpha-blue-5: rgba(0, 40, 104, 0.5);
+  --alpha-blue-6: rgba(0, 40, 104, 0.6);
+  --alpha-blue-7: rgba(0, 40, 104, 0.7);
+  --alpha-blue-8: rgba(0, 40, 104, 0.8);
+
+  // Orange alpha variations
+  --alpha-orange-1: rgba(255, 113, 60, 0.1);
+  --alpha-orange-2: rgba(255, 113, 60, 0.2);
+  --alpha-orange-3: rgba(255, 113, 60, 0.3);
+  --alpha-orange-4: rgba(255, 113, 60, 0.4);
+  --alpha-orange-5: rgba(255, 113, 60, 0.5);
+  --alpha-orange-6: rgba(255, 113, 60, 0.6);
+  --alpha-orange-7: rgba(255, 113, 60, 0.7);
+  --alpha-orange-8: rgba(255, 113, 60, 0.8);
+  --alpha-orange-9: rgba(255, 113, 60, 0.9);
+
+  // Gray alpha variations
+  --alpha-gray-1: rgba(128, 128, 128, 0.1);
+  --alpha-gray-2: rgba(128, 128, 128, 0.2);
+  --alpha-gray-3: rgba(128, 128, 128, 0.3);
+  --alpha-gray-4: rgba(128, 128, 128, 0.4);
+  --alpha-gray-5: rgba(128, 128, 128, 0.5);
+  --alpha-gray-6: rgba(128, 128, 128, 0.6);
+  --alpha-gray-7: rgba(128, 128, 128, 0.7);
+
+  // Green alpha variations
+  --alpha-green-1: rgba(91, 152, 4, 0.1);
+  --alpha-green-2: rgba(91, 152, 4, 0.2);
+  --alpha-green-3: rgba(91, 152, 4, 0.3);
+  --alpha-green-4: rgba(91, 152, 4, 0.4);
+  --alpha-green-5: rgba(91, 152, 4, 0.5);
+  --alpha-green-6: rgba(91, 152, 4, 0.6);
+  --alpha-green-7: rgba(91, 152, 4, 0.7);
+
+  // Silver alpha variations
+  --alpha-silver-1: rgba(192, 192, 192, 0.1);
+  --alpha-silver-2: rgba(192, 192, 192, 0.2);
+  --alpha-silver-3: rgba(192, 192, 192, 0.3);
+
+  /* General colors */
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  --red: rgb(255, 0, 0);
+  --dark: rgb(51, 51, 51);
+
+  // Dark alpha variations
+  --alpha-dark-1: rgba(51, 51, 51, 0.1);
+  --alpha-dark-2: rgba(51, 51, 51, 0.2);
+  --alpha-dark-3: rgba(51, 51, 51, 0.3);
+  --alpha-dark-4: rgba(51, 51, 51, 0.4);
+  --alpha-dark-5: rgba(51, 51, 51, 0.5);
+  --alpha-dark-6: rgba(51, 51, 51, 0.6);
+
+  // Alert colors
+  --alert-success: rgb(91, 132, 4);
+  --alert-error: rgb(255, 0, 0);
+  --alert-warning: rgb(255, 103, 0);
+  --alert-info: rgb(0, 40, 104);
+
+  // Transparent
+  --transparent: transparent;
+  --transparent-1: rgba(0, 0, 0, 0.1);
+  --transparent-2: rgba(0, 0, 0, 0.2);
+  --transparent-3: rgba(0, 0, 0, 0.3);
+  --transparent-4: rgba(0, 0, 0, 0.4);
+  --transparent-5: rgba(0, 0, 0, 0.5);
+  --transparent-6: rgba(0, 0, 0, 0.6);
+  --transparent-7: rgba(0, 0, 0, 0.7);
+  --transparent-8: rgba(0, 0, 0, 0.8);
+
+  // Gradients
+  --gradient-1: linear-gradient(to bottom, rgba(0, 40, 104, 0.8), rgba(0, 40, 104, 1));
+  --gradient-2: linear-gradient(to bottom, rgba(255, 103, 0, 0.8), rgba(255, 103, 0, 1));
+  --gradient-3: linear-gradient(to bottom, rgba(91, 132, 4, 0.8), rgba(91, 132, 4, 1));
+  --gradient-4: linear-gradient(to bottom, rgba(192, 192, 192, 0.8), rgba(192, 192, 192, 1));
+  --gradient-5: linear-gradient(to bottom, rgba(128, 128, 128, 0.8), rgba(128, 128, 128, 1));
+  --gradient-6: radial-gradient(rgba(91, 132, 4, 0.3) 0%, rgba(91, 132, 4, 1) 100%);
+  --gradient-7: radial-gradient(
+      rgba(0, 40, 104, .8) 20%,
+      rgba(0, 40, 104, .7) 50%,
+      rgba(0, 40, 104, .8) 80%,
+      rgba(0, 40, 104, .8) 100%
+    );
+  --gradient-8: radial-gradient(
+      white 1%,
+      transparent 55%
+    );
+  /* Shadows */
+  --blue-shadow-1: rgba(0, 40, 104, 0.6);
+  --white-shadow-1: rgba(202, 202, 202, 1);
+
+  // Max width
+  --max-width: 800px;
+  --max-width-lg: 1024px;
+  --mobile-max-width: var(--size-130);
+
+  /* Spacing */
+
+  @for $i from 1 through 15 {
+    --spacing-#{$i}: #{$i * 9}px;
+  }
+
+  /* Smaller spacing */
+
+  @for $i from 1 through 10 {
+    --spacing-#{$i}-half: #{$i * 5}px;
+  }
+
+  /* Even smaller spacing */
+
+  @for $i from 1 through 10 {
+    --spacing-#{$i}-quarter: #{$i * 3}px;
+  }
+
+  /* Sizes */
+  @for $i from 1 through 200 {
+    --size-#{$i}: #{$i * 4}px;
+  }
+
+  /* Smaller sizes */
+  @for $i from 1 through 40 {
+    --size-#{$i}-half: #{$i * 2}px;
+  }
+
+  /* Even smaller sizes */
+  @for $i from 1 through 40 {
+    --size-#{$i}-quarter: #{$i * 1}px;
+  }
+
+  // Timings
+  --timing-slowest: 1.2s;
+  --timing-slow: 0.6s;
+  --timing-medium: 0.4s;
+  --timing-fast: 0.2s;
+
+  // Heights
+  --header-height: var(--size-15);
+
+  scroll-behavior: smooth;
+}
+
+:target {
+  scroll-margin-top: calc(var(--header-height) + var(--spacing-2));
+}
+
+html {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+svg {
+  width: 30px;
+}
+
+:root,
+button {
+  font-family: "Gotham Book", "Lato", sans-serif;
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "Expressa Regular";
+  src:
+    url("assets/fonts/expressa-serial-regular.woff2") format("woff2"),
+    url("assets/fonts/expressa-serial-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gotham Bold";
+  src:
+    url("assets/fonts/gotham-bold.woff2") format("woff2"),
+    url("assets/fonts/gotham-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gotham Book";
+  src:
+    url("assets/fonts/gotham-book.woff2") format("woff2"),
+    url("assets/fonts/gotham-book.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Lato";
+  src:
+    url("assets/fonts/lato-regular.woff2") format("woff2"),
+    url("assets/fonts/lato-regular.woff") format("woff");
+}
+
+// useDimSection hook styles
+section {
+  transition: filter var(--timing-medium) ease-in-out;
+}
+
+.dim-section {
+  position: sticky;
+  filter: brightness(0.8);
+  z-index: -1;
+}
