@@ -3,7 +3,6 @@
   border-radius: var(--size-2);
   background-color: var(--alpha-blue-2);
   border: var(--size-1-half) solid var(--blue);
-
   display: grid;
   grid-template-columns: var(--size-18) auto;
   align-items: center;
@@ -23,7 +22,7 @@
     gap: var(--spacing-1-half);
 
     .bank-name {
-      font-family: 'Gotham Bold', 'Lato', sans-serif;
+      font-family: 'Gotham Bold', Lato, sans-serif;
       font-size: var(--size-3);
       letter-spacing: calc(var(--size-1-quarter) / 2);
       color: var(--dark);

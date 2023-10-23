@@ -22,7 +22,7 @@
       font-size: var(--size-4);
       font-weight: 500;
       margin: 0;
-      font-family: 'Gotham Bold', 'Lato', sans-serif;
+      font-family: 'Gotham Bold', Lato, sans-serif;
       color: var(--dark);
     }
 
@@ -33,7 +33,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .user-info {
     padding: var(--spacing-5-half) var(--spacing-3);
   }

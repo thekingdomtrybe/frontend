@@ -7,7 +7,7 @@
   background-color: var(--alpha-silver-1);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .footer {
     background-image: linear-gradient(to bottom, var(--white), var(--alpha-silver-2));
     padding: var(--spacing-4) var(--spacing-4) 0;

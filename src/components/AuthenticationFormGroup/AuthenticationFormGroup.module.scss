@@ -1,10 +1,9 @@
 .form-group {
   display: grid;
   gap: var(--spacing-2);
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
 
   input {
-    border: none;
     border-radius: var(--size-1);
     padding: var(--spacing-2);
     outline: none;

@@ -8,7 +8,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .nav {
     grid-template-columns: repeat(4, max-content);
     gap: var(--spacing-3);

@@ -5,7 +5,7 @@
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .links {
     grid-template-columns: repeat(4, max-content);
     gap: var(--spacing-2);
