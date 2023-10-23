@@ -20,7 +20,7 @@ jobs:
           [ -f .eslintrc.json ]
           [ -f .babelrc ]
       - name: ESLint Report
-        run: cd src && npx eslint "**/*.{js,jsx}"
+        run: npx eslint .
   stylelint:
     name: Stylelint
     runs-on: ubuntu-22.04
