@@ -1,0 +1,22 @@
+.link {
+  border-radius: 50%;
+  width: var(--size-10);
+  height: var(--size-10);
+  display: grid;
+  place-content: center;
+  background-color: var(--gray);
+
+  svg {
+    width: var(--size-8);
+    height: var(--size-4);
+    fill: var(--white);
+  }
+}
+
+.blue {
+  background-color: var(--white);
+
+  svg {
+    fill: var(--blue);
+  }
+}

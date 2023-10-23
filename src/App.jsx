@@ -1,9 +1,11 @@
+import SiteLogo from '@/components/SiteLogo/SiteLogo';
+
 function App() {
   return (
     <>
-      Hello
+      <SiteLogo />
     </>
-  )
+  );
 }
 
 export default App;

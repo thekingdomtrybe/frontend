@@ -1,0 +1,42 @@
+.nav {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  align-items: end;
+  gap: var(--spacing-3-half);
+  height: var(--size-4);
+
+  a {
+    color: var(--dark);
+    text-decoration: none;
+    font-family: 'Gotham Bold', sans-serif;
+    font-size: var(--size-3);
+    line-height: var(--size-3);
+    transition: var(--timing-medium) color;
+
+    &:hover {
+      color: var(--orange);
+    }
+  }
+}
+
+.blue {
+  a {
+    color: var(--white);
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    a {
+      font-size: var(--size-7-half);
+      line-height: var(--size-7-half);
+      color: var(--gray);
+    }
+  }
+
+  .blue {
+    a {
+      color: var(--white);
+    }
+  }
+}

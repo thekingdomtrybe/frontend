@@ -1,0 +1,128 @@
+.menu {
+  position: relative;
+  height: var(--size-8);
+  display: grid;
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .menu-body {
+    display: none;
+    border-radius: var(--size-3-half);
+    position: absolute;
+    z-index: 1;
+    background-color: var(--white);
+    font-size: var(--size-3);
+    line-height: var(--size-4);
+    box-shadow: 0 0 var(--size-1-half) var(--size-1-quarter) var(--white-shadow-1);
+    top: var(--size-16);
+    right: calc(var(--size-2) * -1);
+
+    grid-template-columns: var(--size-14) var(--size-46);
+    gap: var(--spacing-1);
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: var(--size-5-half);
+      height: var(--size-5-half);
+      background-color: var(--white);
+      top: calc(var(--size-1) * -1);
+      right: var(--size-3);
+      transform: rotate(45deg);
+    }
+  }
+
+  .tabs {
+    padding: var(--spacing-2) 0 0 var(--spacing-1);
+    display: grid;
+    gap: var(--spacing-2);
+
+    button {
+      display: block;
+      margin: auto;
+      width: var(--size-10);
+      height: var(--size-10);
+      border: 1px solid var(--gray);
+      border-radius: var(--size-2);
+    }
+  }
+
+  .menu-items {
+    list-style: none;
+    border-left: 1px solid var(--silver);
+
+    li {
+      border-bottom: 1px solid var(--silver);
+      animation: pop 0.3s ease-in-out;
+
+      &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--black);
+        display: block;
+        padding: var(--spacing-2);
+      }
+    }
+  }
+}
+
+.menu-open {
+  animation: fadeIn 0.3s ease-in-out forwards;
+  display: grid !important;
+}
+
+.menu-closed {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(calc(var(--size-4)));
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    display: grid;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(calc(var(--size-2)));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--size-4)));
+    display: none;
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(var(--size-2)));
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

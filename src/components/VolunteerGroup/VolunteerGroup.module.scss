@@ -1,0 +1,58 @@
+.volunteer-group {
+  border-radius: var(--size-3);
+  border: var(--size-1-quarter) solid var(--silver);
+  max-width: var(--size-120);
+  display: grid;
+
+  img {
+    width: 100%;
+    height: var(--size-70);
+    object-fit: cover;
+    border-radius: var(--size-3);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .group-details {
+    display: grid;
+    padding: var(--spacing-2);
+    gap: var(--spacing-3-half);
+  }
+
+  .name {
+    font-family: 'Lato', sans-serif;
+    font-size: var(--size-5);
+  }
+
+  .description {
+    font-size: var(--size-7-half);
+    line-height: var(--size-5);
+    color: var(--gray);
+  }
+
+  .actions {
+    a {
+      display: grid;
+      text-decoration: none;
+    }
+
+    padding: 0 var(--spacing-2) var(--spacing-2);
+  }
+}
+
+@media (min-width: 768px) {
+  .volunteer-group {
+    min-width: var(--size-80);
+  }
+}
+
+@media (min-width: 1024px) {
+  .volunteer-group {
+    min-width: 0;
+    width: 100%;
+
+    img {
+      height: var(--size-50);
+    }
+  }
+}

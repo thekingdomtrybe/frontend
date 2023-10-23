@@ -1,0 +1,23 @@
+.logo {
+  font-family: "Expressa Regular", sans-serif;
+  font-size: var(--size-4);
+  text-decoration: none;
+  color: var(--black);
+
+  display: grid;
+  grid-gap: var(--spacing-1);
+  grid-template-columns: var(--size-7) auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue,
+.dark {
+  color: var(--white);
+}
+
+.live {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 800;
+  color: var(--dark);
+}

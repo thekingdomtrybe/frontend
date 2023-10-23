@@ -1,0 +1,22 @@
+.search {
+  display: grid;
+  grid-template-columns: var(--size-6) auto;
+  border: var(--size-1-quarter) solid var(--black);
+  padding: var(--size-2) var(--size-4);
+  border-radius: var(--size-5);
+  gap: var(--spacing-1);
+  background-color: var(--white);
+
+  svg {
+    width: var(--size-6);
+    height: var(--size-6);
+  }
+
+  input {
+    border: none;
+    outline: none;
+    font-size: var(--size-7-half);
+    letter-spacing: calc(var(--spacing-1-quarter) / 2);
+    color: var(--black);
+  }
+}

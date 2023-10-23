@@ -1,0 +1,21 @@
+.form-alert {
+  // .icon {
+
+  // }
+
+  .info {
+    color: var(--alert-info);
+  }
+
+  .warning {
+    color: var(--alert-warning);
+  }
+
+  .success {
+    color: var(--alert-success);
+  }
+
+  .error {
+    color: var(--alert-error);
+  }
+}

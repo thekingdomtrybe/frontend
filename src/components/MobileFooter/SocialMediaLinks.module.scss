@@ -1,0 +1,13 @@
+.links {
+  display: grid;
+  grid-template-columns: repeat(4, var(--size-11));
+  gap: var(--spacing-3);
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .links {
+    grid-template-columns: repeat(4, max-content);
+    gap: var(--spacing-2);
+  }
+}

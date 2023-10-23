@@ -1,0 +1,21 @@
+.form-group {
+  display: grid;
+  gap: var(--spacing-2);
+  font-family: 'Roboto', sans-serif;
+
+  input {
+    border: none;
+    border-radius: var(--size-1);
+    padding: var(--spacing-2);
+    outline: none;
+    font-size: var(--size-7-half);
+    background-color: var(--alpha-blue-1);
+    border: var(--size-1-quarter) solid var(--blue);
+
+    &::placeholder {
+      color: var(--blue);
+      opacity: 0.5;
+      font-weight: 600;
+    }
+  }
+}

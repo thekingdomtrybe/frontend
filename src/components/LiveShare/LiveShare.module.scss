@@ -1,0 +1,30 @@
+.live-share {
+  padding: var(--spacing-4) var(--spacing-2);
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: var(--spacing-4);
+}
+
+.link {
+  background: none;
+  border: none;
+  display: grid;
+  place-items: center;
+  gap: var(--spacing-2);
+  text-decoration: none;
+  color: var(--black);
+  font-size: var(--size-7-half);
+  letter-spacing: calc(var(--spacing-1-quarter) / 8);
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-weight: 400;
+
+  svg {
+    width: var(--size-8);
+    height: var(--size-8);
+  }
+}
+
+.whatsapp > svg {
+  width: var(--size-11);
+  height: var(--size-11);
+}
