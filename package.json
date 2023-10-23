@@ -7,7 +7,7 @@
     "dev": "vite",
     "host": "vite --host",
     "build": "vite build",
-    "lint": "eslint **/*.{js,jsx} --fix; stylelint **/*.{css,scss} --custom-syntax postcss-scss --fix",
+    "lint": "cd src && eslint **/*.{js,jsx} --fix; stylelint **/*.{css,scss} --custom-syntax postcss-scss --fix",
     "preview": "vite preview",
     "test": "jest --watch"
   },
@@ -36,7 +36,7 @@
     "babel-jest": "^29.7.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
