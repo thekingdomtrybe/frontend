@@ -1,0 +1,16 @@
+.hero-section {
+  padding: var(--spacing-2);
+  height: 100vh;
+  min-height: calc(var(--size-11) * 10);
+  max-height: calc(var(--size-11) * 16);
+  display: grid;
+  place-content: end center;
+  gap: var(--spacing-4);
+  position: relative;
+}
+
+@media (width >= 768px) {
+  .hero-section {
+    padding: var(--spacing-4);
+  }
+}

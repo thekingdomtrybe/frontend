@@ -1,0 +1,14 @@
+.hero-section {
+  padding: var(--spacing-3);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+@media (width >= 768px) {
+  .hero-section {
+    place-content: center;
+    gap: var(--spacing-4);
+  }
+}

@@ -1,0 +1,64 @@
+.team-member {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--spacing-3);
+  width: 100%;
+  max-width: var(--size-100);
+
+  img {
+    display: block;
+    height: var(--size-90);
+    width: 100%;
+    object-fit: cover;
+    background-color: var(--alpha-orange-8);
+    border: var(--size-1) solid var(--alpha-orange-9);
+    border-radius: var(--spacing-2);
+  }
+
+  .details {
+    display: grid;
+    gap: var(--spacing-1);
+
+    .name {
+      font-size: var(--size-4);
+      line-height: var(--size-5);
+      color: var(--dark);
+    }
+
+    .role {
+      font-size: var(--size-7-half);
+      color: var(--silver);
+    }
+  }
+
+  .thin > img {
+    object-position: center calc(var(--size-2));
+    padding: 0 var(--spacing-3);
+  }
+
+  .large > img {
+    object-position: center calc(-1 * var(--size-2));
+    padding: 0 var(--spacing-2);
+  }
+
+  .normal > img {
+    object-position: center calc(-1 * var(--size-6));
+  }
+}
+
+@media (width >= 768px) {
+  .team-member {
+    min-width: var(--size-80);
+
+    img {
+      height: var(--size-65);
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .team-member {
+    min-width: 0;
+    width: 100%;
+  }
+}

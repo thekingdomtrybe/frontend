@@ -1,0 +1,28 @@
+.prayer-section {
+  padding: var(--spacing-7) var(--spacing-3);
+  background-color: var(--blue);
+  display: grid;
+  gap: var(--spacing-5);
+  justify-items: center;
+  position: relative;
+}
+
+.prayer-section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--alpha-blue-8);
+  z-index: 1;
+}
+
+@media (width >= 768px) {
+  .prayer-section {
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+
+  .prayer-section-overlay {
+    background-color: var(--alpha-blue-3);
+  }
+}

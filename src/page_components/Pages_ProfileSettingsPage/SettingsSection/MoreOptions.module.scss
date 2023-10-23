@@ -1,0 +1,52 @@
+.more-options {
+  padding: var(--spacing-3) var(--spacing-2);
+  display: grid;
+  gap: var(--spacing-2);
+
+  h2 {
+    color: var(--gray);
+    font-size: var(--size-4);
+    font-family: 'Gotham Bold', Lato, sans-serif;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      border-radius: var(--size-1);
+      transition: background-color var(--timing-medium) ease-in-out;
+
+      a,
+      button {
+        width: 100%;
+        text-decoration: none;
+        color: var(--dark);
+        text-align: left;
+        padding: var(--spacing-2);
+        background: none;
+        border: none;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+
+        svg {
+          width: var(--size-5);
+          height: var(--size-5);
+        }
+      }
+
+      &:hover {
+        background-color: var(--light-silver);
+      }
+    }
+
+    .log-out {
+      button {
+        color: var(--red);
+        font-family: 'Gotham Bold', Lato, sans-serif;
+      }
+    }
+  }
+}

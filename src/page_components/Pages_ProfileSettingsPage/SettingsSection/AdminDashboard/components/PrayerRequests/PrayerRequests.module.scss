@@ -1,0 +1,10 @@
+.live-stream-controls {
+  display: grid;
+  gap: var(--spacing-2);
+
+  .live-stream-controls-buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: var(--spacing-1);
+  }
+}

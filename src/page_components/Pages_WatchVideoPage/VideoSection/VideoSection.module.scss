@@ -1,0 +1,21 @@
+.video-section {
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: var(--spacing-3);
+  color: var(-dark);
+}
+
+@media (width >= 1024px) {
+  .video-section {
+    padding: var(--spacing-6) var(--spacing-3);
+    gap: var(--spacing-4);
+    justify-content: center;
+    align-items: start;
+  }
+}
+
+@media (width >= 1200px) {
+  .video-section {
+    grid-template-columns: max-content var(--size-100);
+  }
+}

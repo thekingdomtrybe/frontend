@@ -8,7 +8,6 @@ import Styles from './SiteHeader.module.scss';
 function SiteHeader({
   live,
   variant,
-  leftNav,
 }) {
   let className = Styles.header;
 
@@ -24,8 +23,6 @@ function SiteHeader({
     default:
       break;
   }
-
-  if (!leftNav) className = `${className} ${Styles['center-nav']}`;
 
   const navLinks = [
     { label: 'ATTEND ONLINE', url: '/live' },
@@ -62,13 +59,11 @@ function SiteHeader({
 SiteHeader.propTypes = {
   variant: PropTypes.string,
   live: PropTypes.bool,
-  leftNav: PropTypes.bool,
 };
 
 SiteHeader.defaultProps = {
   variant: 'light',
   live: false,
-  leftNav: false,
 };
 
 export default SiteHeader;

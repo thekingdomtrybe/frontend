@@ -1,0 +1,52 @@
+.video-section {
+  background: var(--dark);
+  border-bottom: var(--size-1) solid var(--red);
+  height: calc(var(--size-50) + 18vw);
+
+  video {
+    height: var(--size-50);
+    width: 100%;
+  }
+}
+
+.video-details {
+  display: none;
+}
+
+@media (width >= 1024px) {
+  .video-details {
+    position: fixed;
+    width: 65%;
+    bottom: 0;
+    left: 0;
+    padding: var(--size-10);
+    z-index: 2;
+    background-color: var(--alpha-gray-2);
+    color: var(--white);
+    animation: slide-up var(--timing-slow) ease-in-out;
+  }
+
+  .video-section {
+    height: 100%;
+
+    video {
+      height: 100%;
+    }
+
+    &:hover {
+      .video-details {
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

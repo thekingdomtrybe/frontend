@@ -1,0 +1,10 @@
+@media (width >= 1024px) {
+  .live-stream-page {
+    display: grid;
+    grid-template-columns: 65% 35%;
+  }
+
+  .hide-overflow {
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,10 @@
+.testimonies {
+  display: grid;
+  gap: var(--spacing-3);
+}
+
+@media (width >= 768px) {
+  .testimonies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

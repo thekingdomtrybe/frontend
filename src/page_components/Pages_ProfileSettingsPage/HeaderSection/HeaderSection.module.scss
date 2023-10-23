@@ -1,0 +1,13 @@
+.profile-page-header {
+  background-color: var(--blue);
+  padding: 0 var(--spacing-2);
+  height: var(--size-50);
+  display: grid;
+  justify-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .profile-page-header {
+    background-color: var(--dark);
+  }
+}

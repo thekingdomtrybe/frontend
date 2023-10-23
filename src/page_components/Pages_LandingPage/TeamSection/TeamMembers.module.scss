@@ -1,0 +1,23 @@
+.team-members {
+  display: grid;
+  gap: var(--spacing-6);
+  width: 100%;
+  justify-items: center;
+}
+
+@media (width >= 768px) {
+  .team-members {
+    grid-template-columns: repeat(2, max-content);
+    gap: var(--spacing-6) var(--spacing-3);
+    justify-content: center;
+  }
+}
+
+@media (width >= 1024px) {
+  .team-members {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-3);
+    justify-content: center;
+    max-width: var(--max-width-lg);
+  }
+}

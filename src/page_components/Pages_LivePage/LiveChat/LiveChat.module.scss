@@ -1,0 +1,62 @@
+.live-chat {
+  background-color: var(--dark);
+  color: var(--white);
+  padding: var(--spacing-2);
+  border-radius: var(--size-3);
+  font-family: 'Open Sans', sans-serif;
+  display: grid;
+  gap: var(--spacing-1);
+  text-align: left;
+  border: none;
+
+  h3 {
+    font-weight: 700;
+    font-size: var(--size-7-half);
+  }
+
+  .chat-box {
+    display: grid;
+    grid-template-columns: var(--size-7) auto;
+    gap: var(--spacing-1);
+    align-items: center;
+
+    img {
+      width: var(--size-7);
+      height: var(--size-7);
+      border-radius: 50%;
+      border: var(--size-1-quarter) solid var(--white);
+    }
+
+    input {
+      background-color: var(--white);
+      border: none;
+      outline: none;
+      border-radius: var(--size-4);
+      height: var(--size-6);
+      padding: 0 var(--spacing-3-half);
+      font-size: var(--size-5-half);
+    }
+  }
+}
+
+@media (width >= 768px) {
+  .live-chat {
+    padding: var(--spacing-5-half) var(--spacing-2);
+    border-radius: var(--size-5);
+
+    h3 {
+      font-size: var(--size-4);
+    }
+
+    .chat-box {
+      input {
+        height: var(--size-7);
+        font-size: var(--size-3);
+      }
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  //
+}

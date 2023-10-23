@@ -27,27 +27,13 @@
 
 @media (width >= 768px) {
   .header {
-    grid-template-columns: auto auto auto;
     padding: 0 var(--spacing-4);
   }
 
   .nav {
     display: block;
-  }
-}
-
-@media (width >= 1024px) {
-  .header {
-    grid-template-columns: max-content max-content 1fr;
-    gap: var(--spacing-10);
-    // justify-content: start;
-
-    *:last-child {
-      justify-self: end;
-    }
-  }
-
-  .center-nav {
-    grid-template-columns: auto auto auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
