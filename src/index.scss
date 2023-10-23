@@ -7,117 +7,118 @@
 
 :root {
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 
   /* Color set #1 */
-  --blue: rgb(0, 40, 104);
-  --orange: rgb(255, 103, 0);
-  --green: rgb(91, 132, 4);
-  --silver: rgb(192, 192, 192);
-  --gray: rgb(128, 128, 128);
+  --blue: rgb(0 40 104);
+  --orange: rgb(255 103 0);
+  --green: rgb(91 132 4);
+  --silver: rgb(192 192 192);
+  --gray: rgb(128 128 128);
 
   /* Color set #2 */
-  --light-blue: rgba(0, 41, 164);
-  --light-orange: rgb(255, 113, 60);
-  --light-green: rgb(91, 152, 4);
-  --light-silver: rgb(236, 236, 236);
-  --light-gray: rgb(237, 237, 237);
+  --light-blue: rgb(0 41 164);
+  --light-orange: rgb(255 113 60);
+  --light-green: rgb(91 152 4);
+  --light-silver: rgb(236 236 236);
+  --light-gray: rgb(237 237 237);
 
   // Blue alpha variations
-  --alpha-blue-1: rgba(0, 40, 104, 0.1);
-  --alpha-blue-2: rgba(0, 40, 104, 0.2);
-  --alpha-blue-3: rgba(0, 40, 104, 0.3);
-  --alpha-blue-4: rgba(0, 40, 104, 0.4);
-  --alpha-blue-5: rgba(0, 40, 104, 0.5);
-  --alpha-blue-6: rgba(0, 40, 104, 0.6);
-  --alpha-blue-7: rgba(0, 40, 104, 0.7);
-  --alpha-blue-8: rgba(0, 40, 104, 0.8);
+  --alpha-blue-1: rgb(0 40 104 / 10%);
+  --alpha-blue-2: rgb(0 40 104 / 20%);
+  --alpha-blue-3: rgb(0 40 104 / 30%);
+  --alpha-blue-4: rgb(0 40 104 / 40%);
+  --alpha-blue-5: rgb(0 40 104 / 50%);
+  --alpha-blue-6: rgb(0 40 104 / 60%);
+  --alpha-blue-7: rgb(0 40 104 / 70%);
+  --alpha-blue-8: rgb(0 40 104 / 80%);
 
   // Orange alpha variations
-  --alpha-orange-1: rgba(255, 113, 60, 0.1);
-  --alpha-orange-2: rgba(255, 113, 60, 0.2);
-  --alpha-orange-3: rgba(255, 113, 60, 0.3);
-  --alpha-orange-4: rgba(255, 113, 60, 0.4);
-  --alpha-orange-5: rgba(255, 113, 60, 0.5);
-  --alpha-orange-6: rgba(255, 113, 60, 0.6);
-  --alpha-orange-7: rgba(255, 113, 60, 0.7);
-  --alpha-orange-8: rgba(255, 113, 60, 0.8);
-  --alpha-orange-9: rgba(255, 113, 60, 0.9);
+  --alpha-orange-1: rgb(255 113 60 / 10%);
+  --alpha-orange-2: rgb(255 113 60 / 20%);
+  --alpha-orange-3: rgb(255 113 60 / 30%);
+  --alpha-orange-4: rgb(255 113 60 / 40%);
+  --alpha-orange-5: rgb(255 113 60 / 50%);
+  --alpha-orange-6: rgb(255 113 60 / 60%);
+  --alpha-orange-7: rgb(255 113 60 / 70%);
+  --alpha-orange-8: rgb(255 113 60 / 80%);
+  --alpha-orange-9: rgb(255 113 60 / 90%);
 
   // Gray alpha variations
-  --alpha-gray-1: rgba(128, 128, 128, 0.1);
-  --alpha-gray-2: rgba(128, 128, 128, 0.2);
-  --alpha-gray-3: rgba(128, 128, 128, 0.3);
-  --alpha-gray-4: rgba(128, 128, 128, 0.4);
-  --alpha-gray-5: rgba(128, 128, 128, 0.5);
-  --alpha-gray-6: rgba(128, 128, 128, 0.6);
-  --alpha-gray-7: rgba(128, 128, 128, 0.7);
+  --alpha-gray-1: rgb(128 128 128 / 10%);
+  --alpha-gray-2: rgb(128 128 128 / 20%);
+  --alpha-gray-3: rgb(128 128 128 / 30%);
+  --alpha-gray-4: rgb(128 128 128 / 40%);
+  --alpha-gray-5: rgb(128 128 128 / 50%);
+  --alpha-gray-6: rgb(128 128 128 / 60%);
+  --alpha-gray-7: rgb(128 128 128 / 70%);
 
   // Green alpha variations
-  --alpha-green-1: rgba(91, 152, 4, 0.1);
-  --alpha-green-2: rgba(91, 152, 4, 0.2);
-  --alpha-green-3: rgba(91, 152, 4, 0.3);
-  --alpha-green-4: rgba(91, 152, 4, 0.4);
-  --alpha-green-5: rgba(91, 152, 4, 0.5);
-  --alpha-green-6: rgba(91, 152, 4, 0.6);
-  --alpha-green-7: rgba(91, 152, 4, 0.7);
+  --alpha-green-1: rgb(91 152 4 / 10%);
+  --alpha-green-2: rgb(91 152 4 / 20%);
+  --alpha-green-3: rgb(91 152 4 / 30%);
+  --alpha-green-4: rgb(91 152 4 / 40%);
+  --alpha-green-5: rgb(91 152 4 / 50%);
+  --alpha-green-6: rgb(91 152 4 / 60%);
+  --alpha-green-7: rgb(91 152 4 / 70%);
 
   // Silver alpha variations
-  --alpha-silver-1: rgba(192, 192, 192, 0.1);
-  --alpha-silver-2: rgba(192, 192, 192, 0.2);
-  --alpha-silver-3: rgba(192, 192, 192, 0.3);
+  --alpha-silver-1: rgb(192 192 192 / 10%);
+  --alpha-silver-2: rgb(192 192 192 / 20%);
+  --alpha-silver-3: rgb(192 192 192 / 30%);
 
   /* General colors */
-  --white: rgb(255, 255, 255);
-  --black: rgb(0, 0, 0);
-  --red: rgb(255, 0, 0);
-  --dark: rgb(51, 51, 51);
+  --white: rgb(255 255 255);
+  --black: rgb(0 0 0);
+  --red: rgb(255 0 0);
+  --dark: rgb(51 51 51);
 
   // Dark alpha variations
-  --alpha-dark-1: rgba(51, 51, 51, 0.1);
-  --alpha-dark-2: rgba(51, 51, 51, 0.2);
-  --alpha-dark-3: rgba(51, 51, 51, 0.3);
-  --alpha-dark-4: rgba(51, 51, 51, 0.4);
-  --alpha-dark-5: rgba(51, 51, 51, 0.5);
-  --alpha-dark-6: rgba(51, 51, 51, 0.6);
+  --alpha-dark-1: rgb(51 51 51 / 10%);
+  --alpha-dark-2: rgb(51 51 51 / 20%);
+  --alpha-dark-3: rgb(51 51 51 / 30%);
+  --alpha-dark-4: rgb(51 51 51 / 40%);
+  --alpha-dark-5: rgb(51 51 51 / 50%);
+  --alpha-dark-6: rgb(51 51 51 / 60%);
 
   // Alert colors
-  --alert-success: rgb(91, 132, 4);
-  --alert-error: rgb(255, 0, 0);
-  --alert-warning: rgb(255, 103, 0);
-  --alert-info: rgb(0, 40, 104);
+  --alert-success: rgb(91 132 4);
+  --alert-error: rgb(255 0 0);
+  --alert-warning: rgb(255 103 0);
+  --alert-info: rgb(0 40 104);
 
   // Transparent
   --transparent: transparent;
-  --transparent-1: rgba(0, 0, 0, 0.1);
-  --transparent-2: rgba(0, 0, 0, 0.2);
-  --transparent-3: rgba(0, 0, 0, 0.3);
-  --transparent-4: rgba(0, 0, 0, 0.4);
-  --transparent-5: rgba(0, 0, 0, 0.5);
-  --transparent-6: rgba(0, 0, 0, 0.6);
-  --transparent-7: rgba(0, 0, 0, 0.7);
-  --transparent-8: rgba(0, 0, 0, 0.8);
+  --transparent-1: rgb(0 0 0 / 10%);
+  --transparent-2: rgb(0 0 0 / 20%);
+  --transparent-3: rgb(0 0 0 / 30%);
+  --transparent-4: rgb(0 0 0 / 40%);
+  --transparent-5: rgb(0 0 0 / 50%);
+  --transparent-6: rgb(0 0 0 / 60%);
+  --transparent-7: rgb(0 0 0 / 70%);
+  --transparent-8: rgb(0 0 0 / 80%);
 
   // Gradients
-  --gradient-1: linear-gradient(to bottom, rgba(0, 40, 104, 0.8), rgba(0, 40, 104, 1));
-  --gradient-2: linear-gradient(to bottom, rgba(255, 103, 0, 0.8), rgba(255, 103, 0, 1));
-  --gradient-3: linear-gradient(to bottom, rgba(91, 132, 4, 0.8), rgba(91, 132, 4, 1));
-  --gradient-4: linear-gradient(to bottom, rgba(192, 192, 192, 0.8), rgba(192, 192, 192, 1));
-  --gradient-5: linear-gradient(to bottom, rgba(128, 128, 128, 0.8), rgba(128, 128, 128, 1));
-  --gradient-6: radial-gradient(rgba(91, 132, 4, 0.3) 0%, rgba(91, 132, 4, 1) 100%);
+  --gradient-1: linear-gradient(to bottom, rgb(0 40 104 / 80%), rgb(0 40 104 / 100%));
+  --gradient-2: linear-gradient(to bottom, rgb(255 103 0 / 80%), rgb(255 103 0 / 100%));
+  --gradient-3: linear-gradient(to bottom, rgb(91 132 4 / 80%), rgb(91 132 4 / 100%));
+  --gradient-4: linear-gradient(to bottom, rgb(192 192 192 / 80%), rgb(192 192 192 / 100%));
+  --gradient-5: linear-gradient(to bottom, rgb(128 128 128 / 80%), rgb(128 128 128 / 100%));
+  --gradient-6: radial-gradient(rgb(91 132 4 / 30%) 0%, rgb(91 132 4 / 100%) 100%);
   --gradient-7: radial-gradient(
-      rgba(0, 40, 104, .8) 20%,
-      rgba(0, 40, 104, .7) 50%,
-      rgba(0, 40, 104, .8) 80%,
-      rgba(0, 40, 104, .8) 100%
+      rgb(0 40 104 / 80%) 20%,
+      rgb(0 40 104 / 70%) 50%,
+      rgb(0 40 104 / 80%) 80%,
+      rgb(0 40 104 / 80%) 100%
     );
   --gradient-8: radial-gradient(
       white 1%,
       transparent 55%
     );
+
   /* Shadows */
-  --blue-shadow-1: rgba(0, 40, 104, 0.6);
-  --white-shadow-1: rgba(202, 202, 202, 1);
+  --blue-shadow-1: rgb(0 40 104 / 60%);
+  --white-shadow-1: rgb(202 202 202 / 100%);
 
   // Max width
   --max-width: 800px;
@@ -194,7 +195,7 @@ svg {
 
 :root,
 button {
-  font-family: "Gotham Book", "Lato", sans-serif;
+  font-family: "Gotham Book", Lato, sans-serif;
 }
 
 /* Fonts */
@@ -221,7 +222,7 @@ button {
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   src:
     url("assets/fonts/lato-regular.woff2") format("woff2"),
     url("assets/fonts/lato-regular.woff") format("woff");

@@ -31,10 +31,10 @@ jobs:
           node-version: "18.x"
       - name: Setup Stylelint
         run: |
-          npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+          npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x postcss-scss
           [ -f .stylelintrc.json ]
       - name: Stylelint Report
-        run: npx stylelint "**/*.{css,scss}"
+        run: npx stylelint "**/*.{css,scss}"- -custom-syntax postcss-scss
   nodechecker:
     name: node_modules checker
     runs-on: ubuntu-22.04
