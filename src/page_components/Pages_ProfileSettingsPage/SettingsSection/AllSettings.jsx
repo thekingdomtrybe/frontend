@@ -14,8 +14,8 @@ function AllSettings() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const toggleSetting = (settingName) => {
-    console.log(settingName);
+  // const toggleSetting = (settingName) => {
+  const toggleSetting = () => {
   };
 
   const onLogout = () => {
