@@ -16,7 +16,8 @@
       border-radius: var(--size-1);
       transition: background-color var(--timing-medium) ease-in-out;
 
-      a, button {
+      a,
+      button {
         width: 100%;
         text-decoration: none;
         color: var(--dark);
