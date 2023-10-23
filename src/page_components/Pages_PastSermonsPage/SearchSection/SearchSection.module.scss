@@ -1,0 +1,27 @@
+.search-section {
+  background-color: var(--white);
+  padding: var(--spacing-4) var(--spacing-3);
+  display: grid;
+  gap: var(--spacing-2);
+
+  h2 {
+    font-size: var(--size-7-half);
+    font-family: 'Gotham Bold', sans-serif;
+    color: var(--gray);
+  }
+}
+
+@media (min-width: 768px) {
+  .search-section {
+    padding:  var(--spacing-4);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-section {
+    max-width: var(--max-width-lg);
+  }
+}
+

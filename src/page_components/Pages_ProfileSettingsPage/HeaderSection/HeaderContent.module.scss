@@ -1,0 +1,25 @@
+.header-content {
+  display: grid;
+  grid-template-columns: max-content auto;
+  align-items: center;
+  gap: var(--spacing-1);
+  height: var(--size-25);
+  color: var(--white);
+  width: 100%;
+
+  h1 {
+    font-size: var(--size-5);
+  }
+
+  img {
+    width: var(--size-10);
+    height: var(--size-10);
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-content {
+    max-width: var(--size-150);
+  }
+}

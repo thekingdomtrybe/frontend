@@ -1,0 +1,28 @@
+.image-section {
+  position: sticky;
+  top: var(--header-height);
+
+  .hero-image-container {
+    width: 100%;
+    height: var(--size-50);
+    background-color: var(--blue);
+    filter: brightness(0.5);
+  }
+}
+
+@media (min-width: 768px) {
+  .image-section {
+    .hero-image-container {
+      height: var(--size-60);
+    }
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .image-section {
+    .hero-image-container {
+      height: var(--size-80);
+    }
+  }
+}

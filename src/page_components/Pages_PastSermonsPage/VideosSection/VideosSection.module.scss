@@ -1,0 +1,22 @@
+.videos {
+  padding: var(--spacing-4) var(--spacing-3);
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-4);
+}
+
+@media (min-width: 768px) {
+  .videos {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    gap: var(--spacing-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .videos {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    max-width: var(--max-width-lg);
+  }
+}

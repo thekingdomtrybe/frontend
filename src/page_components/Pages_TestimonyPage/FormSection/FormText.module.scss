@@ -1,0 +1,17 @@
+.form-text {
+  display: grid;
+  gap: var(--spacing-2);
+
+  h2 {
+    font-size: var(--size-6);
+    line-height: var(--size-7);
+    letter-spacing: calc(var(--spacing-1-quarter) / 2);
+    font-family: 'Playfair Display', 'Gotham Bold', serif;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: var(--size-7-half);
+    line-height: var(--size-6);
+  }
+}

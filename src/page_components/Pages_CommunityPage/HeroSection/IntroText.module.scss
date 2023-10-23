@@ -1,0 +1,38 @@
+.intro-text {
+  display: grid;
+  gap: var(--spacing-2);
+  color: var(--white);
+  text-align: center;
+
+  h1 {
+    font-size: var(--size-8);
+    line-height: var(--size-9);
+    letter-spacing: var(--spacing-1-quarter);
+    font-family: 'Playfair Display', 'Gotham Bold', serif;
+  }
+
+  p {
+    font-size: var(--size-7-half);
+    line-height: var(--size-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .intro-text {
+    h1 {
+      font-size: var(--size-10);
+      line-height: var(--size-11);
+    }
+
+    p {
+      font-size: var(--size-4);
+      line-height: var(--size-7);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro-text {
+    max-width: var(--max-width-lg);
+  }
+}

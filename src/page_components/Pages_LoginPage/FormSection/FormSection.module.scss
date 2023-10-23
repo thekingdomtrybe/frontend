@@ -1,0 +1,35 @@
+.form-section {
+  padding: var(--spacing-4) var(--spacing-2);
+  display: grid;
+  gap: var(--spacing-8);
+  position: relative;
+  background-color: var(--white);
+  justify-items: center;
+
+  & > * {
+    width: 100%;
+    max-width: var(--size-100);
+  }
+}
+
+.social-login {
+  display: grid;
+  place-items: center;
+}
+
+.auth-page-switch {
+  display: grid;
+  place-items: center;
+}
+
+@media (min-width: 768px) {
+  .form-section {
+    padding:  var(--spacing-4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-section {
+    justify-items: center;
+  }
+}

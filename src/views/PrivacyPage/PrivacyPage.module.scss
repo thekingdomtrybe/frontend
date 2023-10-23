@@ -1,0 +1,13 @@
+.desktop-footer {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-footer {
+    display: block;
+  }
+
+  .mobile-footer {
+    display: none;
+  }
+}

@@ -1,0 +1,24 @@
+.groups {
+  padding: var(--spacing-4) var(--spacing-3);
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-5);
+}
+
+@media (min-width: 768px) {
+  .groups {
+    padding: var(--spacing-6) var(--spacing-3);
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: var(--spacing-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .groups {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    gap: var(--spacing-4) var(--spacing-2);
+    max-width: var(--max-width-lg);
+  }
+}

@@ -1,0 +1,19 @@
+.church-features {
+  display: grid;
+  gap: var(--spacing-3);
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .church-features {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .church-features {
+    max-width: var(--max-width-lg);
+    gap: var(--spacing-3-half);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

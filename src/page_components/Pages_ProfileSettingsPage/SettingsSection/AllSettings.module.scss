@@ -1,0 +1,15 @@
+.all-settings {
+  background-color: var(--white);
+  border-radius: var(--size-4);
+  box-shadow: 0 0 var(--size-1-half) var(--size-1-quarter) var(--white-shadow-1);
+  background-color: var(--white);
+  color: var(--dark);
+  font-size: var(--size-7-half);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .all-settings {
+    max-width: var(--size-150);
+  }
+}

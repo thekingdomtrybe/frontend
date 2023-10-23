@@ -1,0 +1,35 @@
+.details-section {
+  padding: var(--spacing-3-half);
+}
+
+.desktop-details {
+  display: none;
+}
+
+.mobile-details {
+  display: grid;
+  grid-template-rows: max-content max-content;
+  align-items: start;
+  gap: var(--spacing-2);
+}
+
+@media (min-width: 768px) {
+  .details-section {
+    padding: var(--spacing-4);
+    gap: var(--spacing-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .details-section {
+    padding: 0;
+
+    .desktop-details {
+      display: block;
+    }
+
+    .mobile-details {
+      display: none;
+    }
+  }
+}

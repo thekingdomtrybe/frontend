@@ -1,0 +1,29 @@
+
+.message {
+  display: grid;
+  grid-template-columns: var(--size-8) auto;
+  gap: var(--spacing-3-half);
+
+  img {
+    width: var(--size-8);
+    height: var(--size-8);
+    border-radius: 50%;
+  }
+}
+
+.message-content {
+  gap: var(--spacing-1-half);
+
+  .author {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: var(--size-3);
+    margin-right: var(--spacing-1-half);
+  }
+
+  .content {
+    font-size: var(--size-3);
+    line-height: var(--size-7-half);
+    gap: var(--spacing-1);
+  }
+}

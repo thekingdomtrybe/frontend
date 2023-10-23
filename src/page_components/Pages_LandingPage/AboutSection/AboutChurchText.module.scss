@@ -1,0 +1,42 @@
+.about-church-text {
+  display: grid;
+  gap: var(--spacing-2);
+  max-width: var(--mobile-max-width);
+
+  h2 {
+    font-size: var(--size-6);
+    line-height: var(--size-7);
+    letter-spacing: calc(var(--spacing-1-quarter) / 2);
+    font-family: 'Playfair Display', 'Gotham Bold', serif;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    font-size: var(--size-7-half);
+    line-height: var(--size-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .about-church-text {
+    h2 {
+      font-size: var(--size-7);
+      line-height: var(--size-8);
+    }
+
+    p {
+      font-size: var(--size-4);
+      line-height: var(--size-7);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-church-text {
+    max-width: var(--max-width);
+    align-items: center;
+    margin: auto;
+  }
+}

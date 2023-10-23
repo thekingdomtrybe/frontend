@@ -1,0 +1,48 @@
+.about-us {
+  padding: var(--spacing-3) var(--spacing-2);
+  display: grid;
+  gap: var(--spacing-3);
+
+  .about-us-header {
+    display: grid;
+    gap: var(--spacing-1);
+    justify-content: start;
+
+    button {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: var(--size-3);
+      text-align: left;
+      background: none;
+      border: none;
+      display: grid;
+      gap: var(--spacing-1-half);
+      align-items: center;
+      grid-template-columns: max-content auto;
+
+      img {
+        width: var(--size-2);
+        height: var(--size-2);
+        border: var(--size-1-quarter) solid var(--silver);
+        background-color: var(--silver);
+      }
+    }
+
+    h2 {
+      color: var(--gray);
+      font-size: var(--size-4);
+    }
+  }
+
+  p {
+    font-size: var(--size-7-half);
+    line-height: var(--size-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .about-us {
+    padding: var(--spacing-4) var(--spacing-3);
+    gap: var(--spacing-4);
+  }
+}
