@@ -1,16 +1,29 @@
 import React from 'react';
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import WatchVideoVideoSection from '@/page_components/Pages_WatchVideoPage/VideoSection/VideoSection';
-import MobileFooter from '@/components/MobileFooter/MobileFooter';
-// import Styles from './WatchVideoPage.module.scss';
+import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
+import SiteFooter from '@/components/SiteFooter/SiteFooter';
+import Styles from './WatchVideoPage.module.scss';
 
 function WatchVideoPage() {
-  return (
+  const pageComponents = (
     <>
-      <SiteHeader variant="blue" />
+      <SiteHeader variant="dark" />
       <WatchVideoVideoSection />
-      <MobileFooter variant="blue" />
     </>
+  );
+
+  const footer = (
+    <div className={Styles['desktop-footer']}>
+      <SiteFooter />
+    </div>
+  );
+
+  return (
+    <BottomStuckFooterPage
+      top={pageComponents}
+      footer={footer}
+    />
   );
 }
 

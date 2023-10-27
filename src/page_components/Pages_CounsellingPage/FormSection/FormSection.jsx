@@ -36,7 +36,7 @@ function CounsellingPageFormSection() {
     },
     {
       label: 'Describe your issue in a few sentences',
-      name: 'testimonyBody',
+      name: 'concern',
       type: 'textarea',
       maxChars: 1000,
       numRows: 3,
@@ -55,6 +55,7 @@ function CounsellingPageFormSection() {
         Please ensure you submit this form with the button at the bottom of the page
         after scheduling your appointment.`,
       name: 'appointmentConfirmation',
+      variant: 'warning',
       type: 'alert',
       icon: '',
     },

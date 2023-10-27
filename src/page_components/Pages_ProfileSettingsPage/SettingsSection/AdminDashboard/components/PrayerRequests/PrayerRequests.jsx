@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
+import { useUpdatePrayerRequestRecipientEmailMutation } from '@/services/tkt-backend/email';
+// import Styles from './PrayerRequests.module.scss';
 
 function PrayerRequestsControls({
   ParentStyles,
 }) {
+  const [submit,
+    // {
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useUpdatePrayerRequestRecipientEmailMutation();
+
   const fields = {
     prayerRequestsRecipient: [
       {
@@ -13,6 +24,18 @@ function PrayerRequestsControls({
         type: 'email',
       },
     ],
+  };
+
+  // console.log(
+  //   'isSubmitting:', isSubmitting,
+  //   'isSubmitSuccess:', isSubmitSuccess,
+  //   'isSubmitError:', isSubmitError,
+  //   'submitError:', submitError,
+  // );
+
+  const handleSubmit = (e, formState) => {
+    e.preventDefault();
+    submit(formState);
   };
 
   return (
@@ -27,7 +50,7 @@ function PrayerRequestsControls({
             fields={fields.prayerRequestsRecipient}
             fieldSize="smaller"
             gap="small"
-            onSubmit={() => {}}
+            onSubmit={handleSubmit}
             submitButtonContent="Save"
             submitButtonVariant="blue-1"
             submitButtonFullWidth

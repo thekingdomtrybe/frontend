@@ -1,59 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
+import { useAddEventMutation, useDeleteEventMutation, useGetEventsQuery } from '@/services/tkt-backend/events';
 
 function EventsControls({
   ParentStyles,
 }) {
-  // get events from store
-  const events = [
-    {
-      title: 'The Power of the Gospel',
-      date: '2020-09-27',
-      id: 1,
-    },
-    {
-      title: 'The Power of the Gospel',
-      date: '2020-09-27',
-      id: 2,
-    },
-    {
-      title: 'The Power of the Gospel',
-      date: '2020-09-27',
-      id: 3,
-    },
-    {
-      title: 'The Power of the Gospel',
-      date: '2020-09-27',
-      id: 4,
-    },
-  ];
+  const { data: events, isLoading: isEventsLoading } = useGetEventsQuery();
+
+  const [addEvent,
+    // {
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useAddEventMutation();
+
+  const [deleteEvent,
+    // {
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useDeleteEventMutation();
+
+  // console.log(
+  //   'isSubmitting:', isSubmitting,
+  //   'isSubmitSuccess:', isSubmitSuccess,
+  //   'isSubmitError:', isSubmitError,
+  //   'submitError:', submitError,
+  // );
+
+  if (isEventsLoading) {
+    return <p>Loading...</p>;
+  }
 
   const fields = {
     newEvent: [
       {
         label: 'Title',
-        name: 'title',
+        name: 'event_title',
         type: 'text',
       },
       {
         label: 'Date',
-        name: 'date',
+        name: 'event_date',
         type: 'date',
       },
       {
         label: 'Location',
-        name: 'preacher',
+        name: 'event_location',
         type: 'text',
       },
       {
         label: 'Poster URL',
-        name: 'posterURL',
+        name: 'poster_url',
         type: 'url',
       },
       {
         label: 'Description',
-        name: 'description',
+        name: 'event_description',
         type: 'textarea',
         numRows: 5,
       },
@@ -61,14 +69,24 @@ function EventsControls({
     deleteEvent: [
       {
         label: 'Select an event to delete',
-        name: 'eventToDelete',
+        name: 'eventId',
         type: 'select',
         options: events.map((event) => ({
           label: event.title,
-          value: event.id,
+          value: event.id.toString(),
         })),
       },
     ],
+  };
+
+  const saveNewEvent = (e, formState) => {
+    e.preventDefault();
+    addEvent(formState);
+  };
+
+  const deleteEventById = (e, formState) => {
+    e.preventDefault();
+    deleteEvent(formState.eventId);
   };
 
   return (
@@ -82,7 +100,7 @@ function EventsControls({
             fields={fields.newEvent}
             fieldSize="smaller"
             gap="small"
-            onSubmit={() => {}}
+            onSubmit={saveNewEvent}
             submitButtonContent="Save"
             submitButtonVariant="blue-1"
             submitButtonFullWidth
@@ -95,7 +113,7 @@ function EventsControls({
             fields={fields.deleteEvent}
             fieldSize="smaller"
             gap="small"
-            onSubmit={() => {}}
+            onSubmit={deleteEventById}
             submitButtonContent="Delete"
             submitButtonVariant="orange-1"
             submitButtonFullWidth

@@ -15,7 +15,7 @@ function Testimony({
         &rdquo;
       </p>
       <span>
-        <SVG icon="microphone" />
+        <SVG icon="logo" />
         {author}
       </span>
     </div>

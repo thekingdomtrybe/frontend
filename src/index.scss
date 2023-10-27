@@ -18,6 +18,7 @@
 
   /* Color set #2 */
   --light-blue: rgb(0 41 164);
+  --lighter-blue: rgb(187, 206, 235);
   --light-orange: rgb(255 113 60);
   --light-green: rgb(91 152 4);
   --light-silver: rgb(236 236 236);
@@ -52,6 +53,8 @@
   --alpha-gray-5: rgb(128 128 128 / 50%);
   --alpha-gray-6: rgb(128 128 128 / 60%);
   --alpha-gray-7: rgb(128 128 128 / 70%);
+  --alpha-gray-8: rgb(128 128 128 / 80%);
+  --alpha-gray-9: rgb(128 128 128 / 90%);
 
   // Green alpha variations
   --alpha-green-1: rgb(91 152 4 / 10%);
@@ -72,6 +75,7 @@
   --black: rgb(0 0 0);
   --red: rgb(255 0 0);
   --dark: rgb(51 51 51);
+  --light-dark: rgb(102 102 102);
 
   // Dark alpha variations
   --alpha-dark-1: rgb(51 51 51 / 10%);
@@ -80,6 +84,9 @@
   --alpha-dark-4: rgb(51 51 51 / 40%);
   --alpha-dark-5: rgb(51 51 51 / 50%);
   --alpha-dark-6: rgb(51 51 51 / 60%);
+  --alpha-dark-7: rgb(51 51 51 / 70%);
+  --alpha-dark-8: rgb(51 51 51 / 80%);
+  --alpha-dark-9: rgb(51 51 51 / 90%);
 
   // Alert colors
   --alert-success: rgb(91 132 4);
@@ -161,6 +168,8 @@
   }
 
   // Timings
+  --timing-slowest-2: 4.8s;
+  --timing-slowest-1: 2.4s;
   --timing-slowest: 1.2s;
   --timing-slow: 0.6s;
   --timing-medium: 0.4s;
@@ -174,10 +183,6 @@
 
 :target {
   scroll-margin-top: calc(var(--header-height) + var(--spacing-2));
-}
-
-html {
-  height: 100%;
 }
 
 * {
@@ -233,6 +238,29 @@ section {
 
 .dim-section {
   position: sticky;
-  filter: brightness(0.8);
+  filter: brightness(0.7);
   z-index: -1;
+}
+
+// For devices with height greater than 880px, the footers don't stay
+// at the bottom. These selectors alongside the BottomStuckFooterPage
+// component help keep ot there.
+
+@media (height > 880px) {
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  // React's root div
+  #root {
+    height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
 }

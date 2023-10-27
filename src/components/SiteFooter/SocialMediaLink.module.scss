@@ -1,13 +1,13 @@
 .link {
   border-radius: 50%;
-  width: var(--size-10);
-  height: var(--size-10);
+  width: var(--size-8);
+  height: var(--size-8);
   display: grid;
   place-content: center;
   background-color: var(--gray);
 
   svg {
-    width: var(--size-8);
+    width: var(--size-7-half);
     height: var(--size-4);
     fill: var(--white);
   }

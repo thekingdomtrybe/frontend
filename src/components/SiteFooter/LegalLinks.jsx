@@ -6,7 +6,6 @@ function LegalLinks() {
   return (
     <nav className={Styles.nav}>
       <Link to="/privacy-policy">Privacy Policy</Link>
-      <span className={Styles.divider} />
       <Link to="/terms-of-use">Terms of Use</Link>
     </nav>
   );

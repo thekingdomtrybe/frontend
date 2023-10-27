@@ -17,8 +17,8 @@ function Nav() {
       text: 'Community',
     },
     {
-      href: '/browse-past-sermons',
-      text: 'Archive',
+      href: '/browse-past-services',
+      text: 'Past Services',
     },
   ];
 

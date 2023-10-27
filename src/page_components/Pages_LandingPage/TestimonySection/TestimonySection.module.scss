@@ -4,10 +4,12 @@
   display: grid;
   justify-items: center;
   gap: var(--spacing-4);
-}
+  }
 
 @media (width >= 768px) {
   .testimony-section {
+    background-image:
+      radial-gradient(circle at 0% 10%, var(--alpha-blue-1) 10%, var(--alpha-blue-1) 10%, transparent 20%);
     padding: var(--spacing-8) var(--spacing-4);
   }
 }

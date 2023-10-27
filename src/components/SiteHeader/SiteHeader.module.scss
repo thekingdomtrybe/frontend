@@ -25,9 +25,17 @@
   display: none;
 }
 
+.light-border {
+  border-bottom: calc(var(--size-1-quarter)) solid var(--alpha-gray-3);
+}
+
 @media (width >= 768px) {
   .header {
     padding: 0 var(--spacing-4);
+  }
+
+  .light-border {
+    border-bottom: calc(var(--size-1-quarter)) solid var(--alpha-silver-3);
   }
 
   .nav {

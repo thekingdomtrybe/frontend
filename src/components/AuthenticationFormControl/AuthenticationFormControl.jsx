@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Styles from './AuthenticationFormControl.module.scss';
+import Button from '../Button/Button';
 
 function AuthenticationFormControl({
   type,
@@ -10,27 +11,35 @@ function AuthenticationFormControl({
   onClick,
   link,
 }) {
-  const className = `${Styles['form-control']} ${Styles[variant]}`;
+  const className = Styles['form-control'];
 
   if (link) {
     return (
       <Link
         to={link}
-        className={className}
+        className={Styles['form-control-link']}
       >
-        {content}
+        <Button
+          type={type === 'submit' ? 'submit' : 'button'}
+          className={className}
+          onClick={onClick}
+          variant={variant}
+        >
+          {content}
+        </Button>
       </Link>
     );
   }
 
   return (
-    <button
+    <Button
       type={type === 'submit' ? 'submit' : 'button'}
       className={className}
       onClick={onClick}
+      variant={variant}
     >
       {content}
-    </button>
+    </Button>
   );
 }
 

@@ -2,15 +2,12 @@
   display: grid;
   justify-content: center;
   gap: var(--spacing-3);
-
-  a {
-    color: var(--gray);
-  }
 }
 
 @media (width >= 768px) {
   .nav {
     grid-template-columns: repeat(4, max-content);
     gap: var(--spacing-3);
+    padding: 0;
   }
 }

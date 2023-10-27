@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
+import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import LegalPageHeroSection from '@/page_components/Pages_LegalPage/HeroSection/HeroSection';
 import LegalPageContentSection, { LegalPageContentSectionStyles } from '@/page_components/Pages_LegalPage/ContentSection/ContentSection';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
@@ -8,7 +9,7 @@ import MobileFooter from '@/components/MobileFooter/MobileFooter';
 import Styles from './TermsOfUsePage.module.scss';
 
 function TermsOfUsePage() {
-  return (
+  const pageComponents = (
     <>
       <SiteHeader />
       <LegalPageHeroSection />
@@ -183,6 +184,11 @@ function TermsOfUsePage() {
           </p>
         </div>
       </LegalPageContentSection>
+    </>
+  );
+
+  const footer = (
+    <>
       <div className={Styles['desktop-footer']}>
         <SiteFooter />
       </div>
@@ -190,6 +196,13 @@ function TermsOfUsePage() {
         <MobileFooter />
       </div>
     </>
+  );
+
+  return (
+    <BottomStuckFooterPage
+      top={pageComponents}
+      footer={footer}
+    />
   );
 }
 

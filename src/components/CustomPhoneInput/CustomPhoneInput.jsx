@@ -7,6 +7,8 @@ import 'react-phone-number-input/style.css';
 function CustomPhoneInput({
   name,
   label,
+  value,
+  onChange,
 }) {
   return (
     <FormGroup>
@@ -18,7 +20,8 @@ function CustomPhoneInput({
         id={name}
         defaultCountry="NG"
         required
-        onChange={() => {}}
+        onChange={onChange}
+        value={value}
       />
     </FormGroup>
   );
@@ -27,6 +30,12 @@ function CustomPhoneInput({
 CustomPhoneInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};
+
+CustomPhoneInput.defaultProps = {
+  value: '',
 };
 
 export default CustomPhoneInput;

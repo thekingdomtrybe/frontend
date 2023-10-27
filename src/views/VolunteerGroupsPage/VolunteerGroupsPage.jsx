@@ -1,18 +1,29 @@
 import React from 'react';
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
+import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import VolunteerGroupsHeroSection from '@/page_components/Pages_VolunteerGroupsPage/HeroSection/HeroSection';
 import VolunteerGroupsGroupsSection from '@/page_components/Pages_VolunteerGroupsPage/GroupsSection/GroupsSection';
 // import Styles from './VolunteerGroupsPage.module.scss';
 
 function VolunteerGroupsPage() {
-  return (
+  const pageComponents = (
     <>
       <SiteHeader />
       <VolunteerGroupsHeroSection />
       <VolunteerGroupsGroupsSection />
-      <SiteFooter />
     </>
+  );
+
+  const footer = (
+    <SiteFooter />
+  );
+
+  return (
+    <BottomStuckFooterPage
+      top={pageComponents}
+      footer={footer}
+    />
   );
 }
 

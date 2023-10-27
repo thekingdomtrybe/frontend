@@ -1,9 +1,38 @@
 import React from 'react';
+import Video from '@/components/Video/Video';
 import VideoPlayer from '@/components/VideoPlayer/VideoPlayer';
-import WatchVideoDescriptionSection from '../DescriptionSection/DescriptionSection';
+import VideoInfo from '@/components/VideoInfo/VideoInfo';
+import { useGetPastServicesQuery } from '@/services/tkt-backend/past_services';
 import Styles from './VideoSection.module.scss';
 
 function WatchVideoVideoSection() {
+  const { data: pastServicesData, isLoading } = useGetPastServicesQuery();
+
+  let videoComponents = null;
+
+  // TODO: Exclude current video
+  if (pastServicesData === undefined || isLoading) {
+    videoComponents = <p>Loading...</p>;
+  } else if (pastServicesData && pastServicesData.length === 0) {
+    videoComponents = <p>No more videos</p>;
+  } else if (pastServicesData && pastServicesData.length > 0) {
+    const sortedPastServices = [...pastServicesData]
+      .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
+
+    videoComponents = (sortedPastServices).map((video) => (
+      <Video
+        key={video.id}
+        id={video.id}
+        title={video.title}
+        minister={video.speaker_name}
+        date={video.date}
+        description={video.description}
+        flow="horizontal"
+        image=""
+      />
+    ));
+  }
+
   // Get video to play from URL
   const videoToPlay = {
     src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
@@ -15,31 +44,30 @@ function WatchVideoVideoSection() {
     date: '12th June, 2020',
   };
 
-  // Get more videos from API
-  const moreVideos = [
-    {
-      title: 'Overcoming Challenges',
-      url: '...',
-    },
-    {
-      title: 'Overcoming Challenges',
-      url: '...',
-    },
-  ];
-
   return (
     <section className={Styles['video-section']}>
-      <VideoPlayer
-        title={videoToPlay.title}
-        src={videoToPlay.src}
-        description={videoToPlay.description}
-        // autoPlay
-      />
-      <WatchVideoDescriptionSection
-        minister={videoToPlay.minister}
-        date={videoToPlay.date}
-        moreVideos={moreVideos}
-      />
+      <div className={Styles['video-player']}>
+        <VideoPlayer
+          src={videoToPlay.src}
+          // autoPlay
+        />
+      </div>
+      <div className={Styles['video-information']}>
+        <VideoInfo
+          title={videoToPlay.title}
+          minister={videoToPlay.minister}
+          uploadDate={videoToPlay.date}
+          description={videoToPlay.description}
+        />
+      </div>
+      <div className={Styles['more-videos-container']}>
+        <div className={Styles['more-videos']}>
+          <h2>More Past Service Recordings</h2>
+          <div className={Styles['video-list']}>
+            {videoComponents}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
