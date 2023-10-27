@@ -12,7 +12,7 @@ function VideoInfo({
     <div className={Styles['video-info']}>
       <div className={Styles['video-details']}>
         <h1>{title}</h1>
-        <div className={Styles['minister_upload-date']}>
+        <div className={Styles['minister-upload-date']}>
           <div className={Styles.minister}>{minister}</div>
           <div className={Styles.separator} />
           <div className={Styles['upload-date']}>{uploadDate}</div>
