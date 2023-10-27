@@ -6,8 +6,8 @@ import Styles from './SiteLogo.module.scss';
 
 function SiteLogo({
   variant,
-  live,
   fontClass,
+  bg,
 }) {
   let className = Styles.logo;
   className += ` ${fontClass}`;
@@ -25,31 +25,38 @@ function SiteLogo({
       break;
   }
 
-  if (live) className = `${className} ${Styles.live}`;
-  const logoColor = variant === 'light' ? 'var(--dark)' : 'var(--white)';
+  switch (bg) {
+    case 'dark': {
+      className = `${className} ${Styles['dark-bg']}`;
+      break;
+    }
+    default:
+      break;
+  }
+
+  let logoColor;
+  if (variant === 'light') logoColor = 'var(--dark)';
+  if (variant === 'dark') logoColor = 'var(--white)';
+  if (bg === 'dark') logoColor = 'var(--light-silver)';
 
   return (
     <Link to="/" className={className}>
       <SVG icon="favicon" color={logoColor} />
-      <span>
-        {
-          live ? 'LIVE' : 'THE KINGDOM TRYBE'
-        }
-      </span>
+      <span>THE KINGDOM TRYBE</span>
     </Link>
   );
 }
 
 SiteLogo.propTypes = {
   variant: PropTypes.string,
-  live: PropTypes.bool,
   fontClass: PropTypes.string,
+  bg: PropTypes.string,
 };
 
 SiteLogo.defaultProps = {
   variant: 'light',
-  live: false,
   fontClass: '',
+  bg: 'white',
 };
 
 export default SiteLogo;

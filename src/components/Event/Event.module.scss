@@ -26,6 +26,13 @@
   .title {
     font-family: Lato, sans-serif;
     font-size: var(--size-5);
+    line-height: var(--size-7);
+  }
+
+  .description {
+    font-size: var(--size-7-half);
+    line-height: var(--size-4);
+    color: var(--gray);
   }
 }
 

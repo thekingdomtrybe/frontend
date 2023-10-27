@@ -1,4 +1,5 @@
 import React from 'react';
+import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
 import UpcomingEventsHeroSection from '@/page_components/Pages_UpcomingEventsPage/HeroSection/HeroSection';
@@ -6,13 +7,23 @@ import UpcomingEventsEventsSection from '@/page_components/Pages_UpcomingEventsP
 // import Styles from './UpcomingEventsPage.module.scss';
 
 function UpcomingEventsPage() {
-  return (
+  const pageComponents = (
     <>
       <SiteHeader />
       <UpcomingEventsHeroSection />
       <UpcomingEventsEventsSection />
-      <SiteFooter />
     </>
+  );
+
+  const footer = (
+    <SiteFooter />
+  );
+
+  return (
+    <BottomStuckFooterPage
+      top={pageComponents}
+      footer={footer}
+    />
   );
 }
 

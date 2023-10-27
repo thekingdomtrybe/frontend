@@ -3,6 +3,11 @@
   gap: var(--spacing-4);
 }
 
+.form-controls {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
 // gaps
 .small {
   gap: var(--spacing-2);

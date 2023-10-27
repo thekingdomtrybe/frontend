@@ -1,16 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import Styles from './FileSelect.module.scss';
-import SVG from '../SVG/SVG';
+// import Styles from './FileSelect.module.scss';
 
 function FileSelect({
+  children,
   callback,
-  label,
   name,
+  accept,
   multiple,
+  className,
 }) {
   const fileInputRef = useRef(null);
-  const [text, setText] = useState(label);
 
   const handleFileSelect = () => {
     fileInputRef.current.click();
@@ -18,18 +18,18 @@ function FileSelect({
 
   const handleFilesChosen = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    callback(selectedFiles);
-    setText(`${selectedFiles.length} file(s) selected`);
+    if (multiple) callback(selectedFiles);
+    else callback(selectedFiles[0]);
   };
 
   return (
-    <div className={Styles['file-select']}>
+    <div className={className}>
       <button type="button" onClick={handleFileSelect}>
-        <SVG icon="upload" color="var(--blue)" />
-        {text}
+        {children}
       </button>
       <input
         type="file"
+        accept={accept}
         ref={fileInputRef}
         style={{ display: 'none' }}
         name={name}
@@ -41,14 +41,18 @@ function FileSelect({
 }
 
 FileSelect.propTypes = {
+  children: PropTypes.node.isRequired,
   callback: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   multiple: PropTypes.bool,
+  accept: PropTypes.string,
+  className: PropTypes.string,
 };
 
 FileSelect.defaultProps = {
   multiple: false,
+  accept: '',
+  className: '',
 };
 
 export default FileSelect;

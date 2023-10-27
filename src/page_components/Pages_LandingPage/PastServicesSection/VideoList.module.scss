@@ -1,0 +1,37 @@
+.video-list {
+  display: grid;
+  gap: var(--spacing-5);
+  justify-items: center;
+  width: 100%;
+  // border: 1px solid red;
+
+  // The videos are wrapped in link elements
+  // so hide the fourth link element on mobile
+  // to show only 3 videos
+
+  a:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (width >= 768px) {
+  .video-list {
+    justify-content: center;
+    gap: var(--spacing-3);
+
+    a:nth-child(4) {
+      display: grid;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .video-list {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: var(--max-width-lg);
+
+    a:nth-child(4) {
+      display: none;
+    }
+  }
+}

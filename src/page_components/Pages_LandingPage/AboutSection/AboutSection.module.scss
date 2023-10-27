@@ -4,6 +4,7 @@
   display: grid;
   justify-items: center;
   gap: var(--spacing-7);
+  background-image: radial-gradient(circle at 0% 10%, var(--alpha-gray-1) 10%, var(--alpha-gray-1) 10%, transparent 20%);
 }
 
 @media (width >= 768px) {

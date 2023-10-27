@@ -1,58 +1,29 @@
 import React from 'react';
 import VolunteerGroup from '@/components/VolunteerGroup/VolunteerGroup';
+import { useGetVolunteerGroupsQuery } from '@/services/tkt-backend/volunteer_groups';
 import Styles from './GroupsSection.module.scss';
 
 function VolunteerGroupsGroupsSection() {
-  // get groups from store or context
-  const groups = [
-    {
-      id: 1,
-      name: 'Caring Hands',
-      description: 'Caring Souls is a group dedicated to providing care and support to individuals facing health challenges. Together, we can make a difference in their lives.',
-      link: '/groups/caring-hands',
-    },
-    {
-      id: 2,
-      name: 'Caring Hands',
-      description: 'Caring Souls is a group dedicated to providing care and support to individuals facing health challenges. Together, we can make a difference in their lives.',
-      link: '/groups/caring-hands',
-    },
-    {
-      id: 3,
-      name: 'Caring Hands',
-      description: 'Caring Souls is a group dedicated to providing care and support to individuals facing health challenges. Together, we can make a difference in their lives.',
-      link: '/groups/caring-hands',
-    },
-    {
-      id: 4,
-      name: 'Caring Hands',
-      description: 'Caring Souls is a group dedicated to providing care and support to individuals facing health challenges. Together, we can make a difference in their lives.',
-      link: '/groups/caring-hands',
-    },
-    {
-      id: 5,
-      name: 'Caring Hands',
-      description: 'Caring Souls is a group dedicated to providing care and support to individuals facing health challenges. Together, we can make a difference in their lives.',
-      link: '/groups/caring-hands',
-    },
-    {
-      id: 6,
-      name: 'Caring Hands',
-      description: 'Caring Souls is a group dedicated to providing care and support to individuals facing health challenges. Together, we can make a difference in their lives.',
-      link: '/groups/caring-hands',
-    },
-  ];
+  const { data: volunteerGroupsData, isLoading } = useGetVolunteerGroupsQuery();
 
-  const groupComponents = groups.map((group) => (
-    <VolunteerGroup
-      key={group.id}
-      id={group.id}
-      name={group.name}
-      description={group.description}
-      link={group.link}
-      image="https://via.placeholder.com/300"
-    />
-  ));
+  let groupComponents = null;
+
+  if (volunteerGroupsData === undefined || isLoading) {
+    groupComponents = <p>Loading...</p>;
+  } else if (volunteerGroupsData && volunteerGroupsData.length === 0) {
+    groupComponents = <p>No volunteer groups</p>;
+  } else if (volunteerGroupsData && volunteerGroupsData.length > 0) {
+    groupComponents = (volunteerGroupsData).map((group) => (
+      <VolunteerGroup
+        key={group.id}
+        id={group.id}
+        name={group.name}
+        description={group.description}
+        link={group.communication_channel}
+        image={group.group_cover}
+      />
+    ));
+  }
 
   return (
     <section className={Styles.groups}>

@@ -1,50 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
+import { useAddVolunteerGroupMutation, useDeleteVoluteerGroupMutation, useGetVolunteerGroupsQuery } from '@/services/tkt-backend/volunteer_groups';
 
 function VolunterGroupsControls({
   ParentStyles,
 }) {
-  // get groups from store
-  const groups = [
-    {
-      title: 'The Power of the Gospel',
-      id: 1,
-    },
-    {
-      title: 'The Power of the Gospel',
-      id: 2,
-    },
-    {
-      title: 'The Power of the Gospel',
-      id: 3,
-    },
-    {
-      title: 'The Power of the Gospel',
-      id: 4,
-    },
-  ];
+  const { data: groups, isLoading: areGroupsLoading } = useGetVolunteerGroupsQuery();
+
+  const [addGroup,
+    // {
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useAddVolunteerGroupMutation();
+
+  const [deleteGroup,
+    // {
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useDeleteVoluteerGroupMutation();
+
+  // console.log(
+  //   'isSubmitting:', isSubmitting,
+  //   'isSubmitSuccess:', isSubmitSuccess,
+  //   'isSubmitError:', isSubmitError,
+  //   'submitError:', submitError,
+  // );
+
+  if (areGroupsLoading) {
+    return <p>Loading...</p>;
+  }
 
   const fields = {
     newGroup: [
       {
         label: 'Name',
-        name: 'name',
+        name: 'group_name',
         type: 'text',
       },
       {
         label: 'Channel',
-        name: 'channel',
+        name: 'communication_channel',
         type: 'url',
       },
       {
         label: 'Poster URL',
-        name: 'groupPosterURL',
+        name: 'group_cover',
         type: 'url',
       },
       {
         label: 'Description',
-        name: 'description',
+        name: 'group_description',
         type: 'textarea',
         numRows: 5,
       },
@@ -52,14 +64,24 @@ function VolunterGroupsControls({
     deleteGroup: [
       {
         label: 'Select a group to delete',
-        name: 'groupToDelete',
+        name: 'volunteerGroupId',
         type: 'select',
         options: groups.map((group) => ({
-          label: group.title,
-          value: group.id,
+          label: group.name,
+          value: group.id.toString(),
         })),
       },
     ],
+  };
+
+  const saveNewVolunteerGroup = (e, formState) => {
+    e.preventDefault();
+    addGroup(formState);
+  };
+
+  const deleteVolunteerGroupById = (e, formState) => {
+    e.preventDefault();
+    deleteGroup(formState.volunteerGroupId);
   };
 
   return (
@@ -73,7 +95,7 @@ function VolunterGroupsControls({
             fields={fields.newGroup}
             fieldSize="smaller"
             gap="small"
-            onSubmit={() => {}}
+            onSubmit={saveNewVolunteerGroup}
             submitButtonContent="Save"
             submitButtonVariant="blue-1"
             submitButtonFullWidth
@@ -86,7 +108,7 @@ function VolunterGroupsControls({
             fields={fields.deleteGroup}
             fieldSize="smaller"
             gap="small"
-            onSubmit={() => {}}
+            onSubmit={deleteVolunteerGroupById}
             submitButtonContent="Delete"
             submitButtonVariant="orange-1"
             submitButtonFullWidth

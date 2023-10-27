@@ -2,16 +2,10 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: center;
-  gap: var(--spacing-2);
+  gap: var(--spacing-3-half);
 
   a {
-    font-size: var(--size-7-half);
     text-decoration: none;
     color: var(--gray);
-  }
-
-  .divider {
-    width: var(--size-1-quarter);
-    background-color: var(--black);
   }
 }

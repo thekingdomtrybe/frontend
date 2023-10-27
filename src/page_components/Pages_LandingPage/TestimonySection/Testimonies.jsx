@@ -1,38 +1,26 @@
 import React from 'react';
 import Testimony from './Testimony';
+import { useGetTestimoniesQuery } from '@/services/tkt-backend/testimonies';
 import Styles from './Testimonies.module.scss';
 
 function Testimonies() {
-  const testimonies = [
-    {
-      content: 'After facing eviction and severe harassment from my landlord, I prayed for God\'s guidance in finding a new home for my family. He not only led us to the perfect house but also blessed us with a baby.',
-      author: 'Mr and Mrs Agbons',
-      key: 'testimony1',
-    },
-    {
-      content: 'After facing eviction and severe harassment from my landlord, I prayed for God\'s guidance in finding a new home for my family. He not only led us to the perfect house but also blessed us with a baby.',
-      author: 'Mr and Mrs Agbons',
-      key: 'testimony2',
-    },
-    {
-      content: 'After facing eviction and severe harassment from my landlord, I prayed for God\'s guidance in finding a new home for my family. He not only led us to the perfect house but also blessed us with a baby.',
-      author: 'Mr and Mrs Agbons',
-      key: 'testimony3',
-    },
-    {
-      content: 'After facing eviction and severe harassment from my landlord, I prayed for God\'s guidance in finding a new home for my family. He not only led us to the perfect house but also blessed us with a baby.',
-      author: 'Mr and Mrs Agbons',
-      key: 'testimony3',
-    },
-  ];
+  const { data: testimoniesData, isLoading } = useGetTestimoniesQuery();
 
-  const testimonyComponents = testimonies.map((testimony) => (
-    <Testimony
-      key={testimony.key}
-      content={testimony.content}
-      author={testimony.author}
-    />
-  ));
+  let testimonyComponents = null;
+
+  if (testimoniesData === undefined || isLoading) {
+    testimonyComponents = <p>Loading...</p>;
+  } else if (testimoniesData && testimoniesData.length === 0) {
+    testimonyComponents = <p>No testimonies</p>;
+  } else if (testimoniesData && testimoniesData.length > 0) {
+    testimonyComponents = (testimoniesData).map((testimony) => (
+      <Testimony
+        key={testimony.id}
+        content={testimony.testimony_content}
+        author={`${testimony.testifier_first_name} ${testimony.testifier_last_name ? testimony.testifier_last_name : ''}`}
+      />
+    ));
+  }
 
   return (
     <div className={Styles.testimonies}>

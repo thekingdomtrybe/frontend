@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Styles from './FormGroup.module.scss';
 
-function FormGroup({ children, fieldSize, align }) {
+function FormGroup({
+  children, fieldSize, align, type,
+}) {
   let className = Styles['form-group'];
 
   switch (fieldSize) {
@@ -27,6 +29,14 @@ function FormGroup({ children, fieldSize, align }) {
       break;
   }
 
+  switch (type) {
+    case 'checkbox':
+      className += ` ${Styles.checkbox}`;
+      break;
+    default:
+      break;
+  }
+
   return (
     <div className={className}>
       {children}
@@ -38,11 +48,13 @@ FormGroup.propTypes = {
   children: PropTypes.node.isRequired,
   fieldSize: PropTypes.string,
   align: PropTypes.string,
+  type: PropTypes.string,
 };
 
 FormGroup.defaultProps = {
   fieldSize: 'normal',
   align: 'left',
+  type: 'other',
 };
 
 export default FormGroup;

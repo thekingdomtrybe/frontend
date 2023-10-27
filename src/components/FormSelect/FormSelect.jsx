@@ -8,6 +8,8 @@ function FormSelect({
   label,
   options,
   isSearchable,
+  value,
+  onChange,
 }) {
   return (
     <FormGroup>
@@ -20,6 +22,8 @@ function FormSelect({
         name={name}
         id={name}
         pageSize={2}
+        value={options.find((option) => option.value === value)}
+        onChange={(option) => onChange(option.value)}
         required
       />
     </FormGroup>
@@ -34,10 +38,13 @@ FormSelect.propTypes = {
     label: PropTypes.string.isRequired,
   })).isRequired,
   isSearchable: PropTypes.bool,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
 
 FormSelect.defaultProps = {
   isSearchable: false,
+  value: '',
 };
 
 export default FormSelect;

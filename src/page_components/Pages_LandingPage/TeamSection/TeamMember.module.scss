@@ -10,8 +10,8 @@
     height: var(--size-90);
     width: 100%;
     object-fit: cover;
-    background-color: var(--alpha-orange-8);
-    border: var(--size-1) solid var(--alpha-orange-9);
+    background-color: var(--alpha-gray-6);
+    border: var(--size-1) solid var(--orange);
     border-radius: var(--spacing-2);
   }
 
@@ -22,7 +22,6 @@
     .name {
       font-size: var(--size-4);
       line-height: var(--size-5);
-      color: var(--dark);
     }
 
     .role {

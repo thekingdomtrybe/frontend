@@ -1,20 +1,10 @@
 .form-control {
-  padding: var(--spacing-2);
-  border-radius: var(--size-2);
-  font-family: 'Gotham Bold', sans-serif;
-  text-align: center;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.form-control-link {
   text-decoration: none;
-  font-size: var(--size-7-half);
-}
-
-.blue {
-  border: var(--size-1-half) solid var(--blue);
-  background-color: var(--alpha-blue-2);
-  color: var(--blue);
-}
-
-.white {
-  border: var(--size-1-half) solid var(--gray);
-  background-color: var(--alpha-gray-2);
-  color: var(--gray);
+  display: grid;
 }

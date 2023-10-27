@@ -2,18 +2,29 @@ import TestimonyPageFormSection from '@/page_components/Pages_TestimonyPage/Form
 import TestimonyPageHeroSection from '@/page_components/Pages_TestimonyPage/HeroSection/HeroSection';
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
+import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import Styles from './TestimonyPage.module.scss';
 
 function TestimonyPage() {
-  return (
+  const pageComponents = (
     <>
       <SiteHeader />
       <TestimonyPageHeroSection />
       <TestimonyPageFormSection />
-      <div className={Styles['desktop-footer']}>
-        <SiteFooter />
-      </div>
     </>
+  );
+
+  const footer = (
+    <div className={Styles['desktop-footer']}>
+      <SiteFooter />
+    </div>
+  );
+
+  return (
+    <BottomStuckFooterPage
+      top={pageComponents}
+      footer={footer}
+    />
   );
 }
 

@@ -11,12 +11,21 @@
     border: var(--size-1-half) solid var(--silver);
     background-color: var(--alpha-blue-1);
   }
+}
+
+.file-select {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: var(--size-10);
+    height: var(--size-10);
+    border-radius: 50%;
+    border: var(--size-1-half) solid var(--blue);
+    background-color: var(--alpha-blue-4);
+    color: var(--white);
   }
 }
 

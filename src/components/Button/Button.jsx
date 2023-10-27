@@ -28,6 +28,10 @@ function Button({
       className = Styles.blue1;
       break;
     }
+    case 'gray-1': {
+      className = Styles.gray1;
+      break;
+    }
     default: {
       className = Styles.filled;
     }

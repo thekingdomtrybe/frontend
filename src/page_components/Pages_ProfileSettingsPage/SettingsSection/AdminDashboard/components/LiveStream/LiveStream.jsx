@@ -2,19 +2,58 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
 import Button from '@/components/Button/Button';
+import { useSetLiveStreamStatusMutation, useUpdateLiveStreamUrlMutation } from '@/services/tkt-backend/live';
 import Styles from './LiveStream.module.scss';
 
 function LiveStreamControls({
   ParentStyles,
 }) {
+  const [updateLiveStreamURL,
+    // {
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useUpdateLiveStreamUrlMutation();
+
+  const [setLiveStreamStatus,
+    // {
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useSetLiveStreamStatusMutation();
+
+  // console.log(
+  //   'isSubmitting:', isSubmitting,
+  //   'isSubmitSuccess:', isSubmitSuccess,
+  //   'isSubmitError:', isSubmitError,
+  //   'submitError:', submitError,
+  // );
+
   const fields = {
     youtubeUrl: [
       {
         label: 'Youtube URL',
-        name: 'youtubeURL',
-        type: 'text',
+        name: 'url',
+        type: 'url',
       },
     ],
+  };
+
+  const submitLiveStreamURLUpdateForm = (e, formState) => {
+    e.preventDefault();
+    updateLiveStreamURL(formState);
+  };
+
+  const startLiveStream = () => {
+    setLiveStreamStatus({ status: true });
+  };
+
+  const stopLiveStream = () => {
+    setLiveStreamStatus({ status: false });
   };
 
   return (
@@ -26,7 +65,7 @@ function LiveStreamControls({
             fields={fields.youtubeUrl}
             fieldSize="smaller"
             gap="small"
-            onSubmit={() => {}}
+            onSubmit={submitLiveStreamURLUpdateForm}
             submitButtonContent="Save"
             submitButtonVariant="blue-1"
             submitButtonFullWidth
@@ -42,14 +81,14 @@ function LiveStreamControls({
               content="Start live stream"
               variant="orange-1"
               size="small"
-              onClick={() => {}}
+              onClick={startLiveStream}
             />
             <Button
               type="button"
               content="Stop live stream"
               variant="orange-1"
               size="small"
-              onClick={() => {}}
+              onClick={stopLiveStream}
             />
           </div>
         </div>

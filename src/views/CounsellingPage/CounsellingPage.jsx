@@ -2,19 +2,30 @@ import React from 'react';
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import CounsellingPageImageSection from '@/page_components/Pages_CounsellingPage/ImageSection/ImageSection';
 import CounsellingPageFormSection from '@/page_components/Pages_CounsellingPage/FormSection/FormSection';
+import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
 import Styles from './CounsellingPage.module.scss';
 
 function CounsellingPage() {
-  return (
+  const pageComponents = (
     <>
       <SiteHeader />
       <CounsellingPageImageSection />
       <CounsellingPageFormSection />
-      <div className={Styles['desktop-footer']}>
-        <SiteFooter />
-      </div>
     </>
+  );
+
+  const footer = (
+    <div className={Styles['desktop-footer']}>
+      <SiteFooter />
+    </div>
+  );
+
+  return (
+    <BottomStuckFooterPage
+      top={pageComponents}
+      footer={footer}
+    />
   );
 }
 

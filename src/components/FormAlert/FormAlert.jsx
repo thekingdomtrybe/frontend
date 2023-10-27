@@ -31,7 +31,7 @@ FormAlert.propTypes = {
 };
 
 FormAlert.defaultProps = {
-  variant: 'warning',
+  variant: 'text',
 };
 
 export default FormAlert;

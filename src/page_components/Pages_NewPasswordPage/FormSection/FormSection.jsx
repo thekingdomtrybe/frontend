@@ -1,29 +1,71 @@
 import React from 'react';
-import AuthenticationForm from '@/components/AuthenticationForm/AuthenticationForm';
-import AuthenticationFormGroup from '@/components/AuthenticationFormGroup/AuthenticationFormGroup';
-import AuthenticationFormControl from '@/components/AuthenticationFormControl/AuthenticationFormControl';
+import Form from '@/components/Form/Form';
 import AuthenticationPageSwitch from '@/components/AuthenticationPageSwitch/AuthenticationPageSwitch';
+import { useUpdatePasswordMutation } from '@/services/tkt-backend/auth';
 import Styles from './FormSection.module.scss';
 
 function NewPasswordFormSection() {
+  const [
+    submit,
+    // {
+    //   data: submitData,
+    //   isLoading: isSubmitting,
+    //   isSuccess: isSubmitSuccess,
+    //   isError: isSubmitError,
+    //   error: submitError,
+    // },
+  ] = useUpdatePasswordMutation();
+
+  // console.log(
+  //   'submitData:', submitData,
+  //   'isSubmitting:', isSubmitting,
+  //   'isSubmitSuccess:', isSubmitSuccess,
+  //   'isSubmitError:', isSubmitError,
+  //   'submitError:', submitError,
+  // );
+
+  const fields = [
+    {
+      label: `
+        Set a new password for your account. We recommend using a strong password.`,
+      name: 'intro',
+      type: 'alert',
+      icon: '',
+    },
+    {
+      label: 'New Password',
+      name: 'newPassword',
+      type: 'password',
+    },
+    {
+      label: 'Confirm Password',
+      name: 'confirmPassword',
+      type: 'password',
+    },
+  ];
+
+  const setNewPassword = (e, formState) => {
+    e.preventDefault();
+    // get reset password token from url
+    submit({
+      password: formState.newPassword,
+      passwordConfirmation: formState.confirmPassword,
+      resetPasswordToken: 'Jt2LsV5exrmB9XsbsJqJ',
+    });
+  };
+
   return (
     <section className={Styles['form-section']}>
-      <AuthenticationForm>
-        <AuthenticationFormGroup>
-          <input placeholder="New password" required />
-        </AuthenticationFormGroup>
-        <AuthenticationFormGroup>
-          <input placeholder="Confirm password" required />
-        </AuthenticationFormGroup>
-        <AuthenticationFormGroup>
-          <AuthenticationFormControl
-            type="submit"
-            content="Update Password"
-            variant="blue"
-            onClick={() => {}}
-          />
-        </AuthenticationFormGroup>
-      </AuthenticationForm>
+      <Form
+        type="auth"
+        onSubmit={setNewPassword}
+        fields={fields}
+        // gap="small"
+        submitButtonContent="Update password"
+        submitButtonVariant="blue-1"
+        submitButtonFullWidth
+        noLineBreakBeforeSubmit
+      />
 
       <div className={Styles['auth-page-switch']}>
         <AuthenticationPageSwitch

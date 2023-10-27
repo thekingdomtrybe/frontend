@@ -1,0 +1,15 @@
+.past-services-section {
+  padding: var(--spacing-7) var(--spacing-3);
+  background-color: var(--white);
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-7);
+  background-image: radial-gradient(circle at 60% 15%, var(--alpha-gray-1) 10%, var(--alpha-gray-1) 10%, transparent 15%);
+}
+
+@media (width >= 768px) {
+  .past-services-section {
+    background-image: radial-gradient(circle at 0% 10%, var(--alpha-gray-2) 10%, var(--alpha-gray-2) 10%, transparent 20%);
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+}

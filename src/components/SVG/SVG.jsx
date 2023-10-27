@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 function SVG({
   icon,
   color,
+  className,
+  width,
 }) {
   if (icon === 'favicon') {
     return (
-      <svg viewBox="0 0 792 792">
+      <svg width={width} viewBox="0 0 792 792">
         <path
           fill={color}
+          className={className}
           d="
             M409.000000,1.000000
             C414.022095,1.000000 419.044189,1.000000 424.590698,1.343281
@@ -100,7 +103,6 @@ function SVG({
             z"
         />
       </svg>
-
     );
   }
 
@@ -108,13 +110,22 @@ function SVG({
     return (
       <svg viewBox="0 0 442.345 442.344">
         <g>
-          <path d="M295.975,0c37.622,0,68.11,30.495,68.11,68.11c0,37.614-30.488,68.106-68.11,68.106c-37.609,0-68.105-30.492-68.105-68.106
+          <path
+            fill={color}
+            className={className}
+            d="M295.975,0c37.622,0,68.11,30.495,68.11,68.11c0,37.614-30.488,68.106-68.11,68.106c-37.609,0-68.105-30.492-68.105-68.106
             C227.869,30.495,258.365,0,295.975,0z"
           />
-          <path d="M148.576,256.536c5.681,0,10.722-2.561,14.183-6.532L277.4,144.44c-22.754-5.521-41.646-20.963-51.824-41.475
+          <path
+            fill={color}
+            className={className}
+            d="M148.576,256.536c5.681,0,10.722-2.561,14.183-6.532L277.4,144.44c-22.754-5.521-41.646-20.963-51.824-41.475
             l-90.567,120.557c-3.338,4.661-5.316,8.725-5.316,14.122C129.693,248.072,138.157,256.536,148.576,256.536z"
           />
-          <path d="M93.474,358.007c38.097,29.274,96.661-26.176,98.849-28.292c0.629-0.549,62.4-54.934,91.197-22.723
+          <path
+            fill={color}
+            className={className}
+            d="M93.474,358.007c38.097,29.274,96.661-26.176,98.849-28.292c0.629-0.549,62.4-54.934,91.197-22.723
             c6.012,6.701,8.524,14.459,7.727,23.712c-3.029,34.308-50.674,78.774-68.785,93.009c-4.521,3.559-5.306,10.118-1.75,14.644
             c2.056,2.62,5.102,3.987,8.2,3.987c2.24,0,4.524-0.737,6.407-2.217c2.962-2.324,72.25-57.222,76.683-107.575
             c1.334-15.107-3.021-28.381-12.937-39.465c-12.695-14.198-36.695-26.878-78.794-6.668c-23.048,11.044-41.072,27.069-42.104,27.987
@@ -132,7 +143,7 @@ function SVG({
     return (
       <svg viewBox="0 0 64 64" width="16" height="17">
         <path
-          fill="#000000"
+          className={className}
           opacity="1.000000"
           stroke="none"
           d="
@@ -152,6 +163,7 @@ function SVG({
             z"
         />
         <path
+          className={className}
           fill="#FFFFFF"
           opacity="1.000000"
           stroke="none"
@@ -170,6 +182,7 @@ function SVG({
             z"
         />
         <path
+          className={className}
           fill="#000000"
           opacity="1.000000"
           stroke="none"
@@ -190,6 +203,7 @@ function SVG({
             z"
         />
         <path
+          className={className}
           fill="#FFFFFF"
           opacity="1.000000"
           stroke="none"
@@ -217,8 +231,8 @@ function SVG({
         strokeWidth="1.5"
         strokeLinecap="round"
       >
-        <path d="M18 6L6 18" />
-        <path d="M6 6L18 18" />
+        <path fill={color} className={className} d="M18 6L6 18" />
+        <path fill={color} className={className} d="M6 6L18 18" />
       </svg>
     );
   }
@@ -235,9 +249,9 @@ function SVG({
         strokeLinecap="round"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M3 7H21" />
-        <path d="M3 12H21" />
-        <path d="M3 17H21" />
+        <path fill={color} className={className} d="M3 7H21" />
+        <path fill={color} className={className} d="M3 12H21" />
+        <path fill={color} className={className} d="M3 17H21" />
       </svg>
     );
   }
@@ -245,7 +259,7 @@ function SVG({
   if (icon === 'give') {
     return (
       <svg fill="none" viewBox="0 0 20 16">
-        <path stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+        <path fill={color} className={className} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
       </svg>
     );
   }
@@ -253,7 +267,7 @@ function SVG({
   if (icon === 'share') {
     return (
       <svg fill="none" viewBox="0 0 21 15">
-        <path stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m13.717 1 5.518 4.95a1.05 1.05 0 0 1 0 1.549l-5.612 5.088m-5.73-3.214v1.615a.95.95 0 0 0 1.525.845l5.108-4.251a1.1 1.1 0 0 0 0-1.646L9.418 1.685a.95.95 0 0 0-1.525.846v1.7c-3.312 0-6 2.979-6 6.654v1.329a.7.7 0 0 0 1.344.353 5.174 5.174 0 0 1 4.652-3.191l.004-.003Z" />
+        <path className={className} stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m13.717 1 5.518 4.95a1.05 1.05 0 0 1 0 1.549l-5.612 5.088m-5.73-3.214v1.615a.95.95 0 0 0 1.525.845l5.108-4.251a1.1 1.1 0 0 0 0-1.646L9.418 1.685a.95.95 0 0 0-1.525.846v1.7c-3.312 0-6 2.979-6 6.654v1.329a.7.7 0 0 0 1.344.353 5.174 5.174 0 0 1 4.652-3.191l.004-.003Z" />
       </svg>
     );
   }
@@ -261,7 +275,7 @@ function SVG({
   if (icon === 'link') {
     return (
       <svg fill="none" viewBox="0 0 19 19">
-        <path stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.013 7.962a3.519 3.519 0 0 0-4.975 0l-3.554 3.554a3.518 3.518 0 0 0 4.975 4.975l.461-.46m-.461-4.515a3.518 3.518 0 0 0 4.975 0l3.553-3.554a3.518 3.518 0 0 0-4.974-4.975L10.3 3.7" />
+        <path className={className} stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.013 7.962a3.519 3.519 0 0 0-4.975 0l-3.554 3.554a3.518 3.518 0 0 0 4.975 4.975l.461-.46m-.461-4.515a3.518 3.518 0 0 0 4.975 0l3.553-3.554a3.518 3.518 0 0 0-4.974-4.975L10.3 3.7" />
       </svg>
     );
   }
@@ -280,7 +294,7 @@ function SVG({
   if (icon === 'x') {
     return (
       <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-        <path fill={color} d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z" />
+        <path className={className} fill={color} d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z" />
       </svg>
     );
   }
@@ -288,8 +302,8 @@ function SVG({
   if (icon === 'upload') {
     return (
       <svg viewBox="0 0 24 24">
-        <path fill={color} d="M4 18H20V20H4V18Z" />
-        <path fill={color} d="M12 4L7 9H10V17H14V9H17L12 4Z" />
+        <path className={className} fill={color} d="M4 18H20V20H4V18Z" />
+        <path className={className} fill={color} d="M12 4L7 9H10V17H14V9H17L12 4Z" />
       </svg>
     );
   }
@@ -297,7 +311,7 @@ function SVG({
   if (icon === 'arrow-right') {
     return (
       <svg viewBox="0 0 24 24">
-        <path fill={color} d="M12.6 7.4L16.1 10.9H4V12.9H16.1L12.6 16.4L14 17.8L20 11.9L14 6L12.6 7.4Z" />
+        <path className={className} fill={color} d="M12.6 7.4L16.1 10.9H4V12.9H16.1L12.6 16.4L14 17.8L20 11.9L14 6L12.6 7.4Z" />
       </svg>
     );
   }
@@ -305,7 +319,7 @@ function SVG({
   if (icon === 'play-circle') {
     return (
       <svg viewBox="0 0 24 24">
-        <path fill={color} d="M12 4C7.6 4 4 7.6 4 12C4 16.4 7.6 20 12 20C16.4 20 20 16.4 20 12C20 7.6 16.4 4 12 4ZM10 16V8L16 12L10 16Z" />
+        <path className={className} fill={color} d="M12 4C7.6 4 4 7.6 4 12C4 16.4 7.6 20 12 20C16.4 20 20 16.4 20 12C20 7.6 16.4 4 12 4ZM10 16V8L16 12L10 16Z" />
       </svg>
 
     );
@@ -317,10 +331,14 @@ function SVG({
 SVG.propTypes = {
   icon: PropTypes.string.isRequired,
   color: PropTypes.string,
+  className: PropTypes.string,
+  width: PropTypes.number,
 };
 
 SVG.defaultProps = {
   color: 'var(--dark)',
+  className: '',
+  width: 25,
 };
 
 export default SVG;

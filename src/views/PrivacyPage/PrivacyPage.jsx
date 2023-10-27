@@ -2,12 +2,13 @@ import React from 'react';
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import LegalPageHeroSection from '@/page_components/Pages_LegalPage/HeroSection/HeroSection';
 import LegalPageContentSection, { LegalPageContentSectionStyles } from '@/page_components/Pages_LegalPage/ContentSection/ContentSection';
+import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
 import MobileFooter from '@/components/MobileFooter/MobileFooter';
 import Styles from './PrivacyPage.module.scss';
 
 function PrivacyPage() {
-  return (
+  const pageComponents = (
     <>
       <SiteHeader />
       <LegalPageHeroSection />
@@ -140,6 +141,11 @@ function PrivacyPage() {
           </p>
         </div>
       </LegalPageContentSection>
+    </>
+  );
+
+  const footer = (
+    <>
       <div className={Styles['desktop-footer']}>
         <SiteFooter />
       </div>
@@ -147,6 +153,13 @@ function PrivacyPage() {
         <MobileFooter />
       </div>
     </>
+  );
+
+  return (
+    <BottomStuckFooterPage
+      top={pageComponents}
+      footer={footer}
+    />
   );
 }
 

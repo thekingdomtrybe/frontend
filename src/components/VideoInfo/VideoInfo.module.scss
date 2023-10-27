@@ -1,0 +1,56 @@
+.video-info {
+  font-family: 'Open Sans', sans-serif;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: var(--spacing-3-half);
+
+  .video-details {
+    display: grid;
+    gap: var(--spacing-1-half);
+
+    h1 {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: var(--size-4);
+    }
+
+    .minister-upload-date {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: var(--spacing-1);
+      align-items: center;
+      color: var(--gray);
+      font-size: var(--size-3);
+      line-height: var(--size-5);
+
+      .separator {
+        width: var(--size-3-half);
+        height: var(--size-3-half);
+        border-radius: 50%;
+        background-color: var(--silver);
+      }
+    }
+  }
+
+  .video-description {
+    display: grid;
+    gap: var(--spacing-1-half);
+
+    h2 {
+      font-size: var(--size-7-half);
+      color: var(--dark);
+    }
+
+    p {
+      font-size: var(--size-3);
+      line-height: var(--size-9-half);
+      letter-spacing: calc(var(--spacing-1-quarter) / 5);
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .video-info {
+    padding: var(--spacing-1);
+  }
+}

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import AuthenticationFormControl from '@/components/AuthenticationFormControl/AuthenticationFormControl';
 import FileSelect from '@/components/FileSelect/FileSelect';
 import FormGroup from '@/components/FormGroup/FormGroup';
 import FormSubmit from '@/components/FormSubmit/FormSubmit';
@@ -12,6 +13,7 @@ import Styles from './Form.module.scss';
 
 function Form({
   onSubmit,
+  onClick,
   fields,
   fieldSize,
   gap,
@@ -19,11 +21,17 @@ function Form({
   submitButtonVariant,
   submitButtonFullWidth,
   submitButtonSize,
+  noLineBreakBeforeSubmit,
 }) {
+  const [formState, setFormState] = useState({});
+  const authControls = [];
+
   const formComponents = fields.map(({
     label,
     name,
     type,
+    link,
+    submit,
     maxChars,
     numRows,
     url,
@@ -31,6 +39,11 @@ function Form({
     options,
     callback,
     icon,
+    variant,
+    content,
+    disabled,
+    children,
+    styleClassName,
   }) => {
     if (type === 'textarea') {
       return (
@@ -41,15 +54,20 @@ function Form({
           maxChars={maxChars}
           numRows={numRows}
           fieldSize={fieldSize}
+          value={formState[name]}
+          onChange={(e) => setFormState({ ...formState, [name]: e.target.value })}
         />
       );
     }
+
     if (type === 'phone') {
       return (
         <CustomPhoneInput
           key={name}
           name={name}
           label={label}
+          value={formState[name]}
+          onChange={(value) => setFormState({ ...formState, [name]: value })}
         />
       );
     }
@@ -71,25 +89,65 @@ function Form({
           name={name}
           label={label}
           options={options}
+          value={formState[name]}
+          onChange={(value) => setFormState({ ...formState, [name]: value })}
         />
+      );
+    }
+
+    if (type === 'checkbox') {
+      return (
+        <FormGroup type="checkbox" key={name} fieldSize={fieldSize}>
+          <input
+            type={type}
+            name={name}
+            id={name}
+            value={formState[name] || ''}
+            onChange={(e) => setFormState({ ...formState, [name]: e.target.checked })}
+            required
+          />
+          <label htmlFor={name}>
+            {content}
+          </label>
+        </FormGroup>
       );
     }
 
     if (type === 'file') {
       return (
-        <FileSelect
-          key={name}
-          callback={callback}
-          label={label}
-          name={name}
-        />
+        <FormGroup key={name} fieldSize={fieldSize}>
+          <FileSelect
+            callback={((file) => {
+              if (callback) callback(file);
+              setFormState({ ...formState, [name]: file });
+            })}
+            name={name}
+            className={styleClassName}
+          >
+            {children}
+          </FileSelect>
+        </FormGroup>
       );
     }
 
     if (type === 'alert') {
       return (
-        <FormAlert key={name} message={label} icon={icon} />
+        <FormAlert key={name} message={label} icon={icon} variant={variant} />
       );
+    }
+
+    if (type === 'auth-control') {
+      authControls.push(
+        <AuthenticationFormControl
+          key={name}
+          type={submit ? 'submit' : 'button'}
+          content={label}
+          variant={variant}
+          onClick={onClick}
+          link={link}
+        />,
+      );
+      return null;
     }
 
     return (
@@ -102,6 +160,9 @@ function Form({
           name={name}
           id={name}
           maxLength={maxChars}
+          value={formState[name] || ''}
+          onChange={(e) => setFormState({ ...formState, [name]: e.target.value })}
+          disabled={disabled}
           required
         />
       </FormGroup>
@@ -112,40 +173,61 @@ function Form({
   formClassName += ` ${Styles[gap]}`;
 
   return (
-    <form onSubmit={onSubmit} className={formClassName}>
+    <form onSubmit={(e) => onSubmit(e, formState)} className={formClassName}>
       {formComponents}
-      <FormSubmit
-        content={submitButtonContent}
-        variant={submitButtonVariant}
-        fullWidth={submitButtonFullWidth}
-        size={submitButtonSize}
-      />
+      {!noLineBreakBeforeSubmit && <br />}
+      <div className={Styles['form-controls']}>
+        <FormSubmit
+          content={submitButtonContent}
+          variant={submitButtonVariant}
+          fullWidth={submitButtonFullWidth}
+          size={submitButtonSize}
+        />
+        {authControls}
+      </div>
     </form>
   );
 }
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   submitButtonContent: PropTypes.string.isRequired,
   submitButtonVariant: PropTypes.string.isRequired,
   submitButtonFullWidth: PropTypes.bool,
   fields: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     maxChars: PropTypes.number,
     numRows: PropTypes.number,
+    url: PropTypes.string,
+    prefill: PropTypes.shape({}),
+    options: PropTypes.arrayOf(PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })),
+    callback: PropTypes.func,
+    icon: PropTypes.string,
+    variant: PropTypes.string,
+    content: PropTypes.node,
+    disabled: PropTypes.bool,
+    children: PropTypes.node,
+    styleClassName: PropTypes.string,
   })).isRequired,
   fieldSize: PropTypes.string,
   gap: PropTypes.string,
   submitButtonSize: PropTypes.string,
+  noLineBreakBeforeSubmit: PropTypes.bool,
 };
 
 Form.defaultProps = {
+  onClick: () => {},
   submitButtonFullWidth: false,
   submitButtonSize: 'normal',
   fieldSize: 'normal',
   gap: 'default',
+  noLineBreakBeforeSubmit: false,
 };
 
 export default Form;

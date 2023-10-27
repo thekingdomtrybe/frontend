@@ -15,8 +15,11 @@
   color: var(--white);
 }
 
-.live {
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 800;
-  color: var(--dark);
+@media (width >= 768px) {
+  // dark logo background not available on mobile
+  .dark-bg {
+    background-color: var(--alpha-dark-4);
+    padding: var(--spacing-1-half) var(--spacing-1);
+    color: var(--light-silver);
+  }
 }

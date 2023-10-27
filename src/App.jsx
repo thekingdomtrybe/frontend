@@ -9,7 +9,7 @@ import Page from '@/views/__TemplatePage/Page';
 import LandingPage from '@/views/LandingPage/LandingPage';
 import PrayerRequestPage from '@/views/PrayerRequestsPage/PrayerRequestPage';
 import TestimonyPage from '@/views/TestimoniesPage/TestimonyPage';
-import PastSermonsPage from '@/views/PastSermonsPage/PastSermonsPage';
+import PastServicesPage from '@/views/PastServicesPage/PastServicesPage';
 import UpcomingEventsPage from './views/UpcomingEventsPage/UpcomingEventsPage';
 import VolunteerGroupsPage from './views/VolunteerGroupsPage/VolunteerGroupsPage';
 import Community from './views/CommunityPage/CommunityPage';
@@ -23,14 +23,16 @@ import NewPasswordPage from './views/NewPasswordPage/NewPasswordPage';
 import CounsellingPage from './views/CounsellingPage/CounsellingPage';
 import PrivacyPage from './views/PrivacyPage/PrivacyPage';
 import TermsOfUsePage from './views/TermsOfUsePage/TermsOfUsePage';
-import ProfileSettingsPage from './views/ProfileSettingsPage/ProfileSettingsPage';
+import ProfileSettingsPage from './services/ProfileSettingsPage/ProfileSettingsPage';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {
   const { pathname } = useLocation();
 
-  // Automatically scrolls to top whenever pathname changes
   useEffect(() => {
     window.scrollTo(0, 0);
+    // for devices with heights greater than 880px, use this instead:
+    document.getElementById('root').scrollTo(0, 0);
   }, [pathname]);
 
   return (
@@ -38,7 +40,7 @@ function App() {
       <Route exact path="/" element={<LandingPage />} />
       <Route exact path="/request-for-prayer" element={<PrayerRequestPage />} />
       <Route exact path="/share-a-testimony" element={<TestimonyPage />} />
-      <Route exact path="/browse-past-sermons" element={<PastSermonsPage />} />
+      <Route exact path="/browse-past-services" element={<PastServicesPage />} />
       <Route exact path="/upcoming-events" element={<UpcomingEventsPage />} />
       <Route exact path="/volunteer" element={<VolunteerGroupsPage />} />
       <Route exact path="/live/chat/*" element={<LiveStreamPage />} />
@@ -54,6 +56,15 @@ function App() {
       <Route exact path="/set-new-password" element={<NewPasswordPage />} />
       <Route exact path="/terms-of-use" element={<TermsOfUsePage />} />
       <Route exact path="/privacy-policy" element={<PrivacyPage />} />
+      <Route
+        exact
+        path="/settings/admin-dashboard"
+        element={(
+          <ProtectedRoute admin>
+            <ProfileSettingsPage />
+          </ProtectedRoute>
+        )}
+      />
       <Route exact path="/settings/*" element={<ProfileSettingsPage />} />
       <Route exact path="/settings" element={<ProfileSettingsPage />} />
       <Route path="*" element={<Page />} />

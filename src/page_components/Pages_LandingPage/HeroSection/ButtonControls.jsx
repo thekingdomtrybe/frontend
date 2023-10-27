@@ -9,8 +9,8 @@ function ButtonControls() {
       <Link to="/live">
         <Button type="button" content="Watch Online" variant="filled" />
       </Link>
-      <Link to="/browse-past-sermons">
-        <Button type="button" content="View Past Sermons" variant="orange-1" />
+      <Link to="/browse-past-services">
+        <Button type="button" content="View Past Services" variant="orange-1" />
       </Link>
     </div>
   );

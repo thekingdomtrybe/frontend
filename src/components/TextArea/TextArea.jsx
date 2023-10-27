@@ -9,6 +9,8 @@ function TextArea({
   maxChars,
   numRows,
   fieldSize,
+  value,
+  onChange,
 }) {
   return (
     <FormGroup fieldSize={fieldSize}>
@@ -20,6 +22,8 @@ function TextArea({
         id={name}
         rows={numRows}
         maxLength={maxChars}
+        value={value}
+        onChange={onChange}
         required
       />
       { maxChars && (
@@ -35,12 +39,15 @@ TextArea.propTypes = {
   maxChars: PropTypes.number,
   numRows: PropTypes.number,
   fieldSize: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
 
 TextArea.defaultProps = {
   maxChars: null,
   numRows: 10,
   fieldSize: 'normal',
+  value: '',
 };
 
 export default TextArea;

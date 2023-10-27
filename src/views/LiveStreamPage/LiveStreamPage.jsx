@@ -15,7 +15,7 @@ function LiveStreamPage() {
 
   return (
     <>
-      <SiteHeader live />
+      <SiteHeader />
       <div className={Styles['live-stream-page']}>
         <div className={Styles['video-section']}>
           <LiveStreamVideoSection />
