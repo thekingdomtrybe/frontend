@@ -6,15 +6,15 @@ import { useAddEventMutation, useDeleteEventMutation, useGetEventsQuery } from '
 function EventsControls({
   ParentStyles,
 }) {
-  const { data: events, isLoading: isEventsLoading } = useGetEventsQuery();
+  const { data: events } = useGetEventsQuery();
 
   const [addEvent,
-    // {
+    {
     //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
+      isSuccess: isSaveEventSuccess,
     //   isError: isSubmitError,
     //   error: submitError,
-    // },
+    },
   ] = useAddEventMutation();
 
   const [deleteEvent,
@@ -32,10 +32,6 @@ function EventsControls({
   //   'isSubmitError:', isSubmitError,
   //   'submitError:', submitError,
   // );
-
-  if (isEventsLoading) {
-    return <p>Loading...</p>;
-  }
 
   const fields = {
     newEvent: [
@@ -71,10 +67,10 @@ function EventsControls({
         label: 'Select an event to delete',
         name: 'eventId',
         type: 'select',
-        options: events.map((event) => ({
+        options: events?.map((event) => ({
           label: event.title,
           value: event.id.toString(),
-        })),
+        })) || [],
       },
     ],
   };
@@ -102,7 +98,8 @@ function EventsControls({
             gap="small"
             onSubmit={saveNewEvent}
             submitButtonContent="Save"
-            submitButtonVariant="blue-1"
+            submitButtonVariant="gray-1"
+            clear={isSaveEventSuccess}
             submitButtonFullWidth
             submitButtonSize="small"
           />

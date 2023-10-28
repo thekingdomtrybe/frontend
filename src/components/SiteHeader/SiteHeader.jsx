@@ -4,6 +4,7 @@ import SiteLogo from '@/components/SiteLogo/SiteLogo';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import Navbar from '../Navbar/Navbar';
 import { useLogoutMutation } from '@/services/tkt-backend/auth';
+import UserProfileDropdown from '../UserProfileDropdown/UserProfileDropdown';
 import Styles from './SiteHeader.module.scss';
 
 function SiteHeader({
@@ -57,30 +58,47 @@ function SiteHeader({
       <div className={Styles.nav}>
         <Navbar links={navLinks} variant={variant} />
       </div>
-      <DropdownMenu
-        variant={variant}
-        menuItems={[
-          { label: 'Join Our Community', url: '/join-our-community', tablet: true },
-          { label: 'Book A Counselling Session', url: '/request-counselling', tablet: true },
-          { label: 'Ask For Prayer', url: '/request-for-prayer' },
-          { label: 'Share Your Testimony', url: '/share-a-testimony' },
-          { label: 'Watch Past Services', url: '/browse-past-services' },
-          { label: 'See Upcoming Events', url: '/upcoming-events' },
-          { label: 'Join a Volunteer Group', url: '/volunteer' },
-          { label: 'Give', url: '/give', tablet: true },
-          { label: 'Login', url: '/login', auth: 'hide' },
-          { label: 'Settings', url: '/settings', auth: 'show' },
-          {
-            label: 'Logout',
-            url: '/logout',
-            auth: 'show',
-            type: 'button',
-            onClick: () => {
-              submit();
+      <div className={Styles.menus}>
+        <UserProfileDropdown
+          menuItems={[
+            {
+              label: 'Login', url: '/login', img: '', auth: 'hide',
             },
-          },
-        ]}
-      />
+            {
+              label: 'Settings', url: '/settings', img: '', auth: 'show',
+            },
+            {
+              label: 'Logout',
+              url: '/logout',
+              auth: 'show',
+              type: 'button',
+              img: '',
+              onClick: () => {
+                submit();
+              },
+            },
+          ]}
+        />
+        <DropdownMenu
+          variant={variant}
+          menuItems={[
+            {
+              label: 'Join Our Community', url: '/join-our-community', img: '', tablet: true,
+            },
+            {
+              label: 'Request Counselling', url: '/request-counselling', img: '', tablet: true,
+            },
+            { label: 'Ask For Prayer', url: '/request-for-prayer', img: '' },
+            { label: 'Share Your Testimony', url: '/share-a-testimony', img: '' },
+            { label: 'Watch Past Services', url: '/browse-past-services', img: '' },
+            { label: 'See Upcoming Events', url: '/upcoming-events', img: '' },
+            { label: 'Join a Volunteer Group', url: '/volunteer', img: '' },
+            {
+              label: 'Give', url: '/give', img: '', tablet: true,
+            },
+          ]}
+        />
+      </div>
     </header>
   );
 }

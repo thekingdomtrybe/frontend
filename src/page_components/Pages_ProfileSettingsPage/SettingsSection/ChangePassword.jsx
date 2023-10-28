@@ -2,26 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
 import { useUpdateUserPasswordMutation } from '@/services/tkt-backend/auth';
+import FormNotification from '@/components/FormNotification/FormNotification';
 import Styles from './ChangePassword.module.scss';
 
 function ChangePassword({
   goBack,
 }) {
   const [submit,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isLoading: isSubmitting,
+      isSuccess: isSubmitSuccess,
+      isError: isSubmitError,
+      // error: submitError,
+    },
   ] = useUpdateUserPasswordMutation();
-
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
 
   const fields = [
     {
@@ -36,6 +30,20 @@ function ChangePassword({
     },
   ];
 
+  const notificationStates = {
+    customSuccess: {
+      message: 'Password Updated!',
+      trigger: isSubmitSuccess,
+      styles: Styles.success,
+    },
+    error: {
+      // message: submitError?.toString() || 'An error occured!',
+      message: 'An error occured!',
+      trigger: isSubmitError,
+      timeout: 5000,
+    },
+  };
+
   const saveChanges = (e, formState) => {
     e.preventDefault();
     // TODO: Add validation
@@ -43,7 +51,8 @@ function ChangePassword({
   };
 
   return (
-    <div className={Styles['change-password']}>
+    <section className={Styles['change-password']}>
+      <FormNotification notifications={notificationStates} />
       <div className={Styles['change-password-header']}>
         <button type="button" onClick={goBack}>
           <img src="" alt="" />
@@ -58,8 +67,10 @@ function ChangePassword({
         gap="small"
         submitButtonContent="Update Password"
         submitButtonVariant="blue-1"
+        submitButtonStlye={Styles.submit}
+        isLoading={isSubmitting}
       />
-    </div>
+    </section>
   );
 }
 

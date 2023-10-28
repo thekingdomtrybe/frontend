@@ -3,6 +3,7 @@
   border: var(--size-1-quarter) solid var(--silver);
   max-width: var(--size-120);
   display: grid;
+  grid-template-rows: max-content auto;
 
   img {
     width: 100%;
@@ -37,6 +38,7 @@
     }
 
     padding: 0 var(--spacing-2) var(--spacing-2);
+    align-self: end;
   }
 }
 

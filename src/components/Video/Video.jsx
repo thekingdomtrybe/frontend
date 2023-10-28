@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Styles from './Video.module.scss';
 import SVG from '../SVG/SVG';
+import Styles from './Video.module.scss';
 
 function Video({
   id,
@@ -25,9 +25,6 @@ function Video({
       <Link to={`/watch?v=${id}`} className={Styles.video}>
         <div className={Styles['video-thumbnail']}>
           <img src={image} alt="" />
-          <div className={Styles['play-btn']}>
-            <SVG icon="play-circle" color="var(--orange)" />
-          </div>
         </div>
         <div className={Styles['video-details']}>
           <span className={Styles.date}>{videoDate}</span>

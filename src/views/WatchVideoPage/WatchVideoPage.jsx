@@ -8,7 +8,7 @@ import Styles from './WatchVideoPage.module.scss';
 function WatchVideoPage() {
   const pageComponents = (
     <>
-      <SiteHeader variant="dark" />
+      <SiteHeader />
       <WatchVideoVideoSection />
     </>
   );

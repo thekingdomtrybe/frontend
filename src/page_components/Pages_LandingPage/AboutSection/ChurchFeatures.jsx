@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from './ChurchFeatures.module.scss';
+import images from '@/assets/images';
 import ChurchFeature from './ChurchFeature';
 
 function ChurchFeatures() {
@@ -8,21 +9,24 @@ function ChurchFeatures() {
       name: 'CONGREGAGTION',
       description: '1 hour livestream of weekly Sunday services. Streaming is 9am, 12pm and 3pm WAT.',
       cta: 'Watch Now',
-      img: 'congregation',
+      jpegSrc: images.landingPage.aboutSection.congregationJPG,
+      webpSrc: images.landingPage.aboutSection.congregationWEBP,
       route: '/live',
     },
     {
       name: 'COMMUNITY',
       description: 'Join and belong to our ever growing trybe of believers all across the world.',
       cta: 'Join Us',
-      img: 'community',
+      jpegSrc: images.landingPage.aboutSection.communityJPG,
+      webpSrc: images.landingPage.aboutSection.communityWEBP,
       route: '/join-our-community',
     },
     {
       name: 'COUNSELLING',
       description: 'Our counselling provides faith-based support for emotional and spiritual challenges.',
       cta: 'Talk to a Pastor',
-      img: 'counselling',
+      jpegSrc: images.landingPage.aboutSection.counsellingJPG,
+      webpSrc: images.landingPage.aboutSection.counsellingWEBP,
       route: '/request-counselling',
     },
   ];
@@ -34,7 +38,8 @@ function ChurchFeatures() {
       description={feature.description}
       cta={feature.cta}
       route={feature.route}
-      image={feature.img}
+      jpegSrc={feature.jpegSrc}
+      webpSrc={feature.webpSrc}
     />
   ));
 

@@ -15,6 +15,14 @@
   color: var(--white);
 }
 
+.logo-light {
+  fill: var(--dark);
+}
+
+.logo-dark {
+  fill: var(--white);
+}
+
 @media (width >= 768px) {
   // dark logo background not available on mobile
   .dark-bg {

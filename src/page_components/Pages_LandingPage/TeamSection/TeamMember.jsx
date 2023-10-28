@@ -5,7 +5,8 @@ import Styles from './TeamMember.module.scss';
 function TeamMember({
   name,
   role,
-  img,
+  webp,
+  jpeg,
   size,
 }) {
   let className = Styles.image;
@@ -14,9 +15,9 @@ function TeamMember({
   return (
     <div className={Styles['team-member']}>
       <picture className={className}>
-        <source srcSet={`/images/${img}.webp`} type="image/webp" />
+        <source srcSet={webp} type="image/webp" />
         <img
-          src={`/images/${img}.jpg`}
+          src={jpeg}
           alt=""
           loading="lazy"
         />
@@ -32,7 +33,8 @@ function TeamMember({
 TeamMember.propTypes = {
   name: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
+  webp: PropTypes.string.isRequired,
+  jpeg: PropTypes.string.isRequired,
   size: PropTypes.string,
 };
 

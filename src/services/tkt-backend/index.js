@@ -11,6 +11,16 @@ const tktBackendSlice = createApi({
       }
     },
   }),
+  tagTypes: [
+    'liveStreamStatus',
+    'liveStreamURL',
+    'email',
+    'testimonies',
+    'pastServices',
+    'events',
+    'volunteerGroups',
+    'user',
+  ],
   endpoints: () => ({
   }),
 });

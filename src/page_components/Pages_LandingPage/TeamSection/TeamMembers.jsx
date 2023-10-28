@@ -1,4 +1,5 @@
 import React from 'react';
+import images from '@/assets/images';
 import TeamMember from './TeamMember';
 import Styles from './TeamMembers.module.scss';
 
@@ -7,25 +8,30 @@ function TeamMembers() {
     {
       name: 'Pastor Olumide & Adenike Emmanuel',
       role: 'Overseer',
-      img: 'overseer',
+      webp: images.landingPage.teamSection.overseer.WEBP,
+      jpeg: images.landingPage.teamSection.overseer.JPG,
       size: 'normal',
     },
     {
       name: 'Pastor Adebola Talaeat',
       role: 'Co-ordinating Leader',
-      img: 'leader',
+      webp: images.landingPage.teamSection.leader.WEBP,
+      jpeg: images.landingPage.teamSection.leader.JPG,
       size: 'thin',
     },
     {
       name: 'Gift Olasubomi-Olukoju',
       role: 'Minister-In-Charge',
-      img: 'minister',
+      webp: images.landingPage.teamSection.minister.WEBP,
+      jpeg: images.landingPage.teamSection.minister.JPG,
       size: 'thin',
     },
     {
       name: 'Olanrewaju Daniels',
       role: 'Deputy Minister-In-Charge',
       img: 'deputy',
+      webp: images.landingPage.teamSection.deputy.WEBP,
+      jpeg: images.landingPage.teamSection.deputy.JPG,
       size: 'large',
     },
   ];
@@ -35,7 +41,8 @@ function TeamMembers() {
       key={teamMember.name}
       name={teamMember.name}
       role={teamMember.role}
-      img={teamMember.img}
+      webp={teamMember.webp}
+      jpeg={teamMember.jpeg}
       size={teamMember.size}
     />
   ));

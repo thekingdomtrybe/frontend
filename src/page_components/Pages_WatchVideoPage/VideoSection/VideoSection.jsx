@@ -3,16 +3,18 @@ import Video from '@/components/Video/Video';
 import VideoPlayer from '@/components/VideoPlayer/VideoPlayer';
 import VideoInfo from '@/components/VideoInfo/VideoInfo';
 import { useGetPastServicesQuery } from '@/services/tkt-backend/past_services';
+import VideoLoader from './Loader';
 import Styles from './VideoSection.module.scss';
 
 function WatchVideoVideoSection() {
-  const { data: pastServicesData, isLoading } = useGetPastServicesQuery();
+  const { data: pastServicesData, isLoading, isError } = useGetPastServicesQuery();
 
   let videoComponents = null;
 
   // TODO: Exclude current video
-  if (pastServicesData === undefined || isLoading) {
-    videoComponents = <p>Loading...</p>;
+
+  if (pastServicesData === undefined || isLoading || isError) {
+    videoComponents = <VideoLoader />;
   } else if (pastServicesData && pastServicesData.length === 0) {
     videoComponents = <p>No more videos</p>;
   } else if (pastServicesData && pastServicesData.length > 0) {
@@ -27,7 +29,6 @@ function WatchVideoVideoSection() {
         minister={video.speaker_name}
         date={video.date}
         description={video.description}
-        flow="horizontal"
         image=""
       />
     ));

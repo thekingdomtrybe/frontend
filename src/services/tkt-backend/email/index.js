@@ -8,6 +8,7 @@ export default tktBackendSlice.injectEndpoints({
         prayerRequestRecipientEmail: response.prayer_recipient_email,
         testimonyRecipientEmail: response.testimony_recipient_email,
       }),
+      providesTags: ['email'],
     }),
     updatePrayerRequestRecipientEmail: builder.mutation({
       query: (body) => ({
@@ -15,6 +16,7 @@ export default tktBackendSlice.injectEndpoints({
         method: 'PATCH',
         body: { prayer_recipient_email: body.prayerRequestsRecipientEmail },
       }),
+      invalidatesTags: ['email'],
     }),
     updateTestimonyRecipientEmail: builder.mutation({
       query: (body) => ({
@@ -22,6 +24,7 @@ export default tktBackendSlice.injectEndpoints({
         method: 'PATCH',
         body: { testimony_recipient_email: body.testimoniesRecipientEmail },
       }),
+      invalidatesTags: ['email'],
     }),
   }),
 });

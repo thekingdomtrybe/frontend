@@ -6,6 +6,7 @@ export default tktBackendSlice.injectEndpoints({
       query: () => '/api/v1/system_info',
       transformResponse: (response) => response.currently_live,
       transformErrorResponse: false,
+      providesTags: ['liveStreamStatus'],
     }),
     setLiveStreamStatus: builder.mutation({
       query: (body) => ({
@@ -13,6 +14,12 @@ export default tktBackendSlice.injectEndpoints({
         method: 'PATCH',
         body: { currently_live: body.status },
       }),
+      invalidatesTags: ['liveStreamStatus'],
+    }),
+    getLiveStreamURL: builder.query({
+      query: () => '/api/v1/system_info',
+      transformResponse: (response) => response.youtube_live_url,
+      providesTags: ['liveStreamURL'],
     }),
     updateLiveStreamUrl: builder.mutation({
       query: (body) => ({
@@ -20,12 +27,14 @@ export default tktBackendSlice.injectEndpoints({
         method: 'PATCH',
         body: { youtube_live_url: body.url },
       }),
+      invalidatesTags: ['liveStreamURL'],
     }),
   }),
 });
 
 export const {
   useGetLiveStreamStatusQuery,
+  useGetLiveStreamURLQuery,
   useSetLiveStreamStatusMutation,
   useUpdateLiveStreamUrlMutation,
 } = tktBackendSlice;

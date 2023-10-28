@@ -2,12 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
 import Button from '@/components/Button/Button';
-import { useSetLiveStreamStatusMutation, useUpdateLiveStreamUrlMutation } from '@/services/tkt-backend/live';
+import {
+  useGetLiveStreamStatusQuery,
+  useGetLiveStreamURLQuery,
+  useSetLiveStreamStatusMutation,
+  useUpdateLiveStreamUrlMutation,
+} from '@/services/tkt-backend/live';
 import Styles from './LiveStream.module.scss';
 
 function LiveStreamControls({
   ParentStyles,
 }) {
+  const {
+    data: liveStreamUrl,
+  } = useGetLiveStreamURLQuery();
+
+  const {
+    data: liveStreamStatus,
+  } = useGetLiveStreamStatusQuery();
+
   const [updateLiveStreamURL,
     // {
     //   isLoading: isSubmitting,
@@ -26,19 +39,13 @@ function LiveStreamControls({
     // },
   ] = useSetLiveStreamStatusMutation();
 
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
-
   const fields = {
     youtubeUrl: [
       {
         label: 'Youtube URL',
         name: 'url',
         type: 'url',
+        initialValue: liveStreamUrl,
       },
     ],
   };
@@ -67,7 +74,7 @@ function LiveStreamControls({
             gap="small"
             onSubmit={submitLiveStreamURLUpdateForm}
             submitButtonContent="Save"
-            submitButtonVariant="blue-1"
+            submitButtonVariant="gray-1"
             submitButtonFullWidth
             submitButtonSize="small"
           />
@@ -82,6 +89,7 @@ function LiveStreamControls({
               variant="orange-1"
               size="small"
               onClick={startLiveStream}
+              disabled={liveStreamStatus}
             />
             <Button
               type="button"
@@ -89,6 +97,7 @@ function LiveStreamControls({
               variant="orange-1"
               size="small"
               onClick={stopLiveStream}
+              disabled={!liveStreamStatus}
             />
           </div>
         </div>

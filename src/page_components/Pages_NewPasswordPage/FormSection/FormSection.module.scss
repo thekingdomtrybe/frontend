@@ -12,6 +12,12 @@
   }
 }
 
+.notif {
+  text-align: center;
+  background-color: var(--alpha-dark-8);
+  color: var(--white);
+}
+
 .auth-page-switch {
   display: grid;
   place-items: center;

@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionNotifier from '@/components/SectionNotifier/SectionNotifier';
 import AuthenticationPageSwitch from '@/components/AuthenticationPageSwitch/AuthenticationPageSwitch';
 import Form from '@/components/Form/Form';
 import { useResetPasswordMutation } from '@/services/tkt-backend/auth';
@@ -7,22 +8,7 @@ import Styles from './FormSection.module.scss';
 function ResetPasswordFormSection() {
   const [
     submit,
-    // {
-    //   data: submitData,
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
   ] = useResetPasswordMutation();
-
-  // console.log(
-  //   'submitData:', submitData,
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
 
   const fields = [
     {
@@ -48,14 +34,24 @@ function ResetPasswordFormSection() {
 
   return (
     <section className={Styles['form-section']}>
+      <SectionNotifier
+        customClass={Styles.notif}
+        waitTillLoadComplete
+        show
+        fixed
+      >
+        This feature has not been fully implemented. Please bear with us as we work on it.
+      </SectionNotifier>
       <Form
         type="auth"
         onSubmit={resetPassword}
         fields={fields}
         gap="small"
         submitButtonContent="Reset my password"
-        submitButtonVariant="blue-1"
+        submitButtonVariant="gray-1"
+        // submitButtonVariant="blue-1"
         submitButtonFullWidth
+        submitButtonDisabled
         noLineBreakBeforeSubmit
       />
 

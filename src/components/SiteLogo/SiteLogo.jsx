@@ -34,14 +34,15 @@ function SiteLogo({
       break;
   }
 
-  let logoColor;
-  if (variant === 'light') logoColor = 'var(--dark)';
-  if (variant === 'dark') logoColor = 'var(--white)';
-  if (bg === 'dark') logoColor = 'var(--light-silver)';
+  let logoColorClass;
+  if (variant === 'light') logoColorClass = Styles['logo-light'];
+  if (variant === 'dark') logoColorClass = Styles['logo-dark'];
+  if (variant === 'blue') logoColorClass = Styles['logo-dark'];
+  if (bg === 'dark') logoColorClass = Styles['logo-dark'];
 
   return (
     <Link to="/" className={className}>
-      <SVG icon="favicon" color={logoColor} />
+      <SVG icon="favicon" className={logoColorClass} />
       <span>THE KINGDOM TRYBE</span>
     </Link>
   );

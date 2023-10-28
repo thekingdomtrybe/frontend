@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AuthenticationFormControl from '@/components/AuthenticationFormControl/AuthenticationFormControl';
 import FileSelect from '@/components/FileSelect/FileSelect';
@@ -12,6 +12,8 @@ import FormAlert from '@/components/FormAlert/FormAlert';
 import Styles from './Form.module.scss';
 
 function Form({
+  clear,
+  isLoading,
   onSubmit,
   onClick,
   fields,
@@ -21,6 +23,8 @@ function Form({
   submitButtonVariant,
   submitButtonFullWidth,
   submitButtonSize,
+  submitButtonDisabled,
+  submitButtonStlye,
   noLineBreakBeforeSubmit,
 }) {
   const [formState, setFormState] = useState({});
@@ -41,6 +45,7 @@ function Form({
     icon,
     variant,
     content,
+    initialValue,
     disabled,
     children,
     styleClassName,
@@ -54,7 +59,7 @@ function Form({
           maxChars={maxChars}
           numRows={numRows}
           fieldSize={fieldSize}
-          value={formState[name]}
+          value={formState[name] || initialValue || ''}
           onChange={(e) => setFormState({ ...formState, [name]: e.target.value })}
         />
       );
@@ -160,7 +165,7 @@ function Form({
           name={name}
           id={name}
           maxLength={maxChars}
-          value={formState[name] || ''}
+          value={formState[name] || initialValue || ''}
           onChange={(e) => setFormState({ ...formState, [name]: e.target.value })}
           disabled={disabled}
           required
@@ -172,16 +177,28 @@ function Form({
   let formClassName = Styles.form;
   formClassName += ` ${Styles[gap]}`;
 
+  useEffect(() => {
+    if (clear) {
+      setFormState({});
+      fields.forEach((field) => {
+        if (field.onClear) field.onClear();
+      });
+    }
+  }, [clear, fields]);
+
   return (
     <form onSubmit={(e) => onSubmit(e, formState)} className={formClassName}>
       {formComponents}
       {!noLineBreakBeforeSubmit && <br />}
       <div className={Styles['form-controls']}>
         <FormSubmit
+          styleClass={submitButtonStlye}
           content={submitButtonContent}
           variant={submitButtonVariant}
           fullWidth={submitButtonFullWidth}
           size={submitButtonSize}
+          disabled={submitButtonDisabled}
+          isLoading={isLoading}
         />
         {authControls}
       </div>
@@ -190,6 +207,8 @@ function Form({
 }
 
 Form.propTypes = {
+  clear: PropTypes.bool,
+  isLoading: PropTypes.bool,
   onSubmit: PropTypes.func.isRequired,
   onClick: PropTypes.func,
   submitButtonContent: PropTypes.string.isRequired,
@@ -208,26 +227,34 @@ Form.propTypes = {
       label: PropTypes.string.isRequired,
     })),
     callback: PropTypes.func,
+    onClear: PropTypes.func,
     icon: PropTypes.string,
     variant: PropTypes.string,
     content: PropTypes.node,
     disabled: PropTypes.bool,
     children: PropTypes.node,
+    initialValue: PropTypes.string,
     styleClassName: PropTypes.string,
   })).isRequired,
   fieldSize: PropTypes.string,
   gap: PropTypes.string,
   submitButtonSize: PropTypes.string,
+  submitButtonStlye: PropTypes.string,
   noLineBreakBeforeSubmit: PropTypes.bool,
+  submitButtonDisabled: PropTypes.bool,
 };
 
 Form.defaultProps = {
+  clear: false,
+  isLoading: false,
   onClick: () => {},
   submitButtonFullWidth: false,
   submitButtonSize: 'normal',
   fieldSize: 'normal',
   gap: 'default',
   noLineBreakBeforeSubmit: false,
+  submitButtonDisabled: false,
+  submitButtonStlye: '',
 };
 
 export default Form;

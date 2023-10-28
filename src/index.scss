@@ -64,11 +64,19 @@
   --alpha-green-5: rgb(91 152 4 / 50%);
   --alpha-green-6: rgb(91 152 4 / 60%);
   --alpha-green-7: rgb(91 152 4 / 70%);
+  --alpha-green-8: rgb(91 152 4 / 80%);
+  --alpha-green-9: rgb(91 152 4 / 90%);
 
   // Silver alpha variations
   --alpha-silver-1: rgb(192 192 192 / 10%);
   --alpha-silver-2: rgb(192 192 192 / 20%);
   --alpha-silver-3: rgb(192 192 192 / 30%);
+  --alpha-silver-4: rgb(192 192 192 / 40%);
+  --alpha-silver-5: rgb(192 192 192 / 50%);
+  --alpha-silver-6: rgb(192 192 192 / 60%);
+  --alpha-silver-7: rgb(192 192 192 / 70%);
+  --alpha-silver-8: rgb(192 192 192 / 80%);
+  --alpha-silver-9: rgb(192 192 192 / 90%);
 
   /* General colors */
   --white: rgb(255 255 255);
@@ -76,6 +84,17 @@
   --red: rgb(255 0 0);
   --dark: rgb(51 51 51);
   --light-dark: rgb(102 102 102);
+
+  // Red alpha variations
+  --alpha-red-1: rgb(255 0 0 / 10%);
+  --alpha-red-2: rgb(255 0 0 / 20%);
+  --alpha-red-3: rgb(255 0 0 / 30%);
+  --alpha-red-4: rgb(255 0 0 / 40%);
+  --alpha-red-5: rgb(255 0 0 / 50%);
+  --alpha-red-6: rgb(255 0 0 / 60%);
+  --alpha-red-7: rgb(255 0 0 / 70%);
+  --alpha-red-8: rgb(255 0 0 / 80%);
+  --alpha-red-9: rgb(255 0 0 / 90%);
 
   // Dark alpha variations
   --alpha-dark-1: rgb(51 51 51 / 10%);
@@ -153,7 +172,7 @@
   }
 
   /* Sizes */
-  @for $i from 1 through 200 {
+  @for $i from 1 through 220 {
     --size-#{$i}: #{$i * 4}px;
   }
 
@@ -171,6 +190,7 @@
   --timing-slowest-2: 4.8s;
   --timing-slowest-1: 2.4s;
   --timing-slowest: 1.2s;
+  --timing-normal: 0.8s;
   --timing-slow: 0.6s;
   --timing-medium: 0.4s;
   --timing-fast: 0.2s;
@@ -234,6 +254,11 @@ button {
 // useDimSection hook styles
 section {
   transition: filter var(--timing-medium) ease-in-out;
+
+  // To use section notifications, each section's
+  // position must be relative.
+  position: relative;
+  overflow: hidden;
 }
 
 .dim-section {
@@ -244,7 +269,7 @@ section {
 
 // For devices with height greater than 880px, the footers don't stay
 // at the bottom. These selectors alongside the BottomStuckFooterPage
-// component help keep ot there.
+// component help keep it there.
 
 @media (height > 880px) {
   html {

@@ -1,7 +1,8 @@
 import React from 'react';
-import Styles from './FormSection.module.scss';
-import FormText from './FormText';
+import SectionNotifier from '@/components/SectionNotifier/SectionNotifier';
 import Form from '@/components/Form/Form';
+import FormText from './FormText';
+import Styles from './FormSection.module.scss';
 
 function CounsellingPageFormSection() {
   const fields = [
@@ -88,12 +89,21 @@ function CounsellingPageFormSection() {
 
   return (
     <section className={Styles['form-section']}>
+      <SectionNotifier
+        customClass={Styles.notif}
+        waitTillLoadComplete
+        show
+        fixed
+      >
+        We are not accepting counselling requests at this time. Please check back later.
+      </SectionNotifier>
       <FormText />
       <Form
         onSubmit={() => {}}
         fields={fields}
         submitButtonContent="Submit Form"
-        submitButtonVariant="blue-1"
+        submitButtonVariant="gray-1"
+        submitButtonDisabled
       />
     </section>
   );

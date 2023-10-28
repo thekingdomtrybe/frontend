@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import { useAuthenticateUserQuery } from '@/services/tkt-backend/auth';
+import ProtectedRouteLoading from './Loading';
 
 function ProtectedRoute({
   isAuthenticationPage,
@@ -14,7 +15,7 @@ function ProtectedRoute({
   } = useAuthenticateUserQuery('protected-route-cache-key');
 
   if (isUserLoading) {
-    return <div>Loading...</div>;
+    return <ProtectedRouteLoading />;
   }
 
   if (!user && isAuthenticationPage) {

@@ -1,15 +1,16 @@
 import React from 'react';
 import { useGetPastServicesQuery } from '@/services/tkt-backend/past_services';
-import Styles from './VideosSection.module.scss';
 import Video from '@/components/Video/Video';
+import PastServicesLoader from './Loader';
+import Styles from './VideosSection.module.scss';
 
 function PastServicesVideosSection() {
-  const { data: pastServicesData, isLoading } = useGetPastServicesQuery();
+  const { data: pastServicesData, isLoading, isError } = useGetPastServicesQuery();
 
   let videoComponents = null;
 
-  if (pastServicesData === undefined || isLoading) {
-    videoComponents = <p>Loading...</p>;
+  if (pastServicesData === undefined || isLoading || isError) {
+    videoComponents = <PastServicesLoader />;
   } else if (pastServicesData && pastServicesData.length === 0) {
     videoComponents = <p>No videos</p>;
   } else if (pastServicesData && pastServicesData.length > 0) {

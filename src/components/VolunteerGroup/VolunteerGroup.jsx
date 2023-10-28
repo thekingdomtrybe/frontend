@@ -21,7 +21,7 @@ function VolunteerGroup({
       </div>
       <div className={Styles.actions}>
         <Link to={link} target="_blank">
-          <Button variant="orange-1" content="Join group" type="button" />
+          <Button variant="gray-1" content="Join group" type="button" />
         </Link>
       </div>
     </div>

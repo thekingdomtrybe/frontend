@@ -4,7 +4,7 @@ import CounsellingPageImageSection from '@/page_components/Pages_CounsellingPage
 import CounsellingPageFormSection from '@/page_components/Pages_CounsellingPage/FormSection/FormSection';
 import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
-import Styles from './CounsellingPage.module.scss';
+// import Styles from './CounsellingPage.module.scss';
 
 function CounsellingPage() {
   const pageComponents = (
@@ -16,9 +16,7 @@ function CounsellingPage() {
   );
 
   const footer = (
-    <div className={Styles['desktop-footer']}>
-      <SiteFooter />
-    </div>
+    <SiteFooter />
   );
 
   return (

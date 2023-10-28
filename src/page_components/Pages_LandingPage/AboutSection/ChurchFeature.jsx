@@ -7,15 +7,16 @@ function ChurchFeature({
   name,
   description,
   cta,
-  image,
+  webpSrc,
+  jpegSrc,
   route,
 }) {
   return (
     <div className={Styles['church-feature']}>
       <div className={Styles['church-feature-overlay']} />
       <picture className={Styles['hero-image']}>
-        <source srcSet={`/images/${image}.webp`} type="image/webp" />
-        <img src={`/images/${image}.jpg`} alt="" loading="lazy" />
+        <source srcSet={webpSrc} type="image/webp" />
+        <img src={jpegSrc} alt="" loading="lazy" />
       </picture>
       <h3>{name}</h3>
       <p>{description}</p>
@@ -28,7 +29,8 @@ ChurchFeature.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   cta: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  webpSrc: PropTypes.string.isRequired,
+  jpegSrc: PropTypes.string.isRequired,
   route: PropTypes.string.isRequired,
 };
 

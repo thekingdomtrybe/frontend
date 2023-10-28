@@ -8,11 +8,12 @@ export default tktBackendSlice.injectEndpoints({
         method: 'PATCH',
         body: {
           user: {
-            first_name: body.first_name, last_name: body.last_name, image: body.image,
+            first_name: body.firstName, last_name: body.lastName, image: body.image,
           },
         },
       }),
-      transformErrorResponse: (response) => response.data.errors,
+      invalidatesTags: ['user'],
+      transformErrorResponse: (response) => response?.data?.errors || response || 'An error occured!',
     }),
     updateUserPassword: builder.mutation({
       query: (body) => ({
@@ -24,7 +25,7 @@ export default tktBackendSlice.injectEndpoints({
           },
         },
       }),
-      transformErrorResponse: (response) => response.data.errors,
+      transformErrorResponse: (response) => response?.data?.errors || response || 'An error occured!',
     }),
     login: builder.mutation({
       query: (body) => ({
@@ -40,7 +41,7 @@ export default tktBackendSlice.injectEndpoints({
         localStorage.setItem('user-token', authorizationHeader);
         return response.user;
       },
-      transformErrorResponse: (response) => response.data.errors,
+      transformErrorResponse: (response) => response.data?.errors || 'An error occured!',
     }),
     signup: builder.mutation({
       query: (body) => ({
@@ -55,7 +56,7 @@ export default tktBackendSlice.injectEndpoints({
           },
         },
       }),
-      transformErrorResponse: (response) => response.data.errors,
+      transformErrorResponse: (response) => response.data.errors[0],
     }),
     resetPassword: builder.mutation({
       query: (body) => ({
@@ -109,6 +110,7 @@ export default tktBackendSlice.injectEndpoints({
         localStorage.removeItem('user-token');
         return response.message;
       },
+      invalidatesTags: ['user'],
     }),
     googleSignIn: builder.mutation({
       query: (body) => ({
@@ -131,6 +133,7 @@ export default tktBackendSlice.injectEndpoints({
         localStorage.removeItem('user-token');
         return response.data;
       },
+      providesTags: ['user'],
     }),
   }),
 });

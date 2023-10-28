@@ -3,22 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SVG from '@/components/SVG/SVG';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
-import { useAuthenticateUserQuery } from '@/services/tkt-backend/auth';
 import Styles from './DropdownMenu.module.scss';
 
 function DropdownMenu({ variant, menuItems }) {
   const [open, setOpen] = useState(false);
-
-  const {
-    data: user,
-    isLoading: isUserLoading,
-    isError: isAuthenticateError,
-  } = useAuthenticateUserQuery('dropdown-menu');
-
-  // console.log(
-  //   'loading:', isUserLoading,
-  //   'error:', isAuthenticateError,
-  // );
 
   const dropdown = useRef();
   const toggle = useRef();
@@ -28,65 +16,19 @@ function DropdownMenu({ variant, menuItems }) {
     setOpen(false);
   });
 
-  const menuItemsList = menuItems.map((item) => {
-    if (item.auth === 'hide' && user && !isAuthenticateError) return null;
-    if (item.auth === 'show' && !user) return null;
-    if (item.auth === 'show' && isAuthenticateError) return null;
-
-    if (item.type === 'button') {
-      if (item.auth === 'hide' && isUserLoading) {
-        return (
-          <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-            <button type="button">
-              Loading...
-            </button>
-          </li>
-        );
-      }
-      if (item.auth === 'show' && isUserLoading) {
-        return (
-          <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-            <button type="button">
-              Loading...
-            </button>
-          </li>
-        );
-      }
-      return (
-        <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-          <button type="button" onClick={item.onClick}>
-            {item.label}
-          </button>
-        </li>
-      );
-    }
-
-    if (item.auth === 'hide' && isUserLoading) {
-      return (
-        <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-          <Link to={item.url}>Loading...</Link>
-        </li>
-      );
-    }
-    if (item.auth === 'show' && isUserLoading) {
-      return (
-        <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-          <Link to={item.url}>Loading...</Link>
-        </li>
-      );
-    }
-    return (
-      <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-        <Link to={item.url}>{item.label}</Link>
-      </li>
-    );
-  });
+  const menuItemsList = menuItems.map((item) => (
+    <li key={item.url} className={item.tablet && Styles['mobile-link']}>
+      <img src={item.img} alt="" />
+      <Link to={item.url}>{item.label}</Link>
+    </li>
+  ));
 
   const toggleMenu = () => {
     setOpen(!open);
   };
 
   const className = `${Styles['menu-content']} ${open ? Styles['menu-open'] : Styles['menu-closed']}`;
+  const overlayClass = `${Styles.overlay} ${open && Styles['overlay-open']}`;
   let color = '';
 
   switch (variant) {
@@ -105,20 +47,13 @@ function DropdownMenu({ variant, menuItems }) {
 
   return (
     <div className={Styles.menu}>
+      <div className={overlayClass} />
       <button
         type="button"
         onClick={toggleMenu}
         ref={toggle}
       >
-        {
-          open
-            ? (
-              <SVG icon="close" color={color} />
-            )
-            : (
-              <SVG icon="menu" color={color} />
-            )
-        }
+        <SVG icon="menu" className={Styles.handle} color={color} />
       </button>
       <ul
         className={className}
@@ -135,7 +70,6 @@ DropdownMenu.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     url: PropTypes.string,
-    auth: PropTypes.string,
   })).isRequired,
 };
 

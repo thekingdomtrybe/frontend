@@ -3,7 +3,7 @@ import PrayerRequestPageHeroSection from '@/page_components/Pages_PrayerRequestP
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
 import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
-import Styles from './PrayerRequestPage.module.scss';
+// import Styles from './PrayerRequestPage.module.scss';
 
 function PrayerRequestPage() {
   const pageComponents = (
@@ -15,9 +15,7 @@ function PrayerRequestPage() {
   );
 
   const footer = (
-    <div className={Styles['desktop-footer']}>
-      <SiteFooter />
-    </div>
+    <SiteFooter />
   );
 
   return (

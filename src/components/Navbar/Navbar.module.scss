@@ -46,7 +46,7 @@
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 850px) {
   .nav {
     a {
       font-size: var(--size-7-half);
@@ -54,7 +54,9 @@
       color: var(--gray);
     }
   }
+}
 
+@media (width >= 1024px) {
   .blue {
     a {
       color: var(--white);

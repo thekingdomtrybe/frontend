@@ -1,16 +1,19 @@
 import React from 'react';
 import VolunteerGroup from '@/components/VolunteerGroup/VolunteerGroup';
 import { useGetVolunteerGroupsQuery } from '@/services/tkt-backend/volunteer_groups';
+import VolunteerGroupsLoader from './Loader';
 import Styles from './GroupsSection.module.scss';
 
 function VolunteerGroupsGroupsSection() {
-  const { data: volunteerGroupsData, isLoading } = useGetVolunteerGroupsQuery();
+  const { data: volunteerGroupsData, isLoading, isError } = useGetVolunteerGroupsQuery();
+
+  if (volunteerGroupsData === undefined || isLoading || isError) {
+    return <VolunteerGroupsLoader />;
+  }
 
   let groupComponents = null;
 
-  if (volunteerGroupsData === undefined || isLoading) {
-    groupComponents = <p>Loading...</p>;
-  } else if (volunteerGroupsData && volunteerGroupsData.length === 0) {
+  if (volunteerGroupsData && volunteerGroupsData.length === 0) {
     groupComponents = <p>No volunteer groups</p>;
   } else if (volunteerGroupsData && volunteerGroupsData.length > 0) {
     groupComponents = (volunteerGroupsData).map((group) => (

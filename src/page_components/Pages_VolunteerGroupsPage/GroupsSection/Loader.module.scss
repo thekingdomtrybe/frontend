@@ -1,0 +1,107 @@
+.loader {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-3);
+  margin: 0 auto;
+}
+
+.loader-item {
+  width: 100%;
+  border-radius: var(--size-3);
+  border: var(--size-1-quarter) solid var(--silver);
+  max-width: var(--size-120);
+  display: grid;
+
+  .loader-item-image {
+    width: 100%;
+    height: var(--size-70);
+    border-radius: var(--size-3);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: var(--alpha-gray-2);
+  }
+
+  .loader-item-details {
+    display: grid;
+    gap: var(--spacing-1-half);
+    padding: var(--spacing-2);
+
+    .loader-item-name {
+      height: var(--size-8);
+      background-color: var(--alpha-gray-1);
+      width: var(--size-50);
+      border-radius: var(--size-2);
+    }
+
+    .loader-item-description {
+      height: var(--size-20);
+      background-color: var(--alpha-gray-2);
+      border-radius: var(--size-2);
+    }
+  }
+
+  .loader-item-actions {
+    padding: 0 var(--spacing-2) var(--spacing-2);
+
+    .loader-item-action {
+      height: var(--size-8);
+      background-color: var(--alpha-gray-2);
+      border-radius: var(--size-2);
+    }
+  }
+
+  * {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .loader-item-image::after,
+  .loader-item-details > *::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100px);
+    background: linear-gradient(90deg, transparent, var(--alpha-silver-2), transparent);
+    animation: loading var(--timing-normal) infinite;
+  }
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (width >= 768px) {
+  .loader {
+    padding: var(--spacing-6) var(--spacing-3);
+    grid-template-columns: repeat(2, auto);
+    gap: var(--spacing-3);
+  }
+
+  .loader-item {
+    min-width: var(--size-80);
+  }
+}
+
+@media (width >= 1024px) {
+  .loader {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4) var(--spacing-2);
+    max-width: var(--max-width-lg);
+  }
+
+  .loader-item {
+    min-width: 0;
+    width: 100%;
+
+    .loader-item-image {
+      height: var(--size-50);
+    }
+  }
+}

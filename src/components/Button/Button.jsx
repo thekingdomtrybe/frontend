@@ -3,37 +3,41 @@ import PropTypes from 'prop-types';
 import Styles from './Button.module.scss';
 
 function Button({
-  type, content, variant, children, size, onClick,
+  type, content, variant, children, size, onClick, disabled, styleClass,
 }) {
-  let className;
+  let className = `${styleClass} `;
 
   switch (variant) {
     case 'filled': {
-      className = Styles.filled;
+      className += Styles.filled;
       break;
     }
     case 'outlined': {
-      className = Styles.outlined;
+      className += Styles.outlined;
       break;
     }
     case 'orange-1': {
-      className = Styles.orange1;
+      className += Styles.orange1;
       break;
     }
     case 'blue': {
-      className = Styles.blue;
+      className += Styles.blue;
       break;
     }
     case 'blue-1': {
-      className = Styles.blue1;
+      className += Styles.blue1;
       break;
     }
     case 'gray-1': {
-      className = Styles.gray1;
+      className += Styles.gray1;
+      break;
+    }
+    case 'gray-3': {
+      className += Styles.gray3;
       break;
     }
     default: {
-      className = Styles.filled;
+      className += Styles.filled;
     }
   }
 
@@ -53,6 +57,8 @@ function Button({
       <button
         className={className}
         type={type === 'submit' ? 'submit' : 'button'}
+        onClick={onClick}
+        disabled={disabled}
       >
         {children}
       </button>
@@ -64,6 +70,7 @@ function Button({
       className={className}
       type={type === 'submit' ? 'submit' : 'button'}
       onClick={onClick}
+      disabled={disabled}
     >
       {content}
     </button>
@@ -77,6 +84,8 @@ Button.propTypes = {
   children: PropTypes.node,
   size: PropTypes.string,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
+  styleClass: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -84,6 +93,8 @@ Button.defaultProps = {
   content: '',
   size: 'normal',
   onClick: () => {},
+  disabled: false,
+  styleClass: '',
 };
 
 export default Button;

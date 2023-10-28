@@ -1,0 +1,150 @@
+.menu {
+  position: relative;
+  display: grid;
+  place-content: center;
+  width: var(--size-10);
+}
+
+.handle {
+  width: var(--size-10);
+
+  button {
+    width: 100%;
+    background: none;
+    display: grid;
+    place-items: center;
+    border: none;
+  }
+
+  img {
+    width: var(--size-8);
+    height: var(--size-8);
+    border-radius: 50%;
+    background-color: var(--silver);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  background-color: var(--alpha-dark-2);
+  z-index: 0;
+}
+
+.menu-content {
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: var(--header-height);
+  right: calc(var(--size-2) * -1);
+  z-index: 1;
+  background-color: var(--white);
+  font-size: var(--size-7-half);
+  letter-spacing: 0.5px;
+  line-height: var(--size-4);
+  width: var(--size-65);
+  border-radius: var(--size-2);
+
+  & > *:first-child {
+    border-top-left-radius: var(--size-2);
+    border-top-right-radius: var(--size-2);
+  }
+
+  & > *:last-child {
+    border: none;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: var(--size-10) auto;
+    gap: var(--spacing-1-half);
+    align-items: center;
+    padding: var(--spacing-3-half) var(--spacing-2);
+    border-bottom: var(--size-1-quarter) solid var(--alpha-silver-5);
+
+    img {
+      width: var(--size-8);
+      height: var(--size-8);
+      border-radius: 50%;
+      background-color: var(--silver);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--dark);
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button {
+      display: grid;
+      height: 100%;
+      align-items: center;
+      text-align: left;
+      background: none;
+      border: none;
+    }
+
+    &:hover {
+      background-color: var(--alpha-silver-3);
+    }
+  }
+}
+
+.overlay-open {
+  animation: fade-in 0.3s ease-in-out forwards;
+  display: block !important;
+}
+
+.menu-open {
+  animation: fade-up 0.3s ease-in-out forwards;
+  display: block !important;
+}
+
+.menu-closed {
+  animation: fade-down 0.3s ease-in-out forwards;
+}
+
+@keyframes fade-up {
+  from {
+    transform: translateY(calc(var(--size-4)));
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-down {
+  0% {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(calc(var(--size-2)));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--size-4)));
+    display: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

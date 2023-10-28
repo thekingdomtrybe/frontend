@@ -6,15 +6,15 @@ import { useAddVolunteerGroupMutation, useDeleteVoluteerGroupMutation, useGetVol
 function VolunterGroupsControls({
   ParentStyles,
 }) {
-  const { data: groups, isLoading: areGroupsLoading } = useGetVolunteerGroupsQuery();
+  const { data: groups } = useGetVolunteerGroupsQuery();
 
   const [addGroup,
-    // {
+    {
     //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
+      isSuccess: isSaveGroupSuccess,
     //   isError: isSubmitError,
     //   error: submitError,
-    // },
+    },
   ] = useAddVolunteerGroupMutation();
 
   const [deleteGroup,
@@ -25,17 +25,6 @@ function VolunterGroupsControls({
     //   error: submitError,
     // },
   ] = useDeleteVoluteerGroupMutation();
-
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
-
-  if (areGroupsLoading) {
-    return <p>Loading...</p>;
-  }
 
   const fields = {
     newGroup: [
@@ -66,10 +55,10 @@ function VolunterGroupsControls({
         label: 'Select a group to delete',
         name: 'volunteerGroupId',
         type: 'select',
-        options: groups.map((group) => ({
+        options: groups?.map((group) => ({
           label: group.name,
           value: group.id.toString(),
-        })),
+        })) || [],
       },
     ],
   };
@@ -97,7 +86,8 @@ function VolunterGroupsControls({
             gap="small"
             onSubmit={saveNewVolunteerGroup}
             submitButtonContent="Save"
-            submitButtonVariant="blue-1"
+            submitButtonVariant="gray-1"
+            clear={isSaveGroupSuccess}
             submitButtonFullWidth
             submitButtonSize="small"
           />

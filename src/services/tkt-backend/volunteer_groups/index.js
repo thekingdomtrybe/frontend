@@ -4,6 +4,7 @@ export default tktBackendSlice.injectEndpoints({
   endpoints: (builder) => ({
     getVolunteerGroups: builder.query({
       query: () => '/api/v1/volunteer_group',
+      providesTags: ['volunteerGroups'],
     }),
     addVolunteerGroup: builder.mutation({
       query: (body) => ({
@@ -11,12 +12,14 @@ export default tktBackendSlice.injectEndpoints({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['volunteerGroups'],
     }),
     deleteVoluteerGroup: builder.mutation({
       query: (id) => ({
         url: `/api/v1/volunteer_group/${id}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['volunteerGroups'],
     }),
   }),
 });

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
-import Emoji from '@/assets/images/emoji.jpg';
 import Styles from './LiveChatInput.module.scss';
 
 function LiveChatInput() {
@@ -57,7 +56,7 @@ function LiveChatInput() {
           ref={toggle}
           onClick={toggleEmojiSelectVisible}
         >
-          <img src={Emoji} alt="" />
+          <img src="" alt="" />
         </button>
       </div>
     </div>

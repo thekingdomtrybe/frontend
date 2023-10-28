@@ -4,6 +4,7 @@ export default tktBackendSlice.injectEndpoints({
   endpoints: (builder) => ({
     getEvents: builder.query({
       query: () => '/api/v1/event',
+      providesTags: ['events'],
     }),
     addEvent: builder.mutation({
       query: (body) => ({
@@ -11,12 +12,14 @@ export default tktBackendSlice.injectEndpoints({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['events'],
     }),
     deleteEvent: builder.mutation({
       query: (id) => ({
         url: `/api/v1/event/${id}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['events'],
     }),
   }),
 });

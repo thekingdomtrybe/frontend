@@ -85,11 +85,7 @@ function AllSettings() {
 
   return (
     <div className={Styles['all-settings']}>
-      <UserInfoDisplay
-        name="Yennefer Doe"
-        img=""
-        email="yen@mail.com"
-      />
+      <UserInfoDisplay />
       {pageToRender}
     </div>
   );

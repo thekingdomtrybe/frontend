@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Styles from './Testimony.module.scss';
 import SVG from '@/components/SVG/SVG';
+import Styles from './Testimony.module.scss';
 
 function Testimony({
   content,
