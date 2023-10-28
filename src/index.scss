@@ -82,7 +82,7 @@
   --white: rgb(255 255 255);
   --black: rgb(0 0 0);
   --red: rgb(255 0 0);
-  --dark: rgb(51, 51, 51);
+  --dark: rgb(51 51 51);
   --light-dark: rgb(102 102 102);
 
   // Red alpha variations
@@ -254,19 +254,17 @@ button {
 // useDimSection hook styles
 section {
   transition: filter var(--timing-medium) ease-in-out;
+
+  // To use section notifications, each section's
+  // position must be relative.
+  position: relative;
+  overflow: hidden;
 }
 
 .dim-section {
   position: sticky;
   filter: brightness(0.7);
   z-index: -1;
-}
-
-// To use section notifications, each section's
-// position must be relative.
-section {
-  position: relative;
-  overflow: hidden;
 }
 
 // For devices with height greater than 880px, the footers don't stay
