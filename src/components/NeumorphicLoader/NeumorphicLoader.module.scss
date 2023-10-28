@@ -19,7 +19,8 @@
 }
 
 .preloader-square {
-	animation: small-pop-out-1 var(--dur1) linear, pop-in-out var(--dur2) var(--dur1) linear infinite;
+	animation: small-pop-out-1 var(--dur1) linear,
+pop-in-out var(--dur2) var(--dur1) linear infinite;
 	border-radius: 0.5em;
 	box-shadow:
 		0.15em 0.15em 0.15em var(--shade4) inset,
@@ -38,15 +39,18 @@
 }
 
 .preloader-square:nth-child(2) {
-	animation: small-pop-out-2 var(--dur1) linear, move2 var(--dur2) var(--dur1) linear infinite;
+	animation: small-pop-out-2 var(--dur1) linear,
+move2 var(--dur2) var(--dur1) linear infinite;
 }
 
 .preloader-square:nth-child(3) {
-	animation: small-pop-out-3 var(--dur1) linear, move3 var(--dur2) var(--dur1) linear infinite;
+	animation: small-pop-out-3 var(--dur1) linear,
+move3 var(--dur2) var(--dur1) linear infinite;
 }
 
 .preloader-square:nth-child(4) {
-	animation: small-pop-out-4 var(--dur1) linear, move4 var(--dur2) var(--dur1) linear infinite;
+	animation: small-pop-out-4 var(--dur1) linear,
+move4 var(--dur2) var(--dur1) linear infinite;
 }
 
 .preloader-square:nth-child(n + 2):nth-child(-n + 3) {
@@ -56,7 +60,8 @@
 
 /* Animations */
 @keyframes large-pop-out {
-	0%, 20% {
+	0%,
+20% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -72,7 +77,8 @@
 			-2em -2em 4em var(--shade4);
 	}
 
-	60%, 100% {
+	60%,
+100% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -82,7 +88,8 @@
 }
 
 @keyframes small-pop-out-1 {
-	0%, 40% {
+	0%,
+40% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -98,7 +105,8 @@
 			-0.5em -0.5em 1em var(--shade4);
 	}
 
-	80%, 100% {
+	80%,
+100% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -108,7 +116,8 @@
 }
 
 @keyframes small-pop-out-2 {
-	0%, 45% {
+	0%,
+45% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -124,7 +133,8 @@
 			-0.5em -0.5em 1em var(--shade4);
 	}
 
-	85%, 100% {
+	85%,
+100% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -134,7 +144,8 @@
 }
 
 @keyframes small-pop-out-3 {
-	0%, 50% {
+	0%,
+50% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -150,7 +161,8 @@
 			-0.5em -0.5em 1em var(--shade4);
 	}
 
-	90%, 100% {
+	90%,
+100% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -160,7 +172,8 @@
 }
 
 @keyframes small-pop-out-4 {
-	0%, 55% {
+	0%,
+55% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -176,7 +189,8 @@
 			-0.5em -0.5em 1em var(--shade4);
 	}
 
-	95%, 100% {
+	95%,
+100% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -213,7 +227,8 @@
 		transform: translate(0,0);
 	}
 
-	12%, 16% {
+	12%,
+16% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -231,7 +246,8 @@
 		transform: translate(4em,0);
 	}
 
-	24%, 25% {
+	24%,
+25% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -258,7 +274,8 @@
 		transform: translate(4em,0);
 	}
 
-	37%, 41% {
+	37%,
+41% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -276,7 +293,8 @@
 		transform: translate(4em,4em);
 	}
 
-	49%, 50% {
+	49%,
+50% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -303,7 +321,8 @@
 		transform: translate(4em,4em);
 	}
 
-	62%, 66% {
+	62%,
+66% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -321,7 +340,8 @@
 		transform: translate(0,4em);
 	}
 
-	74%, 75% {
+	74%,
+75% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -348,7 +368,8 @@
 		transform: translate(0,4em);
 	}
 
-	87%, 91% {
+	87%,
+91% {
 		box-shadow:
 			0 0 0 var(--shade4) inset,
 			0 0 0 var(--shade1) inset,
@@ -366,7 +387,8 @@
 		transform: translate(0,0);
 	}
 
-	99%, 100% {
+	99%,
+100% {
 		box-shadow:
 			0.15em 0.15em 0.15em var(--shade4) inset,
 			-0.15em -0.15em 0.15em var(--shade1) inset,
@@ -377,7 +399,8 @@
 }
 
 @keyframes move2 {
-	0%, 8% {
+	0%,
+8% {
 		transform: translate(0,0);
 		width: 3em;
 		height: 3em;
@@ -389,7 +412,8 @@
 		height: 3em;
 	}
 
-	16%, 83% {
+	16%,
+83% {
 		transform: translate(-4em,0);
 		width: 3em;
 		height: 3em;
@@ -401,7 +425,8 @@
 		height: 7em;
 	}
 
-	91%, 100% {
+	91%,
+100% {
 		transform: translate(-4em,4em);
 		width: 3em;
 		height: 3em;
@@ -409,7 +434,8 @@
 }
 
 @keyframes move3 {
-	0%, 33% {
+	0%,
+33% {
 		transform: translate(0,0);
 		height: 3em;
 	}
@@ -419,14 +445,16 @@
 		height: 7em;
 	}
 
-	41%, 100% {
+	41%,
+100% {
 		transform: translate(0,-4em);
 		height: 3em;
 	}
 }
 
 @keyframes move4 {
-	0%, 58% {
+	0%,
+58% {
 		transform: translate(0,0);
 		width: 3em;
 	}
@@ -436,7 +464,8 @@
 		width: 7em;
 	}
 
-	66%, 100% {
+	66%,
+100% {
 		transform: translate(4em,0);
 		width: 3em;
 	}
@@ -447,23 +476,27 @@
 		visibility: hidden;
 	}
 
-	33%, 100% {
+	33%,
+100% {
 		visibility: visible;
 	}
 }
 
 @keyframes appear2 {
-	0%, 33% {
+	0%, 
+33% {
 		visibility: hidden;
 	}
 
-	67%, 100% {
+	67%,
+100% {
 		visibility: visible;
 	}
 }
 
 @keyframes appear3 {
-	0%, 67% {
+	0%,
+67% {
 		visibility: hidden;
 	}
 
@@ -471,4 +504,3 @@
 		visibility: visible;
 	}
 }
-
