@@ -9,7 +9,10 @@ import Styles from './SiteFooter.module.scss';
 function SiteFooter() {
   return (
     <footer className={Styles.footer}>
-      <div className={Styles.logo}><SiteLogo bg="dark" /></div>
+      <div className={Styles.logo}>
+        <SiteLogo bg="dark" />
+        <SiteLogo />
+      </div>
       <div className={Styles.nav}><Nav /></div>
       <div className={Styles['follow-us-text']}>FOLLOW US</div>
       <div className={Styles['social-links']}><SocialMediaLinks /></div>

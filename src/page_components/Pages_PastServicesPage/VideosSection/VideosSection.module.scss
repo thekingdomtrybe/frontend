@@ -1,20 +1,13 @@
 .videos {
-  padding: var(--spacing-4) var(--spacing-3);
+  padding: var(--spacing-4) 0;
   display: grid;
   justify-items: center;
-  gap: var(--spacing-4);
-}
-
-@media (width >= 768px) {
-  .videos {
-    justify-content: center;
-    gap: var(--spacing-3);
-  }
+  gap: var(--spacing-3-half);
 }
 
 @media (width >= 1024px) {
   .videos {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     margin: 0 auto;
     max-width: var(--max-width-lg);
   }

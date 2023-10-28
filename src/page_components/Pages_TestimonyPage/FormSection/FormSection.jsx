@@ -3,26 +3,20 @@ import FormText from './FormText';
 import SVG from '@/components/SVG/SVG';
 import Form from '@/components/Form/Form';
 import { useSendTestimonyMutation } from '@/services/tkt-backend/testimonies';
+import FormNotification from '@/components/FormNotification/FormNotification';
 import Styles from './FormSection.module.scss';
 
 function TestimonyPageFormSection() {
   const [submit,
-  // {
-    // isLoading: isSubmitting,
-    // isSuccess: isSubmitSuccess,
-    // isError: isSubmitError,
-    // error: submitError,
-  // }
+    {
+      isLoading: isSubmitting,
+      isSuccess: isSubmitSuccess,
+      isError: isSubmitError,
+    },
   ] = useSendTestimonyMutation();
 
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
-
-  const [fileSelectText, setFileSelectText] = useState('Upload an attachment');
+  const defaultFileSelectText = 'Upload an attachment';
+  const [fileSelectText, setFileSelectText] = useState(defaultFileSelectText);
 
   const fields = [
     {
@@ -58,17 +52,49 @@ function TestimonyPageFormSection() {
       type: 'file',
       children: (
         <>
-          <SVG icon="upload" color="var(--blue)" />
+          <SVG icon="upload" color="var(--gray)" />
           {fileSelectText}
         </>
       ),
       callback: (file) => {
         if (file) setFileSelectText(file.name);
-        else setFileSelectText('Upload an attachment');
+        else setFileSelectText(defaultFileSelectText);
       },
+      onClear: () => setFileSelectText(defaultFileSelectText),
       styleClassName: Styles['file-select'],
     },
   ];
+
+  const notificationStates = {
+    success: {
+      title: 'Testimony Received!',
+      message: 'We received your testimony! Thanks for sharing with us.',
+      nextSteps: [
+        {
+          text: 'Go back to the',
+          href: '/',
+          linkText: 'Homepage',
+        },
+        {
+          text: 'Join our',
+          href: '/live',
+          linkText: 'Livestream',
+        },
+        {
+          text: 'Or',
+          href: '/browse-past-services',
+          linkText: 'Browse our Past Services',
+        },
+      ],
+      trigger: isSubmitSuccess,
+      timeout: 15000,
+    },
+    error: {
+      message: 'An error occured!, Please try sending your request again.',
+      trigger: isSubmitError,
+      timeout: 5000,
+    },
+  };
 
   const submitTestimony = (e, formState) => {
     e.preventDefault();
@@ -91,12 +117,16 @@ function TestimonyPageFormSection() {
 
   return (
     <section className={Styles['form-section']}>
+      <FormNotification notifications={notificationStates} />
       <FormText />
       <Form
         onSubmit={submitTestimony}
+        clear={isSubmitSuccess}
         fields={fields}
         submitButtonContent="Share Testimony"
-        submitButtonVariant="blue-1"
+        submitButtonVariant="gray-1"
+        submitButtonStlye={Styles.submit}
+        isLoading={isSubmitting}
       />
     </section>
   );

@@ -2,6 +2,13 @@
   padding: var(--spacing-4) var(--spacing-2);
   display: grid;
   gap: var(--spacing-6);
+
+  .submit {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    gap: var(--spacing-1);
+  }
 }
 
 @media (width >= 768px) {

@@ -9,7 +9,7 @@
     border-radius: 50%;
     margin: auto;
     border: var(--size-1-half) solid var(--silver);
-    background-color: var(--alpha-blue-1);
+    background-color: var(--alpha-gray-2);
   }
 }
 
@@ -23,8 +23,8 @@
     width: var(--size-10);
     height: var(--size-10);
     border-radius: 50%;
-    border: var(--size-1-half) solid var(--blue);
-    background-color: var(--alpha-blue-4);
+    border: var(--size-1-half) solid var(--gray);
+    background-color: var(--alpha-gray-4);
     color: var(--white);
   }
 }
@@ -63,6 +63,27 @@
       color: var(--gray);
       font-size: var(--size-4);
     }
+  }
+}
+
+.success {
+  color: var(--white);
+  background-color: var(--alpha-green-6);
+  text-align: center;
+}
+
+.submit {
+  display: grid;
+  grid-auto-flow: column;
+  place-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  position: relative;
+  width: var(--size-60);
+
+  & > *:first-child {
+    position: absolute;
+    right: 5%;
   }
 }
 

@@ -1,30 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleLogin from '@/components/GoogleLogin/GoogleLogin';
 import Form from '@/components/Form/Form';
 import AuthenticationPageSwitch from '@/components/AuthenticationPageSwitch/AuthenticationPageSwitch';
-import { useLoginMutation } from '@/services/tkt-backend/auth';
+import { useGoogleSignInMutation, useLoginMutation } from '@/services/tkt-backend/auth';
+import FormNotification from '@/components/FormNotification/FormNotification';
 import Styles from './FormSection.module.scss';
 
 function LoginFormSection() {
   const [
     submit,
-    // {
-    //   data: submitData,
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isLoading: isSubmitting,
+      isSuccess: isSubmitSuccess,
+      isError: isSubmitError,
+      error: submitError,
+    },
   ] = useLoginMutation();
 
-  // console.log(
-  //   'submitData:', submitData,
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
+  const [
+    submitGoogle,
+    {
+      isSuccess: isSubmitSuccessGoogle,
+      isError: isSubmitErrorGoogle,
+      error: submitErrorGoogle,
+    },
+  ] = useGoogleSignInMutation();
 
   const fields = [
     {
@@ -71,6 +72,29 @@ function LoginFormSection() {
     },
   ];
 
+  const notificationStates = {
+    customSuccess: {
+      message: 'Login successful!',
+      trigger: isSubmitSuccess,
+      styles: Styles.success,
+    },
+    customGoogle: {
+      message: 'Login successful!',
+      trigger: isSubmitSuccessGoogle,
+      styles: Styles.success,
+    },
+    error: {
+      message: submitError,
+      trigger: isSubmitError,
+      timeout: 5000,
+    },
+    errorGoogle: {
+      message: submitErrorGoogle,
+      trigger: isSubmitErrorGoogle,
+      timeout: 5000,
+    },
+  };
+
   const login = (e, formState) => {
     e.preventDefault();
     submit({
@@ -79,19 +103,34 @@ function LoginFormSection() {
     });
   };
 
+  useEffect(() => {
+    if (isSubmitSuccess || isSubmitSuccessGoogle) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    }
+  });
+
   return (
     <section className={Styles['form-section']}>
+      <FormNotification notifications={notificationStates} />
       <Form
         onSubmit={login}
+        clear={isSubmitSuccess}
         submitButtonContent="Sign In"
         submitButtonVariant="blue-1"
         submitButtonFullWidth
         noLineBreakBeforeSubmit
         fields={fields}
+        submitButtonStlye={Styles.submit}
+        isLoading={isSubmitting}
       />
 
       <div className={Styles['social-login']}>
-        <GoogleLogin text="Sign in" />
+        <GoogleLogin
+          text="Sign in"
+          submit={submitGoogle}
+        />
       </div>
 
       <div className={Styles['auth-page-switch']}>

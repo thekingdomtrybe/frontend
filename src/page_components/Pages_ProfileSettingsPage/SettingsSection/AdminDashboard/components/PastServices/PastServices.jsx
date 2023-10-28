@@ -6,36 +6,25 @@ import { useAddPastServiceMutation, useDeletePastServiceMutation, useGetPastServ
 function PastServicesControls({
   ParentStyles,
 }) {
-  const { data: pastServices, isLoading: isPastServicesLoading } = useGetPastServicesQuery();
+  const { data: pastServices } = useGetPastServicesQuery();
 
   const [addPastService,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      // isLoading: isSubmitting,
+      isSuccess: isSavePastServiceSuccess,
+      // isError: isSubmitError,
+      // error: submitError,
+    },
   ] = useAddPastServiceMutation();
 
   const [deletePastService,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+  // {
+    // isLoading: isSubmitting,
+    // isSuccess: isDeletePastServiceSuccess,
+    // isError: isSubmitError,
+    // error: submitError,
+  // },
   ] = useDeletePastServiceMutation();
-
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
-
-  if (isPastServicesLoading) {
-    return <p>Loading...</p>;
-  }
 
   const fields = {
     newPastService: [
@@ -71,10 +60,10 @@ function PastServicesControls({
         label: 'Select a past service to delete',
         name: 'pastServiceId',
         type: 'select',
-        options: pastServices.map((service) => ({
+        options: pastServices?.map((service) => ({
           label: service.title,
           value: service.id.toString(),
-        })),
+        })) || [],
       },
     ],
   };
@@ -102,7 +91,8 @@ function PastServicesControls({
             gap="small"
             onSubmit={saveNewPastService}
             submitButtonContent="Save"
-            submitButtonVariant="blue-1"
+            clear={isSavePastServiceSuccess}
+            submitButtonVariant="gray-1"
             submitButtonFullWidth
             submitButtonSize="small"
           />

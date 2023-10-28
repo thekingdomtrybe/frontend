@@ -2,16 +2,23 @@
   padding: var(--spacing-4) var(--spacing-2);
   display: grid;
   gap: var(--spacing-6);
+
+  .submit {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    gap: var(--spacing-1);
+  }
 }
 
 .file-select {
   button {
     width: 100%;
-    background-color: var(--alpha-blue-1);
+    background-color: var(--alpha-gray-2);
     border: none;
-    border-bottom: var(--size-3-half) solid var(--blue);
+    border-bottom: var(--size-3-half) solid var(--gray);
     padding: var(--spacing-2);
-    color: var(--blue);
+    color: var(--gray);
     font-size: var(--size-7-half);
     line-height: var(--size-4);
     border-top-left-radius: var(--size-2);

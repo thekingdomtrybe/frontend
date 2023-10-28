@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
-import { useUpdatePrayerRequestRecipientEmailMutation } from '@/services/tkt-backend/email';
+import { useGetAdminEmailAddressesQuery, useUpdatePrayerRequestRecipientEmailMutation } from '@/services/tkt-backend/email';
 // import Styles from './PrayerRequests.module.scss';
 
 function PrayerRequestsControls({
   ParentStyles,
 }) {
+  const {
+    data: emailAddresses,
+    isSuccess: isEmailAddressesSuccess,
+  } = useGetAdminEmailAddressesQuery();
+
   const [submit,
     // {
     //   isLoading: isSubmitting,
@@ -22,16 +27,10 @@ function PrayerRequestsControls({
         label: 'Email address',
         name: 'prayerRequestsRecipientEmail',
         type: 'email',
+        initialValue: isEmailAddressesSuccess ? emailAddresses.prayerRequestRecipientEmail : '',
       },
     ],
   };
-
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
 
   const handleSubmit = (e, formState) => {
     e.preventDefault();

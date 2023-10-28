@@ -23,7 +23,7 @@ import NewPasswordPage from './views/NewPasswordPage/NewPasswordPage';
 import CounsellingPage from './views/CounsellingPage/CounsellingPage';
 import PrivacyPage from './views/PrivacyPage/PrivacyPage';
 import TermsOfUsePage from './views/TermsOfUsePage/TermsOfUsePage';
-import ProfileSettingsPage from './services/ProfileSettingsPage/ProfileSettingsPage';
+import ProfileSettingsPage from './views/ProfileSettingsPage/ProfileSettingsPage';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {

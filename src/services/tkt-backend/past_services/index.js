@@ -7,6 +7,7 @@ export default tktBackendSlice.injectEndpoints({
     }),
     getPastServices: builder.query({
       query: () => '/api/v1/sermon',
+      providesTags: ['pastServices'],
     }),
     addPastService: builder.mutation({
       query: (body) => ({
@@ -14,12 +15,14 @@ export default tktBackendSlice.injectEndpoints({
         method: 'POST',
         body: { sermon: body },
       }),
+      invalidatesTags: ['pastServices'],
     }),
     deletePastService: builder.mutation({
       query: (id) => ({
         url: `/api/v1/sermon/${id}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['pastServices'],
     }),
   }),
 });

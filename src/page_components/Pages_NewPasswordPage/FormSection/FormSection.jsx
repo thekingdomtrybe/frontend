@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionNotifier from '@/components/SectionNotifier/SectionNotifier';
 import Form from '@/components/Form/Form';
 import AuthenticationPageSwitch from '@/components/AuthenticationPageSwitch/AuthenticationPageSwitch';
 import { useUpdatePasswordMutation } from '@/services/tkt-backend/auth';
@@ -7,22 +8,7 @@ import Styles from './FormSection.module.scss';
 function NewPasswordFormSection() {
   const [
     submit,
-    // {
-    //   data: submitData,
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
   ] = useUpdatePasswordMutation();
-
-  // console.log(
-  //   'submitData:', submitData,
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
 
   const fields = [
     {
@@ -56,13 +42,23 @@ function NewPasswordFormSection() {
 
   return (
     <section className={Styles['form-section']}>
+      <SectionNotifier
+        customClass={Styles.notif}
+        waitTillLoadComplete
+        show
+        fixed
+      >
+        This feature has not been fully implemented. Please bear with us as we work on it.
+      </SectionNotifier>
       <Form
         type="auth"
         onSubmit={setNewPassword}
         fields={fields}
         // gap="small"
         submitButtonContent="Update password"
-        submitButtonVariant="blue-1"
+        // submitButtonVariant="blue-1"
+        submitButtonVariant="gray-1"
+        submitButtonDisabled
         submitButtonFullWidth
         noLineBreakBeforeSubmit
       />

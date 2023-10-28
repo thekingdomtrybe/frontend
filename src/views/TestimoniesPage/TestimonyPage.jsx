@@ -3,7 +3,7 @@ import TestimonyPageHeroSection from '@/page_components/Pages_TestimonyPage/Hero
 import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
 import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
-import Styles from './TestimonyPage.module.scss';
+// import Styles from './TestimonyPage.module.scss';
 
 function TestimonyPage() {
   const pageComponents = (
@@ -15,9 +15,7 @@ function TestimonyPage() {
   );
 
   const footer = (
-    <div className={Styles['desktop-footer']}>
-      <SiteFooter />
-    </div>
+    <SiteFooter />
   );
 
   return (

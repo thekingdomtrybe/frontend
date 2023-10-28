@@ -1,0 +1,27 @@
+.notifier {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--spacing-2);
+  width: 100%;
+  max-width: var(--size-150);
+  font-size: var(--size-7-half);
+  line-height: var(--size-4);
+}
+
+.active {
+  top: 0;
+}
+
+.slow {
+  transition: top var(--timing-slowest-2) ease-in-out;
+}
+
+.normal {
+  transition: top var(--timing-slowest-1) ease-in-out;
+}
+
+.fast {
+  transition: top var(--timing-slowest) ease-in-out;
+}

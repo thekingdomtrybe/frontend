@@ -4,6 +4,7 @@ export default tktBackendSlice.injectEndpoints({
   endpoints: (builder) => ({
     getTestimonies: builder.query({
       query: () => '/api/v1/testimony/public',
+      providesTags: ['testimonies'],
     }),
     sendTestimony: builder.mutation({
       query: (body) => ({
@@ -18,6 +19,7 @@ export default tktBackendSlice.injectEndpoints({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['testimonies'],
     }),
   }),
 });

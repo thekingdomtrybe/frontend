@@ -1,13 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
-import { useUpdateTestimonyRecipientEmailMutation } from '@/services/tkt-backend/email';
-import { useUpdatePublicTestimoniesMutation } from '@/services/tkt-backend/testimonies';
+import { useGetAdminEmailAddressesQuery, useUpdateTestimonyRecipientEmailMutation } from '@/services/tkt-backend/email';
+import { useGetTestimoniesQuery, useUpdatePublicTestimoniesMutation } from '@/services/tkt-backend/testimonies';
 // import Styles from './Testimonies.module.scss';
 
 function TestimonyControls({
   ParentStyles,
 }) {
+  const {
+    data: emailAddresses,
+    isSuccess: isEmailAddressesSuccess,
+  } = useGetAdminEmailAddressesQuery();
+
+  const {
+    data: publicTestimonies,
+    isSuccess: isPublicTestimoniesSuccess,
+  } = useGetTestimoniesQuery();
+
   const [updateTestimonyRecipientEmail,
     // {
     //   isLoading: isSubmitting,
@@ -26,19 +36,13 @@ function TestimonyControls({
     // },
   ] = useUpdatePublicTestimoniesMutation();
 
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
-
   const fields = {
     testimoniesRecipient: [
       {
         label: 'Email address',
         name: 'testimoniesRecipientEmail',
         type: 'email',
+        initialValue: isEmailAddressesSuccess ? emailAddresses.testimonyRecipientEmail : '',
       },
     ],
     publicTestimonies: [
@@ -46,45 +50,77 @@ function TestimonyControls({
         label: 'Testifier\'s name',
         name: 'firstTestifiersName',
         type: 'text',
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[0].testifier_first_name}`
+          ) : '',
       },
       {
         label: 'Testimony',
         name: 'firstTestifiersTestimony',
         type: 'textarea',
         numRows: 4,
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[0].testimony_content}`
+          ) : '',
       },
       {
         label: 'Testifier\'s name',
         name: 'secondTestifiersName',
         type: 'text',
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[1].testifier_first_name}`
+          ) : '',
       },
       {
         label: 'Testimony',
         name: 'secondTestifiersTestimony',
         type: 'textarea',
         numRows: 4,
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[1].testimony_content}`
+          ) : '',
       },
       {
         label: 'Testifier\'s name',
         name: 'thirdTestifiersName',
         type: 'text',
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[2].testifier_first_name}`
+          ) : '',
       },
       {
         label: 'Testimony',
         name: 'thirdTestifiersTestimony',
         type: 'textarea',
         numRows: 4,
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[2].testimony_content}`
+          ) : '',
       },
       {
         label: 'Testifier\'s name',
         name: 'fourthTestifiersName',
         type: 'text',
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[3].testifier_first_name}`
+          ) : '',
       },
       {
         label: 'Testimony',
         name: 'fourthTestifiersTestimony',
         type: 'textarea',
         numRows: 4,
+        initialValue:
+          isPublicTestimoniesSuccess ? (
+            `${publicTestimonies[3].testimony_content}`
+          ) : '',
       },
     ],
   };

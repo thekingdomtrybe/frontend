@@ -1,12 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useAuthenticateUserQuery } from '@/services/tkt-backend/auth';
+import UserLoading from './Loading';
 import Styles from './UserInfoDisplay.module.scss';
 
-function UserInfoDisplay({
-  name,
-  img,
-  email,
-}) {
+function UserInfoDisplay() {
+  const {
+    data: user,
+    isLoading: isUserLoading,
+    isError: isUserError,
+  } = useAuthenticateUserQuery();
+
+  if (isUserLoading || isUserError) {
+    return <UserLoading />;
+  }
+
+  const name = `${user.first_name} ${user.last_name}`;
+  const { email } = user;
+  const img = user.picture_url;
+
   return (
     <div className={Styles['user-info']}>
       <img src={img} alt="" />
@@ -17,11 +28,5 @@ function UserInfoDisplay({
     </div>
   );
 }
-
-UserInfoDisplay.propTypes = {
-  name: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-};
 
 export default UserInfoDisplay;

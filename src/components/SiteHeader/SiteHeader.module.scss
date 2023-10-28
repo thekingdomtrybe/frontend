@@ -1,16 +1,21 @@
 .header {
   width: 100%;
-  padding: 0 var(--spacing-2);
+  padding: 0 var(--spacing-3-half);
   height: var(--header-height);
   display: grid;
   justify-content: space-between;
   align-items: center;
-  grid-template-columns: auto auto;
+  grid-template-columns: max-content max-content;
   transition: var(--timing-medium) all;
   position: sticky;
   top: 0;
   background-color: var(--white);
   z-index: 100;
+}
+
+.menus {
+  display: grid;
+  grid-template-columns: max-content max-content;
 }
 
 .dark {
@@ -37,7 +42,9 @@
   .light-border {
     border-bottom: calc(var(--size-1-quarter)) solid var(--alpha-silver-3);
   }
+}
 
+@media (width >= 850px) {
   .nav {
     display: block;
     position: absolute;
