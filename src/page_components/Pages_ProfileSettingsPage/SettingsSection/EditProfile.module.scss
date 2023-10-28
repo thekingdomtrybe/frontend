@@ -80,11 +80,6 @@
   gap: var(--spacing-1);
   position: relative;
   width: var(--size-60);
-
-  & > *:first-child {
-    position: absolute;
-    right: 5%;
-  }
 }
 
 @media (width >= 768px) {

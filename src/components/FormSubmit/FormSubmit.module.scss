@@ -6,4 +6,12 @@
 
 .full-width {
   justify-content: stretch;
+
+  button {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    place-items: center;
+    gap: var(--spacing-1-half);
+  }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
+import FormLoading from './Loading';
 import Styles from './FormSubmit.module.scss';
-import NeumorphicLoader from '@/components/NeumorphicLoader/NeumorphicLoader';
 
 function FormSubmit({
   isLoading,
@@ -25,7 +25,7 @@ function FormSubmit({
         disabled={disabled || isLoading}
         styleClass={styleClass}
       >
-        {isLoading && <NeumorphicLoader size={2} />}
+        {isLoading && <FormLoading />}
         {content}
       </Button>
     </div>
