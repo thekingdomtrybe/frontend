@@ -78,6 +78,13 @@ function UserProfileDropdown({
             )
           }
           {
+            user && !user?.picture_url && (
+              <div className={Styles['svg-container']}>
+                <SVG icon="user" width={27} color="var(--gray)" />
+              </div>
+            )
+          }
+          {
             !user && (
               <div className={Styles['svg-container']}>
                 <SVG icon="user" width={27} color="var(--gray)" />

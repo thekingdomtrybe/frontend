@@ -8,6 +8,14 @@ function VideoInfo({
   minister,
   uploadDate,
 }) {
+  let videoDate = new Date(uploadDate);
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  videoDate = videoDate.toLocaleDateString('en-US', options);
+
   return (
     <div className={Styles['video-info']}>
       <div className={Styles['video-details']}>
@@ -15,7 +23,9 @@ function VideoInfo({
         <div className={Styles['minister-upload-date']}>
           <div className={Styles.minister}>{minister}</div>
           <div className={Styles.separator} />
-          <div className={Styles['upload-date']}>{uploadDate}</div>
+          <div className={Styles['upload-date']}>
+            {videoDate}
+          </div>
         </div>
       </div>
       <div className={Styles['video-description']}>
