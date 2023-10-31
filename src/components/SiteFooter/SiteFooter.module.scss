@@ -10,12 +10,6 @@
   .follow-us-text {
     display: none;
   }
-
-  .logo {
-    > *:first-child {
-      display: none;
-    }
-  }
 }
 
 @media (width >= 768px) {
@@ -31,14 +25,6 @@
       grid-column: 1 / 2;
       grid-row: 1 / 2;
       width: max-content;
-
-      > *:first-child {
-        display: grid;
-      }
-
-      > *:last-child {
-        display: none;
-      }
     }
 
     .copyright-text {
@@ -65,7 +51,7 @@
       text-align: right;
       font-size: var(--size-5-half);
       padding-bottom: var(--spacing-2);
-      color: var(--alpha-gray-6);
+      color: var(--black);
     }
 
     .social-links {

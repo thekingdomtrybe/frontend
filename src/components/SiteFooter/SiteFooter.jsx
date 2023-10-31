@@ -10,7 +10,6 @@ function SiteFooter() {
   return (
     <footer className={Styles.footer}>
       <div className={Styles.logo}>
-        <SiteLogo bg="dark" />
         <SiteLogo />
       </div>
       <div className={Styles.nav}><Nav /></div>

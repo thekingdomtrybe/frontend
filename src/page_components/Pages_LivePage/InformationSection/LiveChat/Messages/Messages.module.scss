@@ -1,0 +1,62 @@
+.messages {
+  list-style: none;
+  display: grid;
+  grid-auto-rows: max-content;
+  position: relative;
+  overflow-y: scroll;
+  padding-bottom: var(--spacing-2);
+
+  &::-webkit-scrollbar {
+    width: var(--size-1-half);
+    position: absolute;
+    left: 0;
+    top: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--alpha-dark-3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--alpha-dark-7);
+    border-radius: var(--size-10);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--alpha-dark-9);
+  }
+
+  .pin {
+    display: none;
+  }
+
+  .pinned {
+    position: sticky;
+    top: 0;
+    background-color: var(--alpha-dark-9);
+    color: var(--white);
+    backdrop-filter: blur(8px);
+    grid-row: 1;
+    padding: var(--spacing-2);
+    z-index: 1;
+
+    .pin {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: var(--spacing-1-half);
+      grid-row: 1;
+      grid-column: 1 / 3;
+      background-color: var(--white);
+      color: var(--dark);
+      width: max-content;
+      padding: var(--spacing-1-half) var(--spacing-1);
+      border-radius: var(--size-1);
+
+      span {
+        display: grid;
+        place-items: center;
+        font-size: var(--size-3);
+      }
+    }
+  }
+}

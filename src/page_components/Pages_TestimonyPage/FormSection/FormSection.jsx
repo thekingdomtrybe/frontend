@@ -124,7 +124,7 @@ function TestimonyPageFormSection() {
         clear={isSubmitSuccess}
         fields={fields}
         submitButtonContent="Share Testimony"
-        submitButtonVariant="gray-1"
+        submitButtonVariant="dark"
         submitButtonStlye={Styles.submit}
         isLoading={isSubmitting}
       />

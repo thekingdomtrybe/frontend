@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-import Styles from './AccountSettings.module.scss';
 import SVG from '@/components/SVG/SVG';
+import Styles from './AccountSettings.module.scss';
 
 function AccountSettings({
   setCurrentPage,
@@ -31,12 +31,14 @@ function AccountSettings({
       title: 'Dark mode',
       url: null,
       control: 'checkbox',
+      disabled: true,
       onChange: () => toggleSetting('dark-mode'),
     },
     {
       title: 'Push notifications',
       url: null,
       control: 'checkbox',
+      disabled: true,
       onChange: () => toggleSetting('push-notifications'),
     },
   ];
@@ -65,12 +67,14 @@ function AccountSettings({
               type="button"
               className={className}
               onClick={option.onClick}
+              disabled={option.disabled}
             >
               {option.title}
               {option.icon && (<SVG icon={option.icon} color="var(--gray)" />)}
               {option.control === 'checkbox' && (
                 <input
                   type="checkbox"
+                  disabled={option.disabled}
                   onChange={option.onChange}
                 />
               )}

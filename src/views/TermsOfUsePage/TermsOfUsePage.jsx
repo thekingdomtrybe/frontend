@@ -5,8 +5,7 @@ import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuc
 import LegalPageHeroSection from '@/page_components/Pages_LegalPage/HeroSection/HeroSection';
 import LegalPageContentSection, { LegalPageContentSectionStyles } from '@/page_components/Pages_LegalPage/ContentSection/ContentSection';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
-import MobileFooter from '@/components/MobileFooter/MobileFooter';
-import Styles from './TermsOfUsePage.module.scss';
+// import Styles from './TermsOfUsePage.module.scss';
 
 function TermsOfUsePage() {
   const pageComponents = (
@@ -187,21 +186,10 @@ function TermsOfUsePage() {
     </>
   );
 
-  const footer = (
-    <>
-      <div className={Styles['desktop-footer']}>
-        <SiteFooter />
-      </div>
-      <div className={Styles['mobile-footer']}>
-        <MobileFooter />
-      </div>
-    </>
-  );
-
   return (
     <BottomStuckFooterPage
       top={pageComponents}
-      footer={footer}
+      footer={<SiteFooter />}
     />
   );
 }

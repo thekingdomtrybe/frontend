@@ -12,8 +12,8 @@ function LandingPageTestimonySection() {
   return (
     <section ref={sectionRef} className={Styles['testimony-section']}>
       <TestimonyText />
-      <TestimonySectionControls />
       <Testimonies />
+      <TestimonySectionControls />
     </section>
   );
 }

@@ -51,22 +51,22 @@ function CounsellingPageFormSection() {
         { value: 'no', label: 'No' },
       ],
     },
-    {
-      label: `
-        Please ensure you submit this form with the button at the bottom of the page
-        after scheduling your appointment.`,
-      name: 'appointmentConfirmation',
-      variant: 'warning',
-      type: 'alert',
-      icon: '',
-    },
-    {
-      label: 'Select your preferred time',
-      name: 'preferredTime',
-      type: 'calendly',
-      url: 'https://calendly.com/tktglobal23/one-on-one-with-me',
-      prefill: {},
-    },
+    // {
+    //   label: `
+    //     Please ensure you submit this form with the button at the bottom of the page
+    //     after scheduling your appointment.`,
+    //   name: 'appointmentConfirmation',
+    //   variant: 'warning',
+    //   type: 'alert',
+    //   icon: '',
+    // },
+    // {
+    //   label: 'Select your preferred time',
+    //   name: 'preferredTime',
+    //   type: 'calendly',
+    //   url: 'https://calendly.com/tktglobal23/one-on-one-with-me',
+    //   prefill: {},
+    // },
     {
       label: 'How would you like us to contact you?',
       name: 'contactMethod',

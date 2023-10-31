@@ -1,5 +1,6 @@
 .team-members {
   display: grid;
+  justify-content: center;
   gap: var(--spacing-6);
   width: 100%;
   justify-items: center;
@@ -9,7 +10,6 @@
   .team-members {
     grid-template-columns: repeat(2, max-content);
     gap: var(--spacing-6) var(--spacing-3);
-    justify-content: center;
   }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SVG from '@/components/SVG/SVG';
 import Styles from './AboutUs.module.scss';
 
 function AboutUs({
@@ -9,7 +10,7 @@ function AboutUs({
     <div className={Styles['about-us']}>
       <div className={Styles['about-us-header']}>
         <button type="button" onClick={goBack}>
-          <img src="" alt="" />
+          <SVG icon="arrow-left" color="var(--gray)" width={16} />
           Back to settings
         </button>
         <h2>About Us</h2>

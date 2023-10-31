@@ -6,6 +6,7 @@ import PrayerRequestsControls from './components/PrayerRequests/PrayerRequests';
 import PastServicesControls from './components/PastServices/PastServices';
 import EventsControls from './components/Events/Events';
 import VolunterGroupsControls from './components/VolunteerGroups/VolunteerGroups';
+import SVG from '@/components/SVG/SVG';
 import Styles from './AdminDashboard.module.scss';
 
 function AdminDashboard({
@@ -15,7 +16,7 @@ function AdminDashboard({
     <div className={Styles['admin-dashboard']}>
       <div className={Styles['admin-dashboard-header']}>
         <button type="button" onClick={goBack}>
-          <img src="" alt="" />
+          <SVG icon="arrow-left" color="var(--gray)" width={16} />
           Back to settings
         </button>
         <h2>Admin Dashboard</h2>

@@ -5,6 +5,12 @@
   gap: var(--spacing-5);
 }
 
+.notif {
+  text-align: center;
+  background-color: var(--alpha-dark-8);
+  color: var(--white);
+}
+
 @media (width >= 768px) {
   .groups {
     padding: var(--spacing-6) var(--spacing-3);

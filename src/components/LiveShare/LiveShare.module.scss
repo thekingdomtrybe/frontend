@@ -19,12 +19,24 @@
   font-weight: 400;
 
   svg {
-    width: var(--size-8);
-    height: var(--size-8);
+    width: var(--size-6);
+    height: var(--size-6);
   }
 }
 
 .whatsapp > svg {
-  width: var(--size-11);
-  height: var(--size-11);
+  width: var(--size-8);
+  height: var(--size-8);
+}
+
+@media (width >= 1024px) {
+  .live-share {
+    padding: var(--spacing-1);
+  }
+
+  .link {
+    span {
+      display: none;
+    }
+  }
 }

@@ -3,8 +3,8 @@ import WelcomeText from './WelcomeText';
 import HeroImage from './HeroImage';
 import ButtonControls from './ButtonControls';
 import CaratDown from './CaratDown';
-import Styles from './HeroSection.module.scss';
 import useDimSection from '@/hooks/useDimSection';
+import Styles from './HeroSection.module.scss';
 
 function LandingPageHeroSection() {
   const sectionRef = useRef(null);
@@ -13,9 +13,11 @@ function LandingPageHeroSection() {
   return (
     <section id="hero section" ref={sectionRef} className={Styles['hero-section']}>
       <HeroImage />
-      <WelcomeText />
-      <ButtonControls />
-      <CaratDown />
+      <div className={Styles.content}>
+        <WelcomeText />
+        <ButtonControls />
+        <CaratDown />
+      </div>
     </section>
   );
 }

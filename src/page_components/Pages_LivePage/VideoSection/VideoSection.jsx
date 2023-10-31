@@ -1,18 +1,26 @@
 import React from 'react';
-import VideoDetails from '../VideoDetails/VideoDetails';
 import YoutubeEmbed from '@/components/YoutubeEmbed/YoutubeEmbed';
+import { useGetLiveStreamURLQuery } from '@/services/tkt-backend/live';
+import VideoLoader from './VideoLoader';
 import Styles from './VideoSection.module.scss';
 
 function LiveStreamVideoSection() {
+  const {
+    isLoading,
+    data: liveStreamURL,
+  } = useGetLiveStreamURLQuery();
+
+  let videoId = null;
+
+  if (isLoading) {
+    return <VideoLoader />;
+  }
+
+  [, videoId] = liveStreamURL.split('?v=');
+
   return (
     <section className={Styles['video-section']}>
-      {/* <video>
-        <track kind="captions" label="English" />
-      </video> */}
-      <YoutubeEmbed embedId="jqUKWU7vhJA" />
-      <div className={Styles['video-details']}>
-        <VideoDetails />
-      </div>
+      <YoutubeEmbed embedId={videoId} />
     </section>
   );
 }

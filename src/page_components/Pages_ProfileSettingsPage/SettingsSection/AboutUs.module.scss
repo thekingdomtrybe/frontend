@@ -19,13 +19,6 @@
       gap: var(--spacing-1-half);
       align-items: center;
       grid-template-columns: max-content auto;
-
-      img {
-        width: var(--size-2);
-        height: var(--size-2);
-        border: var(--size-1-quarter) solid var(--silver);
-        background-color: var(--silver);
-      }
     }
 
     h2 {

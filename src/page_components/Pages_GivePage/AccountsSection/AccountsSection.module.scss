@@ -1,7 +1,7 @@
 .accounts {
-  padding: 0 var(--spacing-3) var(--spacing-6);
+  padding: 0 var(--spacing-1) var(--spacing-6);
   display: grid;
-  gap: var(--spacing-3);
+  gap: var(--spacing-2);
   justify-items: center;
 }
 
@@ -10,7 +10,7 @@
     padding: 0 var(--spacing-3) var(--spacing-6);
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
-    gap: var(--spacing-2) var(--spacing-3);
+    gap: var(--spacing-2);
   }
 }
 

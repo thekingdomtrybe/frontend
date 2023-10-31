@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Form from '@/components/Form/Form';
 import { useUpdateUserPasswordMutation } from '@/services/tkt-backend/auth';
 import FormNotification from '@/components/FormNotification/FormNotification';
+import SVG from '@/components/SVG/SVG';
 import Styles from './ChangePassword.module.scss';
 
 function ChangePassword({
@@ -55,7 +56,7 @@ function ChangePassword({
       <FormNotification notifications={notificationStates} />
       <div className={Styles['change-password-header']}>
         <button type="button" onClick={goBack}>
-          <img src="" alt="" />
+          <SVG icon="arrow-left" color="var(--gray)" width={16} />
           Back to settings
         </button>
         <h2>Change Password</h2>
@@ -66,7 +67,7 @@ function ChangePassword({
         fieldSize="small"
         gap="small"
         submitButtonContent="Update Password"
-        submitButtonVariant="blue-1"
+        submitButtonVariant="dark"
         submitButtonStlye={Styles.submit}
         isLoading={isSubmitting}
       />

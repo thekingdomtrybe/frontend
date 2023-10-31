@@ -20,7 +20,7 @@
 
 @media (width >= 1024px) {
   .form-section {
-    justify-items: center;
+    justify-content: center;
 
     & > * {
       max-width: var(--max-width);

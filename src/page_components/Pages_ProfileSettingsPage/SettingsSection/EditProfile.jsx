@@ -4,6 +4,7 @@ import FileSelect from '@/components/FileSelect/FileSelect';
 import Form from '@/components/Form/Form';
 import { useAuthenticateUserQuery, useUpdateUserProfileMutation } from '@/services/tkt-backend/auth';
 import FormNotification from '@/components/FormNotification/FormNotification';
+import SVG from '@/components/SVG/SVG';
 import Styles from './EditProfile.module.scss';
 
 function EditProfile({
@@ -75,7 +76,7 @@ function EditProfile({
       <FormNotification notifications={notificationStates} />
       <div className={Styles['edit-header']}>
         <button type="button" onClick={goBack}>
-          <img src="" alt="" />
+          <SVG icon="arrow-left" color="var(--gray)" width={16} />
           Back to settings
         </button>
         <h2>Edit Profile</h2>
@@ -83,7 +84,9 @@ function EditProfile({
 
       {/* This file select component is not part of the form because if its unique
           styling requirements. So we need to track it's changes. When submitting, we
-          also need to attach the file to the data that's passed along to the mutation */}
+          also need to attach the file to the data that's passed along to the mutation
+          as we do in the saveChanges function above.
+      */}
 
       <div className={Styles['image-select']}>
         <img alt="" src={imgSrc} className={Styles['user-img']} />
@@ -99,7 +102,7 @@ function EditProfile({
           }}
           className={Styles['file-select']}
         >
-          s
+          <SVG icon="pic" color="var(--white)" />
         </FileSelect>
       </div>
 
@@ -109,7 +112,7 @@ function EditProfile({
         fieldSize="small"
         gap="small"
         submitButtonContent="Save Changes"
-        submitButtonVariant="blue-1"
+        submitButtonVariant="dark"
         submitButtonStlye={Styles.submit}
         isLoading={isSubmitting}
       />

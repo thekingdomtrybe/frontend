@@ -1,0 +1,35 @@
+.information-section {
+  padding: var(--spacing-3-half);
+  background-color: var(--light-silver);
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-columns: 100%;
+  gap: var(--spacing-2);
+}
+
+@media (width >= 1024px) {
+  .information-section {
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: var(--size-2);
+      position: absolute;
+      left: 0;
+      top: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--alpha-orange-3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--alpha-orange-7);
+      border-radius: var(--size-10);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--alpha-orange-9);
+    }
+  }
+}

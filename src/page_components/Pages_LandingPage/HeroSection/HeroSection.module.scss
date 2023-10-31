@@ -3,14 +3,26 @@
   height: 100vh;
   min-height: calc(var(--size-11) * 10);
   max-height: calc(var(--size-11) * 16);
-  display: grid;
-  place-content: end center;
-  gap: var(--spacing-4);
   position: relative;
+  display: grid;
+  place-items: end start;
+}
+
+.content {
+  display: grid;
+  gap: var(--spacing-4);
 }
 
 @media (width >= 768px) {
   .hero-section {
     padding: var(--spacing-4);
+  }
+}
+
+@media (width >= 1024px) {
+  .content {
+    width: 100%;
+    margin: 0 auto;
+    max-width: calc(var(--max-width-lg) + var(--size-50))
   }
 }

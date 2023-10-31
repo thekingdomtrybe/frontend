@@ -89,7 +89,7 @@ function PrayerRequestPageFormSection() {
         clear={isSubmitSuccess}
         fields={fields}
         submitButtonContent="Send Request"
-        submitButtonVariant="gray-1"
+        submitButtonVariant="dark"
         submitButtonStlye={Styles.submit}
         isLoading={isSubmitting}
       />

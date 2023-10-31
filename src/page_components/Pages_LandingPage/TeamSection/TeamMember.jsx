@@ -14,14 +14,16 @@ function TeamMember({
 
   return (
     <div className={Styles['team-member']}>
-      <picture className={className}>
-        <source srcSet={webp} type="image/webp" />
-        <img
-          src={jpeg}
-          alt=""
-          loading="lazy"
-        />
-      </picture>
+      <div className={Styles['img-container']}>
+        <picture className={className}>
+          <source srcSet={webp} type="image/webp" />
+          <img
+            src={jpeg}
+            alt=""
+            loading="lazy"
+          />
+        </picture>
+      </div>
       <div className={Styles.details}>
         <span className={Styles.name}>{name}</span>
         <span className={Styles.role}>{role}</span>

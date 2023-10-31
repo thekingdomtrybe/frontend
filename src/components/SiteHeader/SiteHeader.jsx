@@ -13,11 +13,7 @@ function SiteHeader({
   const [
     submit,
     {
-      // data: submitData,
-      // isLoading: isSubmitting,
       isSuccess: isLogoutSuccess,
-      // isError: isSubmitError,
-      // error: submitError,
     },
   ] = useLogoutMutation();
 
@@ -41,6 +37,10 @@ function SiteHeader({
       className = `${className} ${Styles['light-border']}`;
       break;
     }
+    case 'live': {
+      className = `${className} ${Styles.live}`;
+      break;
+    }
     default:
       break;
   }
@@ -62,16 +62,17 @@ function SiteHeader({
         <UserProfileDropdown
           menuItems={[
             {
-              label: 'Login', url: '/login', img: '', auth: 'hide',
+              label: 'Login', url: '/login', img: '', auth: 'hide', display: 'L',
             },
             {
-              label: 'Settings', url: '/settings', img: '', auth: 'show',
+              label: 'Settings', url: '/settings', img: '', auth: 'show', display: 'S',
             },
             {
               label: 'Logout',
               url: '/logout',
               auth: 'show',
               type: 'button',
+              display: 'L',
               img: '',
               onClick: () => {
                 submit();
@@ -83,18 +84,28 @@ function SiteHeader({
           variant={variant}
           menuItems={[
             {
-              label: 'Join Our Community', url: '/join-our-community', img: '', tablet: true,
+              label: 'Join Our Community', url: '/join-our-community', img: '', tablet: true, display: 'C',
             },
             {
-              label: 'Request Counselling', url: '/request-counselling', img: '', tablet: true,
+              label: 'Request Counselling', url: '/request-counselling', img: '', tablet: true, display: 'C',
             },
-            { label: 'Ask For Prayer', url: '/request-for-prayer', img: '' },
-            { label: 'Share Your Testimony', url: '/share-a-testimony', img: '' },
-            { label: 'Watch Past Services', url: '/browse-past-services', img: '' },
-            { label: 'See Upcoming Events', url: '/upcoming-events', img: '' },
-            { label: 'Join a Volunteer Group', url: '/volunteer', img: '' },
             {
-              label: 'Give', url: '/give', img: '', tablet: true,
+              label: 'Ask For Prayer', url: '/request-for-prayer', img: '', 'desktop-first': true, display: 'P',
+            },
+            {
+              label: 'Share Your Testimony', url: '/share-a-testimony', img: '', display: 'T',
+            },
+            {
+              label: 'Watch Past Services', url: '/browse-past-services', img: '', display: 'W',
+            },
+            {
+              label: 'See Upcoming Events', url: '/upcoming-events', img: '', display: 'E',
+            },
+            {
+              label: 'Join a Volunteer Group', url: '/volunteer', img: '', 'desktop-last': true, display: 'V',
+            },
+            {
+              label: 'Give', url: '/give', img: '', tablet: true, display: 'G',
             },
           ]}
         />

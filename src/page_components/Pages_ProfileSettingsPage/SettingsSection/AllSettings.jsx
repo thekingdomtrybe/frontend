@@ -7,6 +7,7 @@ import EditProfile from './EditProfile';
 import ChangePassword from './ChangePassword';
 import AboutUs from './AboutUs';
 import AdminDashboard from './AdminDashboard/AdminDashboard';
+import { useLogoutMutation } from '@/services/tkt-backend/auth';
 import Styles from './AllSettings.module.scss';
 
 function AllSettings() {
@@ -14,11 +15,17 @@ function AllSettings() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [
+    submit,
+    {
+      isSuccess: isLogoutSuccess,
+    },
+  ] = useLogoutMutation();
+
+  if (isLogoutSuccess) window.location.reload();
+
   // const toggleSetting = (settingName) => {
   const toggleSetting = () => {
-  };
-
-  const onLogout = () => {
   };
 
   const comeBackHere = () => {
@@ -56,7 +63,7 @@ function AllSettings() {
       pageToRender = (
         <>
           <AccountSettings setCurrentPage={setCurrentPage} toggleSetting={toggleSetting} />
-          <MoreOptions setCurrentPage={setCurrentPage} onLogout={onLogout} />
+          <MoreOptions setCurrentPage={setCurrentPage} onLogout={submit} />
         </>
       );
     }

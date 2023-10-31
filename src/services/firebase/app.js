@@ -1,6 +1,6 @@
-import firebase from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 
-export default class firebaseApp {
+export default class FirebaseApp {
   constructor() {
     this.config = {
       apiKey: 'AIzaSyDO_a0BvZDAmoot2ftaVEhHyjPU-qdzsvQ',
@@ -15,8 +15,8 @@ export default class firebaseApp {
   }
 
   initialize() {
-    if (!firebase.apps.length) {
-      firebase.initializeApp(this.config);
+    if (!getApps().length) {
+      initializeApp(this.config);
     }
   }
 }

@@ -3,9 +3,10 @@
   grid-template-columns: repeat(3, auto);
   justify-content: center;
   gap: var(--spacing-3-half);
+  padding-top: var(--spacing-1-half);
 
   a {
     text-decoration: none;
-    color: var(--gray);
+    color: var(--black);
   }
 }

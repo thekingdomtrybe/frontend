@@ -53,6 +53,7 @@ function ResetPasswordFormSection() {
         submitButtonFullWidth
         submitButtonDisabled
         noLineBreakBeforeSubmit
+        title="Reset Password"
       />
 
       <div className={Styles['auth-page-switch']}>

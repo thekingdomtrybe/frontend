@@ -10,7 +10,7 @@ function ButtonControls() {
         <Button type="button" content="Watch Online" variant="filled" />
       </Link>
       <Link to="/browse-past-services">
-        <Button type="button" content="View Past Services" variant="orange-1" />
+        <Button type="button" content="View Past Services" variant="filled" />
       </Link>
     </div>
   );
