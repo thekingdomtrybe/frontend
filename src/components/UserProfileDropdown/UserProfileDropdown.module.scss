@@ -87,22 +87,22 @@
     }
   }
 
-    li:first-child {
-      a,
-      button {
-        border-top-left-radius: var(--size-2);
-        border-top-right-radius: var(--size-2);
-      }
+  li:first-child {
+    a,
+    button {
+      border-top-left-radius: var(--size-2);
+      border-top-right-radius: var(--size-2);
     }
+  }
 
-    li:last-child {
-      a,
-      button {
-        border-bottom-left-radius: var(--size-2);
-        border-bottom-right-radius: var(--size-2);
-        border-bottom: none;
-      }
+  li:last-child {
+    a,
+    button {
+      border-bottom-left-radius: var(--size-2);
+      border-bottom-right-radius: var(--size-2);
+      border-bottom: none;
     }
+  }
 }
 
 .overlay-open {
