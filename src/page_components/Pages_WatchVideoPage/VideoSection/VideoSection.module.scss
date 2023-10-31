@@ -77,8 +77,7 @@
 @media (width >= 1200px) {
   .video-section {
     background-color: white;
-    column-gap: var(--spacing-4);
-    row-gap: var(--spacing-2);
+    gap: var(--spacing-2) var(--spacing-4);
     grid-template-columns: 60% 30%;
     grid-template-rows: max-content max-content auto;
 
