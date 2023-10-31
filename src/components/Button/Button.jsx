@@ -16,8 +16,16 @@ function Button({
       className += Styles.outlined;
       break;
     }
+    case 'dark': {
+      className += Styles.dark;
+      break;
+    }
     case 'orange-1': {
       className += Styles.orange1;
+      break;
+    }
+    case 'orange-7': {
+      className += Styles.orange7;
       break;
     }
     case 'blue': {

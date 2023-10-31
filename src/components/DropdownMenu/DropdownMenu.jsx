@@ -17,9 +17,18 @@ function DropdownMenu({ variant, menuItems }) {
   });
 
   const menuItemsList = menuItems.map((item) => (
-    <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-      <img src={item.img} alt="" />
-      <Link to={item.url}>{item.label}</Link>
+    <li
+      key={item.url}
+      className={
+        `${item.tablet && Styles['mobile-link']} ${item['desktop-first'] && Styles['desktop-first']} ${item['desktop-last'] && Styles['desktop-last']}`
+      }
+    >
+      <Link to={item.url}>
+        <div className={Styles.icon}>
+          <span>{item.display}</span>
+        </div>
+        {item.label}
+      </Link>
     </li>
   ));
 
@@ -70,6 +79,7 @@ DropdownMenu.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     url: PropTypes.string,
+    display: PropTypes.string,
   })).isRequired,
 };
 

@@ -1,0 +1,70 @@
+.message {
+  display: grid;
+  grid-template-rows: repeat(2, max-content);
+  grid-template-columns: var(--size-8) auto;
+  gap: var(--spacing-1);
+  width: 100%;
+  word-break: break-all;
+  padding: var(--spacing-1) var(--spacing-2) 0;
+  position: relative;
+
+  img {
+    width: var(--size-7);
+    height: var(--size-7);
+    object-fit: cover;
+    transform: translateY(calc(-1 * var(--size-1-half)));
+    border-radius: 50%;
+  }
+
+  &:first-child {
+    margin-top: var(--spacing-3-half);
+  }
+}
+
+.message-content {
+  gap: var(--spacing-1-half);
+
+  .author {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: var(--size-3);
+    margin-right: var(--spacing-1-half);
+  }
+
+  .content {
+    font-size: var(--size-3);
+    line-height: var(--size-7-half);
+    gap: var(--spacing-1);
+  }
+}
+
+.admin-controls {
+  position: absolute;
+  right: var(--spacing-1);
+  top: 50%;
+  transform: translateY(-50%);
+  grid-template-columns: repeat(2, var(--size-7));
+  gap: var(--spacing-1-half);
+  display: none;
+
+  button {
+    width: var(--size-7);
+    height: var(--size-7);
+    border-radius: 50%;
+    background-color: var(--alpha-orange-9);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: grid;
+    place-items: center;
+
+    &:hover {
+      background-color: var(--orange);
+    }
+  }
+}
+
+.message:hover .admin-controls {
+  display: grid;
+}

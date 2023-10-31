@@ -1,7 +1,7 @@
 .testimony {
   padding: var(--spacing-3-half);
-  border: var(--size-1-quarter) solid var(--alpha-dark-2);
-  background-color: var(--alpha-dark-6);
+  border: var(--size-1-half) solid var(--blue);
+  background-color: var(--blue);
   color: var(--white);
   border-radius: var(--size-4);
   display: grid;
@@ -12,21 +12,12 @@
   p {
     padding: var(--spacing-1);
     font-size: var(--size-4);
-    line-height: var(--size-6);
+    line-height: var(--size-7);
   }
 
   span {
-    // For icon
-    // display: grid;
-    // grid-template-columns: var(--size-8) 1fr;
-    // gap: var(--spacing-1);
-    // align-items: center;
-    padding: var(--spacing-3-half);
-    background-color: var(--silver);
-    color: var(--dark);
+    padding: var(--spacing-1) var(--spacing-3-half);
     font-size: var(--size-7-half);
-    border-radius: var(--size-2);
-    width: max-content;
   }
 
   &:last-child {

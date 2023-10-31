@@ -1,0 +1,15 @@
+.live-chat {
+  height: var(--size-150);
+  border: var(--size-1-quarter) solid var(--gray);
+  border-radius: var(--size-5);
+  background-color: var(--white);
+  display: grid;
+  grid-template-rows: max-content auto max-content;
+  overflow: hidden;
+}
+
+@media (width >= 1024px) {
+  .live-chat {
+    height: 80vh;
+  }
+}

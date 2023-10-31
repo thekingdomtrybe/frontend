@@ -16,11 +16,13 @@ function Testimonies() {
     testimonyComponents = <p>No testimonies</p>;
   } else if (testimoniesData && testimoniesData.length > 0) {
     testimonyComponents = (testimoniesData).map((testimony) => (
-      <Testimony
-        key={testimony.id}
-        content={testimony.testimony_content}
-        author={`${testimony.testifier_first_name} ${testimony.testifier_last_name ? testimony.testifier_last_name : ''}`}
-      />
+      <div key={testimony.id}>
+        <Testimony
+          content={testimony.testimony_content}
+          author={`${testimony.testifier_first_name} ${testimony.testifier_last_name ? testimony.testifier_last_name : ''}`}
+        />
+        <div className={Styles.divider} />
+      </div>
     ));
   }
 

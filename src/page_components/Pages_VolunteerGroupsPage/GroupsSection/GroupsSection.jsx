@@ -1,5 +1,6 @@
 import React from 'react';
 import VolunteerGroup from '@/components/VolunteerGroup/VolunteerGroup';
+import SectionNotifier from '@/components/SectionNotifier/SectionNotifier';
 import { useGetVolunteerGroupsQuery } from '@/services/tkt-backend/volunteer_groups';
 import VolunteerGroupsLoader from './Loader';
 import Styles from './GroupsSection.module.scss';
@@ -30,6 +31,14 @@ function VolunteerGroupsGroupsSection() {
 
   return (
     <section className={Styles.groups}>
+      <SectionNotifier
+        customClass={Styles.notif}
+        waitTillLoadComplete
+        show
+        fixed
+      >
+        Our volunteer groups are not active yet. Please check back later.
+      </SectionNotifier>
       {groupComponents}
     </section>
   );

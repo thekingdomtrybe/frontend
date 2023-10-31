@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { useAuthenticateUserQuery } from '@/services/tkt-backend/auth';
 import UserLoading from './Loading';
+import SVG from '../SVG/SVG';
 import Styles from './UserProfileDropdown.module.scss';
 
 function UserProfileDropdown({
@@ -30,9 +31,11 @@ function UserProfileDropdown({
     if (item.auth === 'show' && !user) return null;
     if (item.type === 'button') {
       return (
-        <li key={item.url} className={item.tablet && Styles['mobile-link']}>
-          <img src={item.img} alt="" />
+        <li key={item.url}>
           <button type="button" onClick={item.onClick}>
+            <div className={Styles.icon}>
+              <span>{item.display}</span>
+            </div>
             {item.label}
           </button>
         </li>
@@ -40,8 +43,12 @@ function UserProfileDropdown({
     }
     return (
       <li key={item.url}>
-        <img src={item.img} alt="" />
-        <Link to={item.url}>{item.label}</Link>
+        <Link to={item.url}>
+          <div className={Styles.icon}>
+            <span>{item.display}</span>
+          </div>
+          {item.label}
+        </Link>
       </li>
     );
   });
@@ -62,10 +69,21 @@ function UserProfileDropdown({
           onClick={toggleMenu}
           ref={toggle}
         >
-          <img
-            alt=""
-            src={user?.picture_url || ''}
-          />
+          {
+            user && user?.picture_url && (
+              <img
+                alt=""
+                src={user.picture_url}
+              />
+            )
+          }
+          {
+            !user && (
+              <div className={Styles['svg-container']}>
+                <SVG icon="user" width={27} color="var(--gray)" />
+              </div>
+            )
+          }
         </button>
       </div>
       <ul
@@ -83,6 +101,7 @@ UserProfileDropdown.propTypes = {
     label: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     tablet: PropTypes.bool,
+    display: PropTypes.string.isRequired,
   })).isRequired,
 };
 

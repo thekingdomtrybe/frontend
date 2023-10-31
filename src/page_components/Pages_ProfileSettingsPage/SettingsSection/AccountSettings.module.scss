@@ -41,6 +41,11 @@
       button:not(.toggle-container):hover {
         background-color: var(--light-silver);
       }
+
+      button.toggle-container:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
     }
 
     input[type="checkbox"] {

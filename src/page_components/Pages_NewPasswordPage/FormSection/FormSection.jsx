@@ -61,6 +61,7 @@ function NewPasswordFormSection() {
         submitButtonDisabled
         submitButtonFullWidth
         noLineBreakBeforeSubmit
+        title="New Password"
       />
 
       <div className={Styles['auth-page-switch']}>

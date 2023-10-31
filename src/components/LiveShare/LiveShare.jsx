@@ -1,6 +1,6 @@
 import React from 'react';
-import Styles from './LiveShare.module.scss';
 import SVG from '../SVG/SVG';
+import Styles from './LiveShare.module.scss';
 
 function LiveShare() {
   const device = navigator.userAgent;
@@ -14,26 +14,41 @@ function LiveShare() {
       link: isMobile ? 'whatsapp://send?text=This is WhatsApp sharing example using button'
         : 'https://web.whatsapp.com://send?text=This is whatsapp sharing example using button',
       icon: 'whatsapp',
+      title: 'Share via Whatsapp',
     },
     {
       text: 'X',
       name: 'x',
       link: 'https://x.com/intent/tweet?text=Hello%20world&hashtags=tkt,thekingdomtrybe,trucalms',
       icon: 'x',
+      title: 'Share via X',
     },
   ];
 
   const shareComponents = links.map((link) => (
-    <a key={link.name} className={`${Styles.link} ${Styles[link.icon]}`} href={link.link} target="_blank" rel="noreferrer">
+    <a
+      key={link.name}
+      className={`${Styles.link} ${Styles[link.icon]}`}
+      href={link.link}
+      target="_blank"
+      rel="noreferrer"
+      title={link.title}
+    >
       <SVG icon={link.icon} />
-      {link.text}
+      <span>{link.text}</span>
     </a>
   ));
 
   shareComponents.push(
-    <button key="copy" className={Styles.link} type="button" onClick={() => { navigator.clipboard.writeText(window.location.href); }}>
+    <button
+      key="copy"
+      className={Styles.link}
+      type="button"
+      onClick={() => { navigator.clipboard.writeText(window.location.href); }}
+      title="Copy link"
+    >
       <SVG icon="link" />
-      Copy link
+      <span>Copy link</span>
     </button>,
   );
 

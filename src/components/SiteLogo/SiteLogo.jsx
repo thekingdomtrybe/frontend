@@ -27,7 +27,7 @@ function SiteLogo({
 
   switch (bg) {
     case 'dark': {
-      className = `${className} ${Styles['dark-bg']}`;
+      className = `${className} ${Styles.dark}`;
       break;
     }
     default:
@@ -36,7 +36,9 @@ function SiteLogo({
 
   let logoColorClass;
   if (variant === 'light') logoColorClass = Styles['logo-light'];
-  if (variant === 'dark') logoColorClass = Styles['logo-dark'];
+  if (variant === 'dark') {
+    logoColorClass = Styles['logo-dark'];
+  }
   if (variant === 'blue') logoColorClass = Styles['logo-dark'];
   if (bg === 'dark') logoColorClass = Styles['logo-dark'];
 

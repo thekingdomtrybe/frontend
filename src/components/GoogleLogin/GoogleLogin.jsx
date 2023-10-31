@@ -22,7 +22,7 @@ function GoogleLogin({
   return (
     <SocialLogin
       text={text}
-      img="https://via.placeholder.com/30"
+      svg="google"
       type="button"
       url=""
       onClick={gSignIn}

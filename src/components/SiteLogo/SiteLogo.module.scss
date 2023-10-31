@@ -2,7 +2,7 @@
   font-family: "Expressa Regular", sans-serif;
   font-size: var(--size-4);
   text-decoration: none;
-  color: var(--black);
+  color: var(--dark);
   display: grid;
   grid-gap: var(--spacing-1);
   grid-template-columns: var(--size-7) auto;
@@ -21,13 +21,4 @@
 
 .logo-dark {
   fill: var(--white);
-}
-
-@media (width >= 768px) {
-  // dark logo background not available on mobile
-  .dark-bg {
-    background-color: var(--alpha-dark-4);
-    padding: var(--spacing-1-half) var(--spacing-1);
-    color: var(--light-silver);
-  }
 }

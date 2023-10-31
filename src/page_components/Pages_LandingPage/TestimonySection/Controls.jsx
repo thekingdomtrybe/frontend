@@ -7,7 +7,7 @@ function Controls() {
   return (
     <div className={Styles.controls}>
       <Link to="/share-a-testimony">
-        <Button content="Share with us" variant="gray-3" type="button" />
+        <Button content="Share with us" type="button" />
       </Link>
     </div>
   );

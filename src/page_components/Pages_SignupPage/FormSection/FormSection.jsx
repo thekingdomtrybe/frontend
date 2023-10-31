@@ -125,6 +125,7 @@ function SignUpFormSection() {
         submitButtonFullWidth
         submitButtonStlye={Styles.submit}
         isLoading={isSubmitting}
+        title="Sign Up"
       />
 
       <div className={Styles['social-login']}>

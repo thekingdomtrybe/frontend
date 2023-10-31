@@ -1,11 +1,11 @@
 .nav {
-  display: grid;
-  justify-content: center;
-  gap: var(--spacing-3);
+  display: none;
 }
 
 @media (width >= 768px) {
   .nav {
+    display: grid;
+    place-items: center;
     grid-template-columns: repeat(4, max-content);
     gap: var(--spacing-3);
     padding: 0;

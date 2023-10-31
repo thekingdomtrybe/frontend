@@ -20,12 +20,13 @@
   transform: translate(-50%, -50%);
 
   button {
-    width: var(--size-10);
-    height: var(--size-10);
+    width: var(--size-15);
+    height: var(--size-15);
     border-radius: 50%;
-    border: var(--size-1-half) solid var(--gray);
-    background-color: var(--alpha-gray-4);
-    color: var(--white);
+    border: none;
+    background-color: var(--alpha-dark-9);
+    display: grid;
+    place-items: center;
   }
 }
 
@@ -47,16 +48,9 @@
       background: none;
       border: none;
       display: grid;
-      gap: var(--spacing-1-half);
+      gap: var(--spacing-1-qyarter);
       align-items: center;
       grid-template-columns: max-content auto;
-
-      img {
-        width: var(--size-2);
-        height: var(--size-2);
-        border: var(--size-1-quarter) solid var(--silver);
-        background-color: var(--silver);
-      }
     }
 
     h2 {

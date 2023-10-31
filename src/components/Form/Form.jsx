@@ -19,6 +19,7 @@ function Form({
   fields,
   fieldSize,
   gap,
+  title,
   submitButtonContent,
   submitButtonVariant,
   submitButtonFullWidth,
@@ -178,6 +179,12 @@ function Form({
   formClassName += ` ${Styles[gap]}`;
 
   useEffect(() => {
+    const formState = {};
+    fields.forEach((field) => {
+      if (field.initialValue) formState[field.name] = field.initialValue;
+    });
+    setFormState(formState);
+
     if (clear) {
       setFormState({});
       fields.forEach((field) => {
@@ -188,6 +195,7 @@ function Form({
 
   return (
     <form onSubmit={(e) => onSubmit(e, formState)} className={formClassName}>
+      {title && <h1>{title}</h1>}
       {formComponents}
       {!noLineBreakBeforeSubmit && <br />}
       <div className={Styles['form-controls']}>
@@ -211,6 +219,7 @@ Form.propTypes = {
   isLoading: PropTypes.bool,
   onSubmit: PropTypes.func.isRequired,
   onClick: PropTypes.func,
+  title: PropTypes.string,
   submitButtonContent: PropTypes.string.isRequired,
   submitButtonVariant: PropTypes.string.isRequired,
   submitButtonFullWidth: PropTypes.bool,
@@ -247,6 +256,7 @@ Form.propTypes = {
 Form.defaultProps = {
   clear: false,
   isLoading: false,
+  title: '',
   onClick: () => {},
   submitButtonFullWidth: false,
   submitButtonSize: 'normal',

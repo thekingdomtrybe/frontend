@@ -1,0 +1,16 @@
+.service-info {
+  display: grid;
+  gap: var(--spacing-1);
+  font-family: 'Open Sans', sans-serif;
+  color: var(--dark);
+
+  h1 {
+    font-weight: 700;
+    font-size: var(--size-4);
+  }
+
+  p {
+    font-size: var(--size-3);
+    line-height: var(--size-9-half);
+  }
+}

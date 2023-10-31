@@ -1,6 +1,12 @@
 .form {
   display: grid;
   gap: var(--spacing-4);
+
+  h1 {
+    font-family: 'Gotham Bold', serif;
+    font-size: var(--size-7);
+    color: var(--dark);
+  }
 }
 
 .form-controls {

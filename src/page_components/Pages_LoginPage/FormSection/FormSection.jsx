@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import GoogleLogin from '@/components/GoogleLogin/GoogleLogin';
 import Form from '@/components/Form/Form';
 import AuthenticationPageSwitch from '@/components/AuthenticationPageSwitch/AuthenticationPageSwitch';
@@ -44,22 +43,6 @@ function LoginFormSection() {
       label: 'Password',
       name: 'password',
       type: 'password',
-    },
-    {
-      content: (
-        <>
-          By signing in, you agree to our
-          {' '}
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          {' '}
-          and
-          {' '}
-          <Link to="/terms-of-use">Terms of Use</Link>
-          .
-        </>
-      ),
-      name: 'agreements',
-      type: 'checkbox',
     },
     {
       label: 'Forgot Password?',
@@ -124,6 +107,7 @@ function LoginFormSection() {
         fields={fields}
         submitButtonStlye={Styles.submit}
         isLoading={isSubmitting}
+        title="Sign In"
       />
 
       <div className={Styles['social-login']}>

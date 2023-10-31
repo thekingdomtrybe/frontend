@@ -6,7 +6,14 @@
     width: 100%;
     height: var(--size-50);
     background-color: var(--blue);
-    filter: brightness(0.5);
+    display: grid;
+    place-items: center;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    max-width: var(--size-120);
   }
 }
 

@@ -4,8 +4,7 @@ import LegalPageHeroSection from '@/page_components/Pages_LegalPage/HeroSection/
 import LegalPageContentSection, { LegalPageContentSectionStyles } from '@/page_components/Pages_LegalPage/ContentSection/ContentSection';
 import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
-import MobileFooter from '@/components/MobileFooter/MobileFooter';
-import Styles from './PrivacyPage.module.scss';
+// import Styles from './PrivacyPage.module.scss';
 
 function PrivacyPage() {
   const pageComponents = (
@@ -144,21 +143,10 @@ function PrivacyPage() {
     </>
   );
 
-  const footer = (
-    <>
-      <div className={Styles['desktop-footer']}>
-        <SiteFooter />
-      </div>
-      <div className={Styles['mobile-footer']}>
-        <MobileFooter />
-      </div>
-    </>
-  );
-
   return (
     <BottomStuckFooterPage
       top={pageComponents}
-      footer={footer}
+      footer={<SiteFooter />}
     />
   );
 }

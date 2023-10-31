@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SVG from '../SVG/SVG';
 import Styles from './SocialLogin.module.scss';
 
 function SocialLogin({
-  img,
+  svg,
   text,
   url,
   type,
@@ -12,7 +13,7 @@ function SocialLogin({
   if (type === 'button') {
     return (
       <button type="button" className={Styles['social-login']} onClick={onClick}>
-        <img src={img} alt={text} />
+        <SVG icon={svg} />
         <span>{text}</span>
       </button>
     );
@@ -20,14 +21,14 @@ function SocialLogin({
 
   return (
     <a href={url} className={Styles['social-login']}>
-      <img src={img} alt={text} />
+      <SVG icon={svg} />
       <span>{text}</span>
     </a>
   );
 }
 
 SocialLogin.propTypes = {
-  img: PropTypes.string.isRequired,
+  svg: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   type: PropTypes.string,

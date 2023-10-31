@@ -43,7 +43,6 @@ function App() {
       <Route exact path="/browse-past-services" element={<PastServicesPage />} />
       <Route exact path="/upcoming-events" element={<UpcomingEventsPage />} />
       <Route exact path="/volunteer" element={<VolunteerGroupsPage />} />
-      <Route exact path="/live/chat/*" element={<LiveStreamPage />} />
       <Route exact path="/live/*" element={<LiveStreamPage />} />
       <Route exact path="/live" element={<LiveStreamPage />} />
       <Route exact path="/watch/*" element={<WatchVideoPage />} />

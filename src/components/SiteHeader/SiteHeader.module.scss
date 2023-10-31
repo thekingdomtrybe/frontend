@@ -26,6 +26,10 @@
   background-color: var(--blue);
 }
 
+.live {
+  background-color: var(--live-gray);
+}
+
 .nav {
   display: none;
 }
@@ -50,5 +54,11 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .live {
+    .nav {
+      display: none;
+    }
   }
 }
