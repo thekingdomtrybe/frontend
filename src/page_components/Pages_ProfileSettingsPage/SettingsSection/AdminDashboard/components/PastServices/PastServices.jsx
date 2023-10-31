@@ -49,6 +49,11 @@ function PastServicesControls({
         type: 'url',
       },
       {
+        label: 'Video Cover URL',
+        name: 'video_cover',
+        type: 'url',
+      },
+      {
         label: 'Description',
         name: 'sermon_description',
         type: 'textarea',

@@ -51,7 +51,7 @@ function TestimonyControls({
         name: 'firstTestifiersName',
         type: 'text',
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[0] ? (
             `${publicTestimonies[0].testifier_first_name}`
           ) : '',
       },
@@ -61,7 +61,7 @@ function TestimonyControls({
         type: 'textarea',
         numRows: 4,
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[0] ? (
             `${publicTestimonies[0].testimony_content}`
           ) : '',
       },
@@ -70,7 +70,7 @@ function TestimonyControls({
         name: 'secondTestifiersName',
         type: 'text',
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[1] ? (
             `${publicTestimonies[1].testifier_first_name}`
           ) : '',
       },
@@ -80,7 +80,7 @@ function TestimonyControls({
         type: 'textarea',
         numRows: 4,
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[1] ? (
             `${publicTestimonies[1].testimony_content}`
           ) : '',
       },
@@ -89,7 +89,7 @@ function TestimonyControls({
         name: 'thirdTestifiersName',
         type: 'text',
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[2] ? (
             `${publicTestimonies[2].testifier_first_name}`
           ) : '',
       },
@@ -99,7 +99,7 @@ function TestimonyControls({
         type: 'textarea',
         numRows: 4,
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[2] ? (
             `${publicTestimonies[2].testimony_content}`
           ) : '',
       },
@@ -108,7 +108,7 @@ function TestimonyControls({
         name: 'fourthTestifiersName',
         type: 'text',
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[3] ? (
             `${publicTestimonies[3].testifier_first_name}`
           ) : '',
       },
@@ -118,7 +118,7 @@ function TestimonyControls({
         type: 'textarea',
         numRows: 4,
         initialValue:
-          isPublicTestimoniesSuccess ? (
+          isPublicTestimoniesSuccess && publicTestimonies[3] ? (
             `${publicTestimonies[3].testimony_content}`
           ) : '',
       },

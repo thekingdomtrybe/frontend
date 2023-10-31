@@ -3,13 +3,14 @@
   grid-template-rows: auto 1fr;
   gap: var(--spacing-3);
   width: 100%;
+  place-items: center;
 
   .img-container {
     border-radius: var(--size-50);
     background-color: var(--orange);
     overflow: hidden;
-    height: var(--size-80);
-    width: var(--size-80);
+    height: var(--size-70);
+    width: var(--size-70);
   }
 
   img {
@@ -51,7 +52,7 @@
     min-width: var(--size-80);
 
     .thin > img {
-      padding: 0 var(--spacing-7);
+      padding: 0 var(--spacing-4);
     }
 
     .large > img {

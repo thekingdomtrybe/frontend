@@ -21,8 +21,8 @@ ServiceInfo.propTypes = {
 
 ServiceInfo.defaultProps = {
   title: 'Sunday Service',
-  description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.`,
+  description: `Join us this Sunday for a heartwarming
+  gathering where we come together in unity to worship and build a stronger sense of community. Let the spirit of Sunday uplift your soul and deepen your connection with God. We welcome you to this enriching and joyful service.`,
 };
 
 export default ServiceInfo;

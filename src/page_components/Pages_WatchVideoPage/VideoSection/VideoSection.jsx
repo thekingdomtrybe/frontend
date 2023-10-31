@@ -1,23 +1,39 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Video from '@/components/Video/Video';
 import VideoPlayer from '@/components/VideoPlayer/VideoPlayer';
 import VideoInfo from '@/components/VideoInfo/VideoInfo';
 import { useGetPastServicesQuery } from '@/services/tkt-backend/past_services';
-import VideoLoader from './Loader';
 import Styles from './VideoSection.module.scss';
 
 function WatchVideoVideoSection() {
   const { data: pastServicesData, isLoading, isError } = useGetPastServicesQuery();
-
+  const location = useLocation();
+  const navigate = useNavigate();
   let videoComponents = null;
 
   // TODO: Exclude current video
 
-  if (pastServicesData === undefined || isLoading || isError) {
-    videoComponents = <VideoLoader />;
-  } else if (pastServicesData && pastServicesData.length === 0) {
-    videoComponents = <p>No more videos</p>;
-  } else if (pastServicesData && pastServicesData.length > 0) {
+  if (isError) {
+    navigate('/');
+  }
+
+  if (pastServicesData === undefined && isLoading) {
+    return <></>;
+  }
+
+  if (pastServicesData === undefined && !isLoading) {
+    navigate('/');
+  }
+
+  const videoId = location.search.split('=')[1];
+  const videoData = pastServicesData.find((video) => video.id.toString() === videoId);
+
+  if (!videoData) {
+    navigate('/');
+  }
+
+  if (pastServicesData && pastServicesData.length > 0) {
     const sortedPastServices = [...pastServicesData]
       .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
 
@@ -29,20 +45,19 @@ function WatchVideoVideoSection() {
         minister={video.speaker_name}
         date={video.date}
         description={video.description}
-        image=""
+        image={video.video_cover}
       />
     ));
   }
 
   // Get video to play from URL
   const videoToPlay = {
-    src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    title: 'Overcoming Challenges',
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Eveniet alias laborum soluta porro magni asperiores, fugiat tenetur, harum nesciunt sunt quasi omnis voluptatum! Optio cum totam suscipit voluptatum odio iure.
-      soluta porro magni asperiores, fugiat tenetur, harum nesciunt sunt quasi omnis voluptatum! Optio cum totam suscipit voluptatum odio iure.`,
-    minister: 'Rev. Dr. David Antwi',
-    date: '12th June, 2020',
+    src: videoData.media_link,
+    title: videoData.title,
+    description: videoData.description,
+    minister: videoData.speaker_name,
+    date: videoData.date,
+    poster: videoData.video_cover,
   };
 
   return (
@@ -50,7 +65,7 @@ function WatchVideoVideoSection() {
       <div className={Styles['video-player']}>
         <VideoPlayer
           src={videoToPlay.src}
-          // autoPlay
+          poster={videoToPlay.poster}
         />
       </div>
       <div className={Styles['video-information']}>

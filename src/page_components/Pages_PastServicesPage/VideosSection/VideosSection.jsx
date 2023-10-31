@@ -25,7 +25,7 @@ function PastServicesVideosSection() {
         minister={video.speaker_name}
         date={video.date}
         description={video.description}
-        image=""
+        image={video.video_cover}
       />
     ));
   }

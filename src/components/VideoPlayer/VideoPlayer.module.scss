@@ -5,11 +5,11 @@
 
 @media (width >= 1024px) {
   .video {
+    min-height: var(--size-100);
+    height: auto;
     border: none;
     outline: none;
-    box-shadow: 0 0 var(--size-10) var(--size-3) var(--alpha-gray-4);
-    object-fit: cover;
     background-color: var(--dark);
-    border-radius: var(--size-5);
+    border-radius: var(--size-2);
   }
 }
