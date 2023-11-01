@@ -1,23 +1,34 @@
 .testimony {
-  padding: var(--spacing-3-half);
-  border: var(--size-1-half) solid var(--blue);
+  padding: var(--spacing-3-half) 0;
   background-color: var(--blue);
   color: var(--white);
   border-radius: var(--size-4);
   display: grid;
-  gap: var(--spacing-3-half);
+  gap: var(--spacing-2);
   max-width: var(--size-120);
-  grid-template-rows: auto max-content;
+  grid-template-rows: auto 1fr auto ;
+  height: 100%;
+  position: relative;
+
+  .svg {
+    padding-left: var(--spacing-3-half);
+    display: grid;
+  }
 
   p {
-    padding: var(--spacing-1);
-    font-size: var(--size-4);
+    padding: 0 var(--spacing-3);
+    font-size: var(--size-7-half);
+    font-family: 'Gotham Book';
     line-height: var(--size-7);
+    z-index: 1;
   }
 
   span {
-    padding: var(--spacing-1) var(--spacing-3-half);
-    font-size: var(--size-7-half);
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--size-4);
+    font-family: 'Open Sans';
+    font-weight: 600;
+    background-color: var(--alpha-orange-9);
   }
 
   &:last-child {
@@ -32,7 +43,7 @@
     }
 
     p {
-      padding: var(--spacing-3-half);
+      // padding: var(--spacing-3-half);
     }
   }
 }
