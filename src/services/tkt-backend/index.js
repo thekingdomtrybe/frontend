@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const tktBackendSlice = createApi({
   reducerPath: 'tktBackend',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://89.116.229.8',
+    baseUrl: 'https://89.116.229.8',
     prepareHeaders: (headers) => {
       const token = localStorage.getItem('user-token');
       if (token) {
