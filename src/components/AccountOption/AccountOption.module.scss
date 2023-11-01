@@ -36,7 +36,7 @@
     }
 
     .account-number {
-      font-family: 'Gotham Bold', sans-serif;
+      font-family: -apple-system, 'Gotham Bold', sans-serif;
       letter-spacing: calc(var(--size-1-quarter) / 2);
       font-size: var(--size-7-half);
       color: var(--white);
@@ -52,7 +52,7 @@
     .currency {
       font-weight: bold;
       font-size: var(--size-7-half);
-      font-family: 'Gotham Bold', sans-serif;
+      font-family: -apple-system, 'Gotham Bold', sans-serif;
       color: var(--white);
     }
   }

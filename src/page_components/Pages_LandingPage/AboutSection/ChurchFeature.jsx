@@ -12,7 +12,7 @@ function ChurchFeature({
   route,
 }) {
   return (
-    <div className={Styles['church-feature']}>
+    <Link to={route} className={Styles['church-feature']}>
       <div className={Styles['church-feature-overlay']} />
       <picture className={Styles['hero-image']}>
         <source srcSet={webpSrc} type="image/webp" />
@@ -20,8 +20,8 @@ function ChurchFeature({
       </picture>
       <h3>{name}</h3>
       <p>{description}</p>
-      <Link to={route}>{cta}</Link>
-    </div>
+      <p>{cta}</p>
+    </Link>
   );
 }
 

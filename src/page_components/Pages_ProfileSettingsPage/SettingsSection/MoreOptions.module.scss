@@ -6,7 +6,7 @@
   h2 {
     color: var(--gray);
     font-size: var(--size-4);
-    font-family: 'Gotham Bold', Lato, sans-serif;
+    font-family: -apple-system, 'Gotham Bold', Lato, sans-serif;
   }
 
   ul {
@@ -45,7 +45,7 @@
     .log-out {
       button {
         color: var(--red);
-        font-family: 'Gotham Bold', Lato, sans-serif;
+        font-family: -apple-system, 'Gotham Bold', Lato, sans-serif;
       }
     }
   }

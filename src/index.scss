@@ -217,8 +217,7 @@ button {
   cursor: pointer;
 }
 
-:root,
-button {
+:root {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -246,8 +245,9 @@ button {
 @font-face {
   font-family: "Gotham Bold";
   src:
-    url("assets/fonts/gotham-bold.woff2") format("woff2"),
-    url("assets/fonts/gotham-bold.woff") format("woff");
+    // url("assets/fonts/gotham-bold.woff2") format("woff2"),
+    // url("assets/fonts/gotham-bold.woff") format("woff"),
+    url("assets/fonts/gotham-bold.ttf") format("truetype");
 }
 
 @font-face {
