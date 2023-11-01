@@ -247,25 +247,6 @@ function SVG({
     );
   }
 
-  if (icon === 'menu') {
-    return (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path fill={color} className={className} d="M3 7H21" />
-        <path fill={color} className={className} d="M3 12H21" />
-        <path fill={color} className={className} d="M3 17H21" />
-      </svg>
-    );
-  }
-
   if (icon === 'give') {
     return (
       <svg fill="none" viewBox="0 0 20 16">
@@ -436,6 +417,40 @@ function SVG({
           <path fill={color} d="M18 5a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 6a2 2 0 1 1 2-2 2 2 0 0 1-2 2z" />
         </g>
       </svg>
+    );
+  }
+
+  if (icon === 'quote-left') {
+    return (
+      <svg viewBox="0 0 57 45" width={width}>
+        <g>
+          <circle fill={color} cx="18.5" cy="31.5" r="5.5" />
+          <path
+            fill={color}
+            d="M18.5,38c-3.584,0-6.5-2.916-6.5-6.5s2.916-6.5,6.5-6.5s6.5,2.916,6.5,6.5S22.084,38,18.5,38z
+            M18.5,27c-2.481,0-4.5,2.019-4.5,4.5s2.019,4.5,4.5,4.5s4.5-2.019,4.5-4.5S20.981,27,18.5,27z"
+          />
+        </g>
+        <g>
+          <circle fill={color} cx="35.5" cy="31.5" r="5.5" />
+          <path
+            fill={color}
+            d="M35.5,38c-3.584,0-6.5-2.916-6.5-6.5s2.916-6.5,6.5-6.5s6.5,2.916,6.5,6.5S39.084,38,35.5,38z
+            M35.5,27c-2.481,0-4.5,2.019-4.5,4.5s2.019,4.5,4.5,4.5s4.5-2.019,4.5-4.5S37.981,27,35.5,27z"
+          />
+        </g>
+        <path
+          fill={color}
+          d="M13,32c-0.553,0-1-0.447-1-1c0-7.72,6.28-14,14-14c0.553,0,1,0.447,1,1s-0.447,1-1,1
+          c-6.617,0-12,5.383-12,12C14,31.553,13.553,32,13,32z"
+        />
+        <path
+          fill={color}
+          d="M30,32c-0.553,0-1-0.447-1-1c0-7.72,6.28-14,14-14c0.553,0,1,0.447,1,1s-0.447,1-1,1
+          c-6.617,0-12,5.383-12,12C31,31.553,30.553,32,30,32z"
+        />
+      </svg>
+
     );
   }
 

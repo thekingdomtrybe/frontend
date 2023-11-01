@@ -9,10 +9,11 @@ function Testimony({
 }) {
   return (
     <div className={Styles.testimony}>
+      <div className={Styles.svg}>
+        <SVG icon="quote-left" color="var(--white)" width={60} />
+      </div>
       <p>
-        &ldquo;
         {content}
-        &rdquo;
       </p>
       <span>
         <SVG icon="logo" />
