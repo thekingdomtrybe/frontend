@@ -29,4 +29,8 @@ export default class FireBaseMessageControls {
   deleteMessage(id) {
     set(ref(this.db, `messages/${id}`), null);
   }
+
+  clearMessages() {
+    set(ref(this.db, 'messages'), null);
+  }
 }

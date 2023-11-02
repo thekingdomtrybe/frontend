@@ -58,6 +58,7 @@ function LiveStreamControls({
 
   const stopLiveStream = () => {
     setLiveStreamStatus({ status: false });
+    window.fireBase.messageControls.clearMessages();
   };
 
   useEffect(() => {

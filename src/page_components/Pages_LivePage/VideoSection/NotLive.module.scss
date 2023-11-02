@@ -1,0 +1,7 @@
+.not-live {
+  display: grid;
+  background-color: var(--black);
+  place-items: center;
+  min-height: calc(var(--size-50) + 18vw);
+  height: 100%;
+}

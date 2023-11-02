@@ -1,7 +1,8 @@
-.service-info {
+.service-info,
+.offline {
   display: grid;
   gap: var(--spacing-1);
-  font-family: 'Open Sans', sans-serif;
+  font-family: Lato, sans-serif;
   color: var(--dark);
 
   h1 {
@@ -12,5 +13,18 @@
   p {
     font-size: var(--size-3);
     line-height: var(--size-9-half);
+  }
+
+  ul {
+    list-style: none;
+    line-height: var(--size-9-half);
+    display: grid;
+    gap: var(--spacing-1-half);
+    font-size: var(--size-7-half);
+
+    .country {
+      font-weight: 600;
+      color: var(--orange);
+    }
   }
 }

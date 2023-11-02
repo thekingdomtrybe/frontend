@@ -4,12 +4,14 @@ import Styles from './LiveIndicator.module.scss';
 
 function LiveIndicator({
   viewers,
+  isLiveNow,
 }) {
   return (
-    <div className={Styles['live-indicator']}>
+    <div className={`${Styles['live-indicator']} ${!isLiveNow && Styles.offline}`}>
       <span className={Styles.indicator}>
-        LIVE
-        <div className={Styles.dot} />
+        {isLiveNow && 'LIVE'}
+        {!isLiveNow && 'OFFLINE'}
+        {isLiveNow && <div className={Styles.dot} />}
       </span>
       <span className={Styles.viewers}>
         {viewers}
@@ -20,6 +22,7 @@ function LiveIndicator({
 
 LiveIndicator.propTypes = {
   viewers: PropTypes.number.isRequired,
+  isLiveNow: PropTypes.bool.isRequired,
 };
 
 export default LiveIndicator;

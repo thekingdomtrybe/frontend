@@ -20,6 +20,10 @@
     font-size: var(--size-7-half);
     color: var(--white);
 
+    &:disabled {
+      opacity: 0.5;
+    }
+
     &::placeholder {
       color: var(--white);
     }
@@ -32,6 +36,10 @@
     background: none;
     border-radius: 50%;
     overflow: hidden;
+
+    &:disabled {
+      opacity: 0.5;
+    }
 
     img {
       width: 100%;
