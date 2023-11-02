@@ -28,6 +28,12 @@
   }
 }
 
+.offline {
+  .indicator {
+    background-color: var(--gray);
+  }
+}
+
 .viewers {
   // display: grid;
   display: none;

@@ -8,6 +8,10 @@
   overflow: hidden;
 }
 
+.offline {
+  filter: brightness(0.7);
+}
+
 @media (width >= 1024px) {
   .live-chat {
     height: 80vh;

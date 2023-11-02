@@ -8,19 +8,21 @@ import Styles from './InformationSection.module.scss';
 
 function LiveStreamInformationSection({
   viewers,
+  isLiveNow,
 }) {
   return (
     <section className={Styles['information-section']}>
-      <LiveIndicator viewers={viewers} />
-      <ServiceInfo />
-      <Controls />
-      <LiveChat />
+      <LiveIndicator isLiveNow={isLiveNow} viewers={viewers} />
+      <ServiceInfo isLiveNow={isLiveNow} />
+      <Controls isLiveNow={isLiveNow} />
+      <LiveChat isLiveNow={isLiveNow} />
     </section>
   );
 }
 
 LiveStreamInformationSection.propTypes = {
   viewers: PropTypes.number,
+  isLiveNow: PropTypes.bool.isRequired,
 };
 
 LiveStreamInformationSection.defaultProps = {

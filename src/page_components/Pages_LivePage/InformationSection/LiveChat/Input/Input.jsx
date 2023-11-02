@@ -13,6 +13,7 @@ import Styles from './Input.module.scss';
 
 function Input({
   scrollToBottom,
+  isLiveNow,
 }) {
   const {
     data: user,
@@ -80,16 +81,21 @@ function Input({
           placeholder="Say something..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
+          disabled={!isLiveNow}
         />
         <button
           type="button"
           ref={toggle}
           onClick={toggleEmojiSelectVisible}
+          disabled={!isLiveNow}
         >
           <img src={images.livePage.emoji} alt="" />
           <span className="placeholder-label">content</span>
         </button>
-        <button type="submit">
+        <button
+          type="submit"
+          disabled={!isLiveNow}
+        >
           <SVG icon="send" color="var(--white)" />
           <span className="placeholder-label">content</span>
         </button>
@@ -100,6 +106,7 @@ function Input({
 
 Input.propTypes = {
   scrollToBottom: PropTypes.func.isRequired,
+  isLiveNow: PropTypes.bool.isRequired,
 };
 
 export default Input;

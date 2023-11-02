@@ -6,7 +6,8 @@ export default class FireBaseMessageListener extends FireBaseListener {
     const messagesRef = ref(this.db, 'messages');
     onValue(messagesRef, (snapshot) => {
       const messages = snapshot.val();
-      callback(messages);
+      if (messages) callback(messages);
+      else callback([]);
     });
   }
 }
