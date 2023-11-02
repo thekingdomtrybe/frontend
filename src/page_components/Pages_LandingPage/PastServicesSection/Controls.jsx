@@ -7,7 +7,7 @@ function Controls() {
   return (
     <div className={Styles.controls}>
       <Link to="/browse-past-services">
-        <Button content="See more" variant="blue-1" type="button" />
+        <Button content="See more" variant="filled" type="button" />
       </Link>
     </div>
   );
