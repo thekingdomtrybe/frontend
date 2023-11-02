@@ -3,7 +3,6 @@ import SiteHeader from '@/components/SiteHeader/SiteHeader';
 import WatchVideoVideoSection from '@/page_components/Pages_WatchVideoPage/VideoSection/VideoSection';
 import BottomStuckFooterPage from '@/components/BottomStuckFooterPage/BottomStuckFooterPage';
 import SiteFooter from '@/components/SiteFooter/SiteFooter';
-import Styles from './WatchVideoPage.module.scss';
 
 function WatchVideoPage() {
   const pageComponents = (
@@ -14,9 +13,7 @@ function WatchVideoPage() {
   );
 
   const footer = (
-    <div className={Styles['desktop-footer']}>
-      <SiteFooter />
-    </div>
+    <SiteFooter />
   );
 
   return (

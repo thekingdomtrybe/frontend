@@ -11,7 +11,7 @@
     h1 {
       font-weight: 700;
       color: var(--dark);
-      font-size: var(--size-5);
+      font-size: var(--size-4);
     }
 
     .minister-upload-date {
@@ -20,7 +20,7 @@
       gap: var(--spacing-1);
       align-items: center;
       color: var(--gray);
-      font-size: var(--size-7-half);
+      font-size: var(--size-3);
       line-height: var(--size-5);
 
       .separator {
@@ -37,13 +37,13 @@
     gap: var(--spacing-1-half);
 
     h2 {
-      font-size: var(--size-4);
+      font-size: var(--size-7-half);
       color: var(--dark);
     }
 
     p {
-      font-size: var(--size-7-half);
-      line-height: var(--size-6);
+      font-size: var(--size-3);
+      line-height: var(--size-5);
       letter-spacing: calc(var(--spacing-1-quarter) / 5);
     }
   }

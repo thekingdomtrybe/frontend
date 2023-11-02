@@ -18,37 +18,37 @@ function ServiceInfo({
           <li>
             <span className={Styles.country}>Nigeria : </span>
             <span>
-              11:00 am
+              11:00 am.
             </span>
           </li>
           <li>
             <span className={Styles.country}>South Africa : </span>
             <span>
-              12 Noon
+              12 noon.
             </span>
           </li>
           <li>
             <span className={Styles.country}>United Kingdom (GMT) : </span>
             <span>
-              12 Noon
+              12 noon.
             </span>
           </li>
           <li>
             <span className={Styles.country}>United States (Houston) : </span>
             <span>
-              9:00 am
+              9:00 am.
             </span>
           </li>
           <li>
             <span className={Styles.country}>United States (Atlanta) : </span>
             <span>
-              10:00 am
+              10:00 am.
             </span>
           </li>
           <li>
             <span className={Styles.country}>Canada (Toronto) : </span>
             <span>
-              10:00 am
+              10:00 am.
             </span>
           </li>
         </ul>

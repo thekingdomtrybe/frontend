@@ -5,10 +5,10 @@
   display: grid;
   grid-template-columns: 35% auto;
   gap: var(--spacing-3-half);
-  color: var(--white);
+  color: var(--dark);
   text-decoration: none;
   border-radius: var(--size-3);
-  background-color: var(--blue);
+  // background-color: var(--alpha-blue-8);
 }
 
 .video-thumbnail {
@@ -18,6 +18,8 @@
   border-bottom-left-radius: 0;
   background-color: var(--dark);
   overflow: hidden;
+  border: var(--size-1) solid var(--dark);
+  border-left: none;
 
   img {
     width: 100%;
@@ -47,7 +49,8 @@
     width: max-content;
     padding: 0 var(--spacing-1);
     border-radius: var(--size-2);
-    border: var(--size-1-quarter) solid var(--white);
+    background-color: var(--dark);
+    color: var(--white);
     display: grid;
     align-items: center;
   }
