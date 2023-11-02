@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleLogin from '@/components/GoogleLogin/GoogleLogin';
 import Form from '@/components/Form/Form';
@@ -27,7 +27,7 @@ function SignUpFormSection() {
     },
   ] = useGoogleSignInMutation();
 
-  const fields = [
+  const fields = useMemo(() => [
     {
       label: `
         Welcome to The Kingdom Trybe. Fill out the form below to create your account.`,
@@ -71,7 +71,7 @@ function SignUpFormSection() {
       name: 'agreements',
       type: 'checkbox',
     },
-  ];
+  ], []);
 
   const notificationStates = {
     customSuccess: {
@@ -117,7 +117,7 @@ function SignUpFormSection() {
       <Form
         type="auth"
         onSubmit={signUp}
-        clear={isSubmitSuccess}
+        clear={isSubmitSuccess && !isSubmitError}
         fields={fields}
         submitButtonContent="Sign Up"
         submitButtonVariant="blue-1"

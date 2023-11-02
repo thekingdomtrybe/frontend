@@ -35,38 +35,9 @@
   }
 
   input[type='checkbox'] {
-    width: var(--size-9-half);
-    height: var(--size-9-half);
+    width: var(--size-6);
+    height: var(--size-6);
     margin-top: var(--spacing-1);
-    position: relative;
-
-    &::before {
-      content: '';
-      display: block;
-      width: var(--size-11-half);
-      height: var(--size-11-half);
-      background-color: var(--lighter-blue);
-      border: var(--size-1-quarter) solid var(--light-blue);
-      border-radius: var(--size-1);
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    &:checked::after {
-      content: '';
-      display: block;
-      width: var(--size-3);
-      height: var(--size-3-half);
-      border-bottom: var(--size-1-half) solid var(--alpha-blue-1);
-      border-left: var(--size-1-half) solid var(--alpha-blue-1);
-      border-color: var(--blue);
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -80%) rotate(-45deg);
-    }
   }
 }
 

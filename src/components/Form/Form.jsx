@@ -175,23 +175,25 @@ function Form({
     );
   });
 
-  let formClassName = Styles.form;
-  formClassName += ` ${Styles[gap]}`;
-
   useEffect(() => {
     const formState = {};
     fields.forEach((field) => {
       if (field.initialValue) formState[field.name] = field.initialValue;
     });
     setFormState(formState);
+  }, [fields]);
 
+  useEffect(() => {
     if (clear) {
-      setFormState({});
       fields.forEach((field) => {
         if (field.onClear) field.onClear();
       });
+      setFormState({});
     }
   }, [clear, fields]);
+
+  let formClassName = Styles.form;
+  formClassName += ` ${Styles[gap]}`;
 
   return (
     <form onSubmit={(e) => onSubmit(e, formState)} className={formClassName}>
