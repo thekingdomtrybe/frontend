@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSnackbar } from 'notistack';
 import SVG from '../SVG/SVG';
 import Styles from './AccountOption.module.scss';
 
@@ -12,8 +13,10 @@ function AccountOption({
   title,
   currency,
 }) {
+  const { enqueueSnackbar } = useSnackbar();
   const copyToClipboard = () => {
     navigator.clipboard.writeText(accountNumber);
+    enqueueSnackbar('Copied to clipboard', { autoHideDuration: 1000 });
   };
 
   return (
