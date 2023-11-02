@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuthenticateUserQuery } from '@/services/tkt-backend/auth';
 import Styles from './MoreOptions.module.scss';
 import SVG from '@/components/SVG/SVG';
 
@@ -8,12 +9,16 @@ function MoreOptions({
   setCurrentPage,
   onLogout,
 }) {
+  const {
+    data: user,
+  } = useAuthenticateUserQuery('protected-route-cache-key');
   const navigate = useNavigate();
 
   const options = [
     {
       title: 'Administrator Dashboard',
       icon: 'arrow-right',
+      admin: true,
       onClick: () => {
         setCurrentPage('admin-dashboard');
         navigate('/settings/admin-dashboard');
@@ -48,6 +53,10 @@ function MoreOptions({
     let className = '';
     if (option.title === 'Log Out') {
       className = Styles['log-out'];
+    }
+
+    if (option.admin && user.role !== 'admin') {
+      return null;
     }
 
     return (
