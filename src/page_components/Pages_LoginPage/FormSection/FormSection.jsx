@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import GoogleLogin from '@/components/GoogleLogin/GoogleLogin';
 import Form from '@/components/Form/Form';
 import AuthenticationPageSwitch from '@/components/AuthenticationPageSwitch/AuthenticationPageSwitch';
-import { useGoogleSignInMutation, useLoginMutation } from '@/services/tkt-backend/auth';
 import FormNotification from '@/components/FormNotification/FormNotification';
+import { useGoogleSignInMutation, useLoginMutation } from '@/services/tkt-backend/auth';
 import Styles from './FormSection.module.scss';
 
 function LoginFormSection() {
@@ -26,7 +26,7 @@ function LoginFormSection() {
     },
   ] = useGoogleSignInMutation();
 
-  const fields = [
+  const fields = useMemo(() => [
     {
       label: `
         Enter your email address and password to log into your account.`,
@@ -53,7 +53,7 @@ function LoginFormSection() {
       link: '/reset-password',
       onClick: () => {},
     },
-  ];
+  ], []);
 
   const notificationStates = {
     customSuccess: {
@@ -99,7 +99,7 @@ function LoginFormSection() {
       <FormNotification notifications={notificationStates} />
       <Form
         onSubmit={login}
-        clear={isSubmitSuccess}
+        clear={isSubmitSuccess && !isSubmitError}
         submitButtonContent="Sign In"
         submitButtonVariant="blue-1"
         submitButtonFullWidth
