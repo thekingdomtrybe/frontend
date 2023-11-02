@@ -63,6 +63,7 @@ function DropdownMenu({ variant, menuItems }) {
         ref={toggle}
       >
         <SVG icon="menu" className={Styles.handle} color={color} />
+        <span className="placeholder-label">content</span>
       </button>
       <ul
         className={className}

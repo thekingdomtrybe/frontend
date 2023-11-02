@@ -87,9 +87,11 @@ function Input({
           onClick={toggleEmojiSelectVisible}
         >
           <img src={images.livePage.emoji} alt="" />
+          <span className="placeholder-label">content</span>
         </button>
         <button type="submit">
           <SVG icon="send" color="var(--white)" />
+          <span className="placeholder-label">content</span>
         </button>
       </form>
     </div>

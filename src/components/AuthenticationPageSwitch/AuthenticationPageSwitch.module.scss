@@ -1,6 +1,7 @@
 .auth-page-switch {
   display: grid;
   grid-template-columns: max-content max-content;
+  place-items: center;
   gap: var(--spacing-1);
   color: var(--gray);
   font-size: var(--size-4);

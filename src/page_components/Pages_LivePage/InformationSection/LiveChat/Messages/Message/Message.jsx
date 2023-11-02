@@ -35,9 +35,11 @@ function Message({
             <div className={Styles['admin-controls']}>
               <button type="button" onClick={() => deleteMessage(id)}>
                 <SVG icon="trash" color="var(--white)" width={18} />
+                <span className="placeholder-label">content</span>
               </button>
               <button type="button" onClick={() => togglePinMessage(id)}>
                 <SVG icon="pin" color="var(--white)" width={28} />
+                <span className="placeholder-label">content</span>
               </button>
             </div>
           )
