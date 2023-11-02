@@ -33,6 +33,7 @@ function AccountOption({
         onClick={copyToClipboard}
       >
         <SVG icon="clipboard" color="var(--white)" />
+        <span className="placeholder-label">content</span>
       </button>
     </div>
   );

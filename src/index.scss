@@ -281,6 +281,17 @@ section {
   z-index: -1;
 }
 
+// To prevent eslint errors saying a control must be
+// associated with a label, I added an element with
+// placeholder text and set it to hidden.
+
+.placeholder-label {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+}
+
 // For devices with height greater than 880px, the footers don't stay
 // at the bottom. These selectors alongside the BottomStuckFooterPage
 // component help keep it there.
