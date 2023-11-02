@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { enqueueSnackbar } from 'notistack';
 import Form from '@/components/Form/Form';
 import Button from '@/components/Button/Button';
 import {
@@ -22,21 +23,17 @@ function LiveStreamControls({
   } = useGetLiveStreamStatusQuery();
 
   const [updateLiveStreamURL,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isSuccess: isLiveURLUpdateSuccess,
+      isError: isLiveURLUpdateError,
+    },
   ] = useUpdateLiveStreamUrlMutation();
 
   const [setLiveStreamStatus,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isSuccess: isSetLiveStreamStatusSuccess,
+      isError: isSetLiveStreamStatusError,
+    },
   ] = useSetLiveStreamStatusMutation();
 
   const fields = {
@@ -62,6 +59,42 @@ function LiveStreamControls({
   const stopLiveStream = () => {
     setLiveStreamStatus({ status: false });
   };
+
+  useEffect(() => {
+    if (isLiveURLUpdateSuccess) {
+      enqueueSnackbar('Live stream URL updated successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isLiveURLUpdateSuccess]);
+
+  useEffect(() => {
+    if (isSetLiveStreamStatusSuccess) {
+      enqueueSnackbar('Live stream status updated successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSetLiveStreamStatusSuccess]);
+
+  useEffect(() => {
+    if (isLiveURLUpdateError) {
+      enqueueSnackbar('Error updating live stream URL', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isLiveURLUpdateError]);
+
+  useEffect(() => {
+    if (isSetLiveStreamStatusError) {
+      enqueueSnackbar('Error updating live stream status', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSetLiveStreamStatusError]);
 
   return (
     <div className={ParentStyles['control-group']}>
