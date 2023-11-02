@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { enqueueSnackbar } from 'notistack';
 import Form from '@/components/Form/Form';
 import { useGetAdminEmailAddressesQuery, useUpdateTestimonyRecipientEmailMutation } from '@/services/tkt-backend/email';
 import { useGetTestimoniesQuery, useUpdatePublicTestimoniesMutation } from '@/services/tkt-backend/testimonies';
-// import Styles from './Testimonies.module.scss';
 
 function TestimonyControls({
   ParentStyles,
@@ -19,21 +19,17 @@ function TestimonyControls({
   } = useGetTestimoniesQuery();
 
   const [updateTestimonyRecipientEmail,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isSuccess: isUpdateTestimonyRecipientEmailSuccess,
+      isError: isUpdateTestimonyRecipientEmailError,
+    },
   ] = useUpdateTestimonyRecipientEmailMutation();
 
   const [updatePublicTestimonies,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isSuccess: isUpdatePublicTestimoniesSuccess,
+      isError: isUpdatePublicTestimoniesError,
+    },
   ] = useUpdatePublicTestimoniesMutation();
 
   const fields = {
@@ -150,6 +146,42 @@ function TestimonyControls({
     };
     updatePublicTestimonies(publicTestimoniesData);
   };
+
+  useEffect(() => {
+    if (isUpdateTestimonyRecipientEmailSuccess) {
+      enqueueSnackbar('Testimony Recipient Email Updated', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isUpdateTestimonyRecipientEmailSuccess]);
+
+  useEffect(() => {
+    if (isUpdateTestimonyRecipientEmailError) {
+      enqueueSnackbar('Error updating testimony recipient email', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isUpdateTestimonyRecipientEmailError]);
+
+  useEffect(() => {
+    if (isUpdatePublicTestimoniesSuccess) {
+      enqueueSnackbar('Public Testimonies Updated', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isUpdatePublicTestimoniesSuccess]);
+
+  useEffect(() => {
+    if (isUpdatePublicTestimoniesError) {
+      enqueueSnackbar('Error updating public testimonies', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isUpdatePublicTestimoniesError]);
 
   return (
     <div className={ParentStyles['control-group']}>

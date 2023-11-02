@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { enqueueSnackbar } from 'notistack';
 import Form from '@/components/Form/Form';
 import { useGetAdminEmailAddressesQuery, useUpdatePrayerRequestRecipientEmailMutation } from '@/services/tkt-backend/email';
-// import Styles from './PrayerRequests.module.scss';
 
 function PrayerRequestsControls({
   ParentStyles,
@@ -13,12 +13,10 @@ function PrayerRequestsControls({
   } = useGetAdminEmailAddressesQuery();
 
   const [submit,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isSuccess: isUpdatePrayerRequestRecipientEmailSuccess,
+      isError: isUpdatePrayerRequestRecipientEmailError,
+    },
   ] = useUpdatePrayerRequestRecipientEmailMutation();
 
   const fields = {
@@ -36,6 +34,24 @@ function PrayerRequestsControls({
     e.preventDefault();
     submit(formState);
   };
+
+  useEffect(() => {
+    if (isUpdatePrayerRequestRecipientEmailSuccess) {
+      enqueueSnackbar('Prayer requests recipient email updated successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isUpdatePrayerRequestRecipientEmailSuccess]);
+
+  useEffect(() => {
+    if (isUpdatePrayerRequestRecipientEmailError) {
+      enqueueSnackbar('Error updating prayer requests recipient email', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isUpdatePrayerRequestRecipientEmailError]);
 
   return (
     <div className={ParentStyles['control-group']}>

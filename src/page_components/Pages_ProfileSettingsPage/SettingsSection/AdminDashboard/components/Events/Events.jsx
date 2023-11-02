@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { enqueueSnackbar } from 'notistack';
 import Form from '@/components/Form/Form';
 import { useAddEventMutation, useDeleteEventMutation, useGetEventsQuery } from '@/services/tkt-backend/events';
 
@@ -10,28 +11,17 @@ function EventsControls({
 
   const [addEvent,
     {
-    //   isLoading: isSubmitting,
       isSuccess: isSaveEventSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
+      isError: isSaveEventError,
     },
   ] = useAddEventMutation();
 
   const [deleteEvent,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isSuccess: isDeleteEventSuccess,
+      isError: isDeleteEventError,
+    },
   ] = useDeleteEventMutation();
-
-  // console.log(
-  //   'isSubmitting:', isSubmitting,
-  //   'isSubmitSuccess:', isSubmitSuccess,
-  //   'isSubmitError:', isSubmitError,
-  //   'submitError:', submitError,
-  // );
 
   const fields = {
     newEvent: [
@@ -84,6 +74,42 @@ function EventsControls({
     e.preventDefault();
     deleteEvent(formState.eventId);
   };
+
+  useEffect(() => {
+    if (isSaveEventSuccess) {
+      enqueueSnackbar('Event saved successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSaveEventSuccess]);
+
+  useEffect(() => {
+    if (isDeleteEventSuccess) {
+      enqueueSnackbar('Event deleted successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isDeleteEventSuccess]);
+
+  useEffect(() => {
+    if (isSaveEventError) {
+      enqueueSnackbar('Error saving event', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSaveEventError]);
+
+  useEffect(() => {
+    if (isDeleteEventError) {
+      enqueueSnackbar('Error deleting event', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isDeleteEventError]);
 
   return (
     <div className={ParentStyles['control-group']}>

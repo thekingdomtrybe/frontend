@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { enqueueSnackbar } from 'notistack';
 import Form from '@/components/Form/Form';
 import { useAddVolunteerGroupMutation, useDeleteVoluteerGroupMutation, useGetVolunteerGroupsQuery } from '@/services/tkt-backend/volunteer_groups';
 
@@ -10,20 +11,16 @@ function VolunterGroupsControls({
 
   const [addGroup,
     {
-    //   isLoading: isSubmitting,
       isSuccess: isSaveGroupSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
+      isError: isSaveGroupError,
     },
   ] = useAddVolunteerGroupMutation();
 
   const [deleteGroup,
-    // {
-    //   isLoading: isSubmitting,
-    //   isSuccess: isSubmitSuccess,
-    //   isError: isSubmitError,
-    //   error: submitError,
-    // },
+    {
+      isSuccess: isDeleteGroupSuccess,
+      isError: isDeleteGroupError,
+    },
   ] = useDeleteVoluteerGroupMutation();
 
   const fields = {
@@ -72,6 +69,42 @@ function VolunterGroupsControls({
     e.preventDefault();
     deleteGroup(formState.volunteerGroupId);
   };
+
+  useEffect(() => {
+    if (isSaveGroupSuccess) {
+      enqueueSnackbar('Volunteer group added successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSaveGroupSuccess]);
+
+  useEffect(() => {
+    if (isSaveGroupError) {
+      enqueueSnackbar('Error adding volunteer group', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSaveGroupError]);
+
+  useEffect(() => {
+    if (isDeleteGroupSuccess) {
+      enqueueSnackbar('Volunteer group deleted successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isDeleteGroupSuccess]);
+
+  useEffect(() => {
+    if (isDeleteGroupError) {
+      enqueueSnackbar('Error deleting volunteer group', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isDeleteGroupError]);
 
   return (
     <div className={ParentStyles['control-group']}>

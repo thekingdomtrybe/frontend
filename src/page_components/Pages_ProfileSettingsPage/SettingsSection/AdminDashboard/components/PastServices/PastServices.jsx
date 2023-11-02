@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { enqueueSnackbar } from 'notistack';
 import Form from '@/components/Form/Form';
 import { useAddPastServiceMutation, useDeletePastServiceMutation, useGetPastServicesQuery } from '@/services/tkt-backend/past_services';
 
@@ -10,20 +11,16 @@ function PastServicesControls({
 
   const [addPastService,
     {
-      // isLoading: isSubmitting,
       isSuccess: isSavePastServiceSuccess,
-      // isError: isSubmitError,
-      // error: submitError,
+      isError: isSavePastServiceError,
     },
   ] = useAddPastServiceMutation();
 
   const [deletePastService,
-  // {
-    // isLoading: isSubmitting,
-    // isSuccess: isDeletePastServiceSuccess,
-    // isError: isSubmitError,
-    // error: submitError,
-  // },
+    {
+      isSuccess: isDeletePastServiceSuccess,
+      isError: isDeletePastServiceError,
+    },
   ] = useDeletePastServiceMutation();
 
   const fields = {
@@ -82,6 +79,42 @@ function PastServicesControls({
     e.preventDefault();
     deletePastService(formState.pastServiceId);
   };
+
+  useEffect(() => {
+    if (isSavePastServiceSuccess) {
+      enqueueSnackbar('Past service saved successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSavePastServiceSuccess]);
+
+  useEffect(() => {
+    if (isSavePastServiceError) {
+      enqueueSnackbar('Error saving past service', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isSavePastServiceError]);
+
+  useEffect(() => {
+    if (isDeletePastServiceSuccess) {
+      enqueueSnackbar('Past service deleted successfully', {
+        variant: 'success',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isDeletePastServiceSuccess]);
+
+  useEffect(() => {
+    if (isDeletePastServiceError) {
+      enqueueSnackbar('Error deleting past service', {
+        variant: 'error',
+        autoHideDuration: 1000,
+      });
+    }
+  }, [isDeletePastServiceError]);
 
   return (
     <div className={ParentStyles['control-group']}>
