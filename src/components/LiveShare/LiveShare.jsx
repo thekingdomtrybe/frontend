@@ -11,15 +11,15 @@ function LiveShare() {
     {
       text: 'Whatsapp',
       name: 'whatsapp',
-      link: isMobile ? 'whatsapp://send?text=This is WhatsApp sharing example using button'
-        : 'https://web.whatsapp.com://send?text=This is whatsapp sharing example using button',
+      link: isMobile ? 'whatsapp://send?text=Join us live at https://thekingdomtrybe.com/live'
+        : 'https://web.whatsapp.com://send?text=Join us live at https://thekingdomtrybe.com/live',
       icon: 'whatsapp',
       title: 'Share via Whatsapp',
     },
     {
       text: 'X',
       name: 'x',
-      link: 'https://x.com/intent/tweet?text=Hello%20world&hashtags=tkt,thekingdomtrybe,trucalms',
+      link: 'https://x.com/intent/tweet?text=Join%20us%20live%20at%20https://thekingdomtrybe.com/live&hashtags=thekingdomtrybe,tkt',
       icon: 'x',
       title: 'Share via X',
     },
