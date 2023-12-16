@@ -8,8 +8,8 @@
   a {
     color: var(--dark);
     text-decoration: none;
-    font-family: -apple-system, 'Gotham Bold', sans-serif;
     font-size: var(--size-3);
+    font-weight: bold;
     line-height: var(--size-3);
     transition: var(--timing-medium) color;
   }

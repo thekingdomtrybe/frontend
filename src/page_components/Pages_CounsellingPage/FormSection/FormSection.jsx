@@ -1,8 +1,9 @@
 import React from 'react';
-import SectionNotifier from '@/components/SectionNotifier/SectionNotifier';
 import Form from '@/components/Form/Form';
 import FormText from './FormText';
 import Styles from './FormSection.module.scss';
+import { useSubmitCounsellingRequestMutation } from '@/services/tkt-backend/counselling';
+import FormNotification from '@/components/FormNotification/FormNotification';
 
 function CounsellingPageFormSection() {
   const fields = [
@@ -51,22 +52,22 @@ function CounsellingPageFormSection() {
         { value: 'no', label: 'No' },
       ],
     },
-    // {
-    //   label: `
-    //     Please ensure you submit this form with the button at the bottom of the page
-    //     after scheduling your appointment.`,
-    //   name: 'appointmentConfirmation',
-    //   variant: 'warning',
-    //   type: 'alert',
-    //   icon: '',
-    // },
-    // {
-    //   label: 'Select your preferred time',
-    //   name: 'preferredTime',
-    //   type: 'calendly',
-    //   url: 'https://calendly.com/tktglobal23/one-on-one-with-me',
-    //   prefill: {},
-    // },
+    {
+      label: `
+        Please ensure you submit this form with the button at the bottom of the page
+        after scheduling your appointment.`,
+      name: 'appointmentConfirmation',
+      variant: 'warning',
+      type: 'alert',
+      icon: '',
+    },
+    {
+      label: 'Select your preferred time',
+      name: 'preferredTime',
+      type: 'calendly',
+      url: 'https://calendly.com/tktglobal23/one-on-one-with-me',
+      prefill: {},
+    },
     {
       label: 'How would you like us to contact you?',
       name: 'contactMethod',
@@ -87,23 +88,48 @@ function CounsellingPageFormSection() {
     },
   ];
 
+  const [
+    submitRequest,
+    {
+      isSuccess: isSubmitSuccess,
+      isError: isSubmitError,
+    },
+  ] = useSubmitCounsellingRequestMutation();
+
+  const submitForm = (e, formState) => {
+    e.preventDefault();
+    submitRequest(formState);
+  };
+  const notificationStates = {
+    success: {
+      title: 'Request received!',
+      message: 'We received your request and will attend to it as soon as possible.',
+      nextSteps: [
+        {
+          text: 'Go back to the',
+          href: '/',
+          linkText: 'Homepage',
+        },
+      ],
+      trigger: isSubmitSuccess,
+      timeout: 15000,
+    },
+    error: {
+      message: 'An error occured!, Please try sending your request again.',
+      trigger: isSubmitError,
+      timeout: 5000,
+    },
+  };
+
   return (
     <section className={Styles['form-section']}>
-      <SectionNotifier
-        customClass={Styles.notif}
-        waitTillLoadComplete
-        show
-        fixed
-      >
-        We are not accepting counselling requests at this time. Please check back later.
-      </SectionNotifier>
+      <FormNotification notifications={notificationStates} />
       <FormText />
       <Form
-        onSubmit={() => {}}
+        onSubmit={submitForm}
         fields={fields}
         submitButtonContent="Submit Form"
         submitButtonVariant="gray-1"
-        submitButtonDisabled
       />
     </section>
   );

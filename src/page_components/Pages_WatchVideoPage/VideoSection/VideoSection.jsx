@@ -3,12 +3,24 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import VideoPlayer from '@/components/VideoPlayer/VideoPlayer';
 import VideoInfo from '@/components/VideoInfo/VideoInfo';
 import { useGetPastServicesQuery } from '@/services/tkt-backend/past_services';
+import PageLoading from './Loading';
 import Styles from './VideoSection.module.scss';
 
 function WatchVideoVideoSection() {
-  const { data: pastServicesData } = useGetPastServicesQuery();
+  const {
+    data: pastServicesData,
+    isLoading: isPastServicesDataLoading,
+  } = useGetPastServicesQuery();
   const location = useLocation();
   const navigate = useNavigate();
+
+  if (isPastServicesDataLoading) {
+    return (
+      <div>
+        <PageLoading />
+      </div>
+    );
+  }
 
   const videoId = location.search.split('=')[1];
   const videoData = pastServicesData.find((video) => video.id.toString() === videoId);

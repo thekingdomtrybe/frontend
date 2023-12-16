@@ -1,34 +1,24 @@
 .testimony {
-  padding: var(--spacing-3-half) 0;
-  background-color: var(--blue);
-  color: var(--white);
+  padding: var(--spacing-3-half);
+  border: 1px solid var(--gray);
   border-radius: var(--size-4);
   display: grid;
   gap: var(--spacing-2);
   max-width: var(--size-120);
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto;
   height: 100%;
   position: relative;
-
-  .svg {
-    padding-left: var(--spacing-3-half);
-    display: grid;
-  }
+  padding: var(--spacing-2);
 
   p {
-    padding: 0 var(--spacing-3);
     font-size: var(--size-7-half);
-    font-family: 'Gotham Book', sans-serif;
     line-height: var(--size-7);
     z-index: 1;
   }
 
   span {
-    padding: var(--spacing-1) var(--spacing-2);
     font-size: var(--size-4);
-    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    background-color: var(--alpha-orange-9);
   }
 
   &:last-child {
