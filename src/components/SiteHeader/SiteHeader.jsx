@@ -102,7 +102,10 @@ function SiteHeader({
               label: 'See Upcoming Events', url: '/upcoming-events', img: '', display: 'E',
             },
             {
-              label: 'Join a Volunteer Group', url: '/volunteer', img: '', 'desktop-last': true, display: 'V',
+              label: 'Join a Volunteer Group', url: '/volunteer', img: '', display: 'V',
+            },
+            {
+              label: 'Read our blog', url: 'https://blog.thekingdomtrybe.com', img: '', 'desktop-last': true, display: 'B',
             },
             {
               label: 'Give', url: '/give', img: '', tablet: true, display: 'G',

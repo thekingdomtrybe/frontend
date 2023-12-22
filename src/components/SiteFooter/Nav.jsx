@@ -17,8 +17,8 @@ function Nav() {
       text: 'Community',
     },
     {
-      href: '/browse-past-services',
-      text: 'Past Services',
+      href: 'https://blog.thekingdomtrybe.com',
+      text: 'Blog',
     },
   ];
 
